@@ -389,7 +389,7 @@
       <workItem from="1674229415138" duration="8466000" />
       <workItem from="1674474854344" duration="4964000" />
       <workItem from="1674498457347" duration="2101000" />
-      <workItem from="1674560784076" duration="9806000" />
+      <workItem from="1674560784076" duration="10125000" />
     </task>
     <task id="LOCAL-00033" summary="gprtf changing matern kernel">
       <created>1667580035701</created>
@@ -824,6 +824,11 @@
           <url>file://$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py</url>
           <line>223</line>
           <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
+          <line>469</line>
+          <option name="timeStamp" value="204" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
