@@ -31,9 +31,9 @@ if __name__ == '__main__':
     parser.add_argument("-sd", "--save_dir", type=str, default='docs/source/tutorials/tutorial_data',
                         help="Provide the full path of the directory in which you want to save your results. "
                              "Default is same as data_dir.")
-    parser.add_argument("-data", "--data", type=str, default='Metro_Interstate_Traffic_Volume',
+    parser.add_argument("-data", "--data", type=str, default=None,
                         help="specify the dataset that you want to use.")
-    parser.add_argument("-con", "--config_file", type=str, default='Metro_Interstate_Traffic_Volume',
+    parser.add_argument("-con", "--config_file", type=str, default=None,
                         help="specify the config type that you want to use.")
     parser.add_argument("-tc", "--target_column", type=str, default='Traffic_Volume',
                         help="specify the target column for the prediction.")
