@@ -6,7 +6,7 @@ import torch
 import tensorflow as tf
 import random
 import numpy as np
-from sklearn.model_selection import ShuffleSplit
+from sklearn.model_selection import ShuffleSplit, TimeSeriesSplit
 import ForeTiS.model
 
 
@@ -83,58 +83,39 @@ def set_all_seeds(seed: int=42):
     tf.random.set_seed(seed)
 
 
-def get_folds(datasplit: str, n_splits: int):
-    """
-    Get the folds for the optuna optimization
-
-    :param datasplit: which datasplit should be performed
-    :param n_splits: number of splits for the timeseries-cv
-
-    :return: number of folds
-    """
-    if datasplit == "cv":
-        folds = n_splits
-    elif datasplit == "train-val-test":
-        folds = 1
-
-    return folds
-
-
-def get_indexes(df: pd.DataFrame, n_splits: str, datasplit: str):
+def get_indexes(df: pd.DataFrame, datasplit: str, folds: int, valtest_seasons: int, seasonal_periods: int,
+                test_set_size_percentage: int, val_set_size_percentage: int):
     """
     Get the indexes for cv
 
     :param df: data that should be splited
-    :param n_splits: number of splits for the cv
     :param datasplit: splitting method
 
     :return: train and test indexes
     """
     train_indexes = []
     test_indexes = []
-    train_len = 2
     if datasplit == 'timeseries-cv':
-        year_list = df.index.year.unique().tolist()
-        if len(year_list) > 5:
-            train_len += len(year_list) - 5
+        if test_set_size_percentage == "seasonal":
+            for fold in range(folds):
+                train_df_index = df.iloc[:-((folds-fold) * valtest_seasons * seasonal_periods)].index
+                train_df_indexes = []
+                test_df_index = df.iloc[-((folds-fold) * valtest_seasons * seasonal_periods):].index
+                test_df_indexes = []
 
-        for idx in range(len(year_list) - train_len):
-            train_yr = year_list[idx:idx + train_len]
-            test_yr = [year_list[idx + train_len]]
-
-            train_df_index = df.loc[df.index.year.isin(train_yr), :].index
-            train_df_indexes = []
-            test_df_index = df.loc[df.index.year.isin(test_yr), :].index
-            test_df_indexes = []
-
-            for i in range(len(train_df_index)):
-                train_df_indexes.append(df.index.get_loc(train_df_index[i]))
-            train_indexes.append(np.array(train_df_indexes))
-            for i in range(len(test_df_index)):
-                test_df_indexes.append(df.index.get_loc(test_df_index[i]))
-            test_indexes.append(np.array(test_df_indexes))
+                for i in range(len(train_df_index)):
+                    train_df_indexes.append(df.index.get_loc(train_df_index[i]))
+                train_indexes.append(np.array(train_df_indexes))
+                for i in range(len(test_df_index)):
+                    test_df_indexes.append(df.index.get_loc(test_df_index[i]))
+                test_indexes.append(np.array(test_df_indexes))
+        else:
+            splitter = TimeSeriesSplit(n_splits=folds)
+            for train_index, test_index in splitter.split(df):
+                train_indexes.append(train_index)
+                test_indexes.append(test_index)
     if datasplit == 'cv':
-        splitter = ShuffleSplit(n_splits=n_splits, test_size=0.2, random_state=0)
+        splitter = ShuffleSplit(n_splits=folds, test_size=val_set_size_percentage * 0.01, random_state=0)
         for train_index, test_index in splitter.split(df):
             train_indexes.append(train_index)
             test_indexes.append(test_index)

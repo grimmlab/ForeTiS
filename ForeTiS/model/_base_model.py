@@ -47,11 +47,11 @@ class BaseModel(abc.ABC):
             self.all_hyperparams.update(self.define_hyperparams_to_tune())
 
         if pca_transform:
-            self.all_hyperparams.update(self.dim_reduction())
-            self.dim_reduction = self.suggest_hyperparam_to_optuna('pca')
+            self.all_hyperparams.update(self.pca_transform())
+            self.pca_transform = self.suggest_hyperparam_to_optuna('pca')
             del self.all_hyperparams['pca']
         else:
-            self.dim_reduction = False
+            self.pca_transform = False
 
         if optimize_featureset:
             self.all_hyperparams.update(self.featureset_hyperparam())
@@ -251,7 +251,7 @@ class BaseModel(abc.ABC):
             }
         }
 
-    def dim_reduction(self):
+    def pca_transform(self):
         return {
             'pca': {
                 'datatype': 'categorical',

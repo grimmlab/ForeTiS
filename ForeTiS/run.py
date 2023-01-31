@@ -31,13 +31,13 @@ if __name__ == '__main__':
     parser.add_argument("-sd", "--save_dir", type=str, default='docs/source/tutorials/tutorial_data',
                         help="Provide the full path of the directory in which you want to save your results. "
                              "Default is same as data_dir.")
-    parser.add_argument("-data", "--data", type=str, default=None,
+    parser.add_argument("-data", "--data", type=str, default='nike_sales',
                         help="specify the dataset that you want to use.")
-    parser.add_argument("-con", "--config_file", type=str, default=None,
+    parser.add_argument("-con", "--config_file", type=str, default='nike_sales',
                         help="specify the config type that you want to use.")
-    parser.add_argument("-tc", "--target_column", type=str, default='Traffic_Volume',
+    parser.add_argument("-tc", "--target_column", type=str, default='value',
                         help="specify the target column for the prediction.")
-    parser.add_argument("-mod", "--models", nargs='+', default=['evars-gpr'],
+    parser.add_argument("-mod", "--models", nargs='+', default=['all'],
                         help="specify the models to optimize: 'all' or naming according to source file name. "
                              "Multiple models can be selected by just naming multiple model names, "
                              "e.g. --models mlp xgboost. "
@@ -66,20 +66,16 @@ if __name__ == '__main__':
                              "Standard is timeseries-cv")
     parser.add_argument("-testperc", "--test_set_size_percentage", type=str_or_int, default=20,
                         help="specify the size of the test set in percentage. "
-                             "Also 2021 can be passed, then the year 2021 will be used as test set. "
-                             "Standard is 2021")
-    parser.add_argument("-ty", "--test_year", type=int, default=2019,
-                        help="Only relevant when the test size percentage is 'yearly':"
-                             "specify the year that should be used as test set. "
-                             "Standard is 2021")
+                             "Also seasonal can be passed, then seasons will be used as test set. "
+                             "Standard is seasonal")
+    parser.add_argument("-vs", "--valtest_seasons", type=int, default=1,
+                        help="Only relevant for seasonal validation and test set: "
+                             "define the number of seasons to be used. "
+                             "Standard is 1")
     parser.add_argument("-valperc", "--val_set_size_percentage", type=int, default=20,
                         help="Only relevant for data split method 'train-val-test': "
                              "define the size of the validation set in percentage. "
                              "Standard is 20")
-    parser.add_argument("-splits", "--n_splits", type=int, default=3,
-                        help="Only relevant for datasplit method 'cv': define the number of "
-                             "splits to use for 'timeseries-cv' or 'cv'. "
-                             "Standard is 3")
 
     # Model and Optimization Params #
     parser.add_argument("-tr", "--n_trials", type=int, default=5,
@@ -88,7 +84,7 @@ if __name__ == '__main__':
                         help="specify whether to save the final model to hard drive or not "
                              "(caution: some models may use a lot of disk space, "
                              "unfitted models that can be retrained are already saved by default).")
-    parser.add_argument("-prc", "--periodical_refit_cycles", type=list, default=['complete', 1],
+    parser.add_argument("-prc", "--periodical_refit_cycles", type=list, default=['complete', 0, 1, 2],
                         help="specify with which periods periodical refitting will be done. "
                              "0 means no periodical refitting, "
                              "complete means no periodical refitting and the whole train dataset will be used for "

@@ -51,33 +51,25 @@ class OptunaOptim:
     """
 
     def __init__(self, save_dir: str, data: str, config_type: str, featureset_name: str, datasplit: str,
-                 test_set_size_percentage: int, val_set_size_percentage: int, n_splits: int, models: list,
-                 n_trials: int, save_final_model: bool, batch_size: int, n_epochs: int, current_model_name: str,
+                 test_set_size_percentage: int, val_set_size_percentage: int, models: list, n_trials: int,
+                 save_final_model: bool, batch_size: int, n_epochs: int, current_model_name: str,
                  datasets: base_dataset.Dataset, periodical_refit_cycles: list, refit_drops: int, refit_window: int,
                  target_column: str, intermediate_results_interval: int, pca_transform: bool,
                  config: configparser.ConfigParser, optimize_featureset, scale_thr: float, scale_seasons: int,
                  scale_window_factor: float, cf_r: float, cf_order: int, cf_smooth: int, cf_thr_perc: int,
-                 scale_window_minimum: int, max_samples_factor: int):
-        self.current_model_name = current_model_name
-        self.datasets = datasets
-        self.featureset_name = featureset_name
-        self.optimize_featureset = optimize_featureset
-        self.base_path = save_dir + '/results/' + current_model_name + '/' + \
-                         datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + '_' + self.featureset_name + '/'
-        if not os.path.exists(self.base_path):
-            os.makedirs(self.base_path)
-        self.save_path = self.base_path
+                 scale_window_minimum: int, max_samples_factor: int, valtest_seasons: int):
         self.study = None
         self.current_best_val_result = None
         self.early_stopping_point = None
-        self.target_column = target_column
-        self.test_set_size_percentage = test_set_size_percentage
-        self.n_splits = n_splits
-        self.datasplit = datasplit
         self.seasonal_periods = config[config_type].getint('seasonal_periods')
-        self.pca_transform = pca_transform
         self.best_trials = []
         self.user_input_params = locals()  # distribute all handed over params in whole class
+        self.base_path = save_dir + '/results/' + current_model_name + '/' + \
+                         datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + '_' + self.user_input_params[
+                             'featureset_name'] + '/'
+        if not os.path.exists(self.base_path):
+            os.makedirs(self.base_path)
+        self.save_path = self.base_path
 
     def create_new_study(self) -> optuna.study.Study:
         """
@@ -85,8 +77,9 @@ class OptunaOptim:
 
         :return: a new optuna study instance
         """
-        study_name = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + '_' + '-MODEL' + self.current_model_name\
-                     + '-TRIALS' + str(self.user_input_params["n_trials"]) + '-FEATURESET' + self.featureset_name
+        study_name = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + '_' + '-MODEL' + \
+                     self.user_input_params['current_model_name'] + '-TRIALS' + str(self.user_input_params["n_trials"]) \
+                     + '-FEATURESET' + self.user_input_params['featureset_name']
         storage = optuna.storages.RDBStorage(
             "sqlite:///" + self.save_path + 'Optuna_DB-' + study_name + ".db", heartbeat_interval=60, grace_period=120,
             failed_trial_callback=optuna.storages.RetryFailedTrialCallback(max_retry=3))
@@ -117,17 +110,18 @@ class OptunaOptim:
         # in case a model has attributes not part of the base class hand them over in a dictionary to keep the same call
         # (name of the attribute and key in the dictionary have to match)
         additional_attributes_dict = {}
-        if issubclass(helper_functions.get_mapping_name_to_class()[self.current_model_name], _torch_model.TorchModel) \
-                or issubclass(helper_functions.get_mapping_name_to_class()[self.current_model_name],
+        if issubclass(helper_functions.get_mapping_name_to_class()[self.user_input_params['current_model_name']],
+                      _torch_model.TorchModel) \
+                or issubclass(helper_functions.get_mapping_name_to_class()[self.user_input_params['current_model_name']],
                               _stat_model.StatModel):
             # additional attributes for torch and stats models
-            additional_attributes_dict['current_model_name'] = self.current_model_name
-            if issubclass(helper_functions.get_mapping_name_to_class()[self.current_model_name],
+            additional_attributes_dict['current_model_name'] = self.user_input_params['current_model_name']
+            if issubclass(helper_functions.get_mapping_name_to_class()[self.user_input_params['current_model_name']],
                           _torch_model.TorchModel):
                 additional_attributes_dict['batch_size'] = self.user_input_params["batch_size"]
                 additional_attributes_dict['n_epochs'] = self.user_input_params["n_epochs"]
                 early_stopping_points = []  # log early stopping point at each fold for torch models
-        if self.current_model_name == 'evars-gpr':
+        if self.user_input_params['current_model_name'] == 'evars-gpr':
             additional_attributes_dict['scale_thr'] = self.user_input_params["scale_thr"]
             additional_attributes_dict['scale_seasons'] = self.user_input_params["scale_seasons"]
             additional_attributes_dict['scale_window_factor'] = self.user_input_params["scale_window_factor"]
@@ -140,10 +134,12 @@ class OptunaOptim:
             additional_attributes_dict['scale_window_minimum'] = self.user_input_params["scale_window_minimum"]
             additional_attributes_dict['max_samples_factor'] = self.user_input_params["max_samples_factor"]
         try:
-            model: _base_model.BaseModel = helper_functions.get_mapping_name_to_class()[self.current_model_name](
-                 target_column=self.target_column, datasets=self.datasets,  featureset_name=self.featureset_name,
-                 optuna_trial=trial, pca_transform=self.pca_transform, optimize_featureset=self.optimize_featureset,
-                **additional_attributes_dict)
+            model: _base_model.BaseModel = \
+                helper_functions.get_mapping_name_to_class()[self.user_input_params['current_model_name']]\
+                    (target_column=self.user_input_params['target_column'], datasets=self.user_input_params['datasets'],
+                     featureset_name=self.user_input_params['featureset_name'], optuna_trial=trial,
+                     pca_transform=self.user_input_params['pca_transform'],
+                     optimize_featureset=self.user_input_params['optimize_featureset'], **additional_attributes_dict)
         except Exception as exc:
             print(traceback.format_exc())
             print(exc)
@@ -155,18 +151,18 @@ class OptunaOptim:
 
         # set the datasplit
         self.featureset = model.featureset
-        if self.test_set_size_percentage == 'yearly':
-            train_val = self.featureset.loc[: str(self.datasets.test_year-1) + '-12-31']
+        if self.user_input_params['test_set_size_percentage'] == 'seasonal':
+            train_val = self.featureset.loc[: -self.user_input_params["valtest_seasons"]*self.seasonal_periods]
             train_val.index.freq = train_val.index.inferred_freq
         else:
             train_val, _ = train_test_split(
                 self.featureset, test_size=self.user_input_params["test_set_size_percentage"] * 0.01, shuffle=False)
-        if self.datasplit == 'cv' and self.current_model_name == 'es':
+        if self.user_input_params['datasplit'] == 'cv' and self.user_input_params['current_model_name'] == 'es':
             print('Exponential Smoothing depends on continuous time series. Will set datasplit to timeseries-cv.')
-            self.datasplit = 'timeseries-cv'
-        elif self.datasplit == 'timeseries-cv' and len(self.featureset.index.year.unique().tolist()) < 4:
+            self.user_input_params['datasplit'] = 'timeseries-cv'
+        elif self.user_input_params['datasplit'] == 'timeseries-cv' and len(self.featureset) < 4*self.seasonal_periods*self.user_input_params['valtest_seasons']:
             print('Timeseries is shorter than 4 years. Will set datasplit to train-val-test.')
-            self.datasplit = 'train-val-test'
+            self.user_input_params['datasplit'] = 'train-val-test'
 
         # save the unfitted model
         os.makedirs(self.save_path + 'temp/', exist_ok=True)
@@ -182,25 +178,27 @@ class OptunaOptim:
         objective_values = []
         validation_results = pd.DataFrame(index=range(0, self.featureset.shape[0]))
 
-        if self.datasplit == 'timeseries-cv':
-            year_list = train_val.index.year.unique().tolist()
-            train_len = 2
-            if len(year_list) > 5:
-                train_len += len(year_list) - 5
-            folds = len(year_list) - train_len
+        if 'cv' in self.user_input_params['datasplit']:
+            folds = round((len(train_val)/self.seasonal_periods))//2
+            if folds > 3:
+                folds = 3
             train_indexes, val_indexes = helper_functions.get_indexes(
-                df=train_val, n_splits=self.user_input_params["n_splits"], datasplit=self.datasplit)
+                df=train_val, datasplit=self.user_input_params['datasplit'],
+                test_set_size_percentage=self.user_input_params['test_set_size_percentage'],
+                valtest_seasons=self.user_input_params['valtest_seasons'], folds=folds,
+                seasonal_periods=self.seasonal_periods,
+                val_set_size_percentage=self.user_input_params["val_set_size_percentage"])
         else:
-            folds = helper_functions.get_folds(datasplit=self.datasplit, n_splits=self.user_input_params["n_splits"])
+            folds = 1
         for fold in range(folds):
             fold_name = "fold_" + str(fold)
-            if self.datasplit == "timeseries-cv" or self.datasplit == "cv":
+            if self.user_input_params['datasplit'] == "timeseries-cv" or self.user_input_params['datasplit'] == "cv":
                 train, val = train_val.iloc[train_indexes[fold]], train_val.iloc[val_indexes[fold]]
             else:
                 train, val = train_test_split(
                     train_val, test_size=self.user_input_params["val_set_size_percentage"] * 0.01, shuffle=False)
 
-            if model.dim_reduction:
+            if model.pca_transform:
                 train, val = self.pca_transform_train_test(train, val)
 
             # load the unfitted model to prevent information leak between folds
@@ -220,19 +218,21 @@ class OptunaOptim:
                     print('val has one element less than y_true (e.g. due to batch size) -> drop last element')
                     val = val[:-1]
 
-                objective_value = sklearn.metrics.mean_squared_error(y_true=val[self.target_column], y_pred=y_pred)
+                objective_value = \
+                    sklearn.metrics.mean_squared_error(y_true=val[self.user_input_params['target_column']], y_pred=y_pred)
 
                 # report value for pruning
                 trial.report(value=objective_value,
-                             step=0 if self.datasplit == 'train-val-test' else int(fold_name[-1]))
+                             step=0 if self.user_input_params['datasplit'] == 'train-val-test' else int(fold_name[-1]))
                 if trial.should_prune():
                     self.clean_up_after_exception(trial_number=trial.number, trial_params=trial.params, reason='pruned')
                     raise optuna.exceptions.TrialPruned()
 
                 # store results
                 objective_values.append(objective_value)
-                validation_results.at[0:len(train) - 1, fold_name + '_train_true'] = train[self.target_column]
-                if 'lstm' in self.current_model_name:
+                validation_results.at[0:len(train) - 1, fold_name + '_train_true']\
+                    = train[self.user_input_params['target_column']]
+                if 'lstm' in self.user_input_params['current_model_name']:
                     try:
                         validation_results.at[0:len(train) - model.seq_length - 1, fold_name + '_train_pred'] = \
                             model.predict(X_in=train)[0]
@@ -250,10 +250,11 @@ class OptunaOptim:
                             model.predict(X_in=train)[0]
 
                 validation_results.at[0:len(val) - 1, fold_name + '_val_true'] = \
-                    val.loc[:, [self.target_column]].values.reshape(-1)
+                    val.loc[:, [self.user_input_params['target_column']]].values.reshape(-1)
                 validation_results.at[0:len(y_pred) - 1, fold_name + '_val_pred'] = y_pred
 
-                for metric, value in eval_metrics.get_evaluation_report(y_pred=y_pred, y_true=val[self.target_column],
+                for metric, value in eval_metrics.get_evaluation_report(y_pred=y_pred,
+                                                                        y_true=val[self.user_input_params['target_column']],
                                                                         prefix=fold_name + '_').items():
                     validation_results.at[0, metric] = value
 
@@ -306,7 +307,7 @@ class OptunaOptim:
 
         :param dict_runtime: dictionary with runtime information
         """
-        with open(self.save_path + self.current_model_name + '_runtime_overview.csv', 'a') as runtime_file:
+        with open(self.save_path + self.user_input_params['current_model_name'] + '_runtime_overview.csv', 'a') as runtime_file:
             headers = ['Trial', 'refitting_cycle', 'process_time_s', 'real_time_s', 'params', 'note']
             writer = csv.DictWriter(f=runtime_file, fieldnames=headers)
             if runtime_file.tell() == 0:
@@ -319,7 +320,7 @@ class OptunaOptim:
 
         :return: dict with runtime info enhanced with runtime stats
         """
-        csv_file = pd.read_csv(self.save_path + self.current_model_name + '_runtime_overview.csv')
+        csv_file = pd.read_csv(self.save_path + self.user_input_params['current_model_name'] + '_runtime_overview.csv')
         if csv_file['Trial'].dtype is object and any(["retrain" in elem for elem in csv_file["Trial"]]):
             csv_file = csv_file[csv_file["Trial"].str.contains("retrain") is False]
         process_times = csv_file['process_time_s']
@@ -358,18 +359,18 @@ class OptunaOptim:
         :return: tuple of transformed train and test dataset
         """
         scaler = sklearn.preprocessing.StandardScaler()
-        train_stand = scaler.fit_transform(train.drop(self.target_column, axis=1))
+        train_stand = scaler.fit_transform(train.drop(self.user_input_params['target_column'], axis=1))
         pca = sklearn.decomposition.PCA(0.95)
         train_transf = pca.fit_transform(train_stand)
-        test_stand = scaler.transform(test.drop(self.target_column, axis=1))
+        test_stand = scaler.transform(test.drop(self.user_input_params['target_column'], axis=1))
         test_transf = pca.transform(test_stand)
         train_data = pd.DataFrame(data=train_transf,
                                   columns=['PC' + str(i) for i in range(train_transf.shape[1])],
                                   index=train.index)
-        train_data[self.target_column] = train[self.target_column]
+        train_data[self.user_input_params['target_column']] = train[self.user_input_params['target_column']]
         test_data = pd.DataFrame(data=test_transf, columns=['PC' + str(i) for i in range(test_transf.shape[1])],
                                  index=test.index)
-        test_data[self.target_column] = test[self.target_column]
+        test_data[self.user_input_params['target_column']] = test[self.user_input_params['target_column']]
         return train_data, test_data
 
     def load_retrain_model(self, path: str, filename: str, retrain: pd.DataFrame, early_stopping_point: int = None,
@@ -387,7 +388,7 @@ class OptunaOptim:
         if early_stopping_point is not None:
             model.early_stopping_point = early_stopping_point
         model.prediction = None
-        if model.dim_reduction:
+        if model.pca_transform():
             retrain, test = self.pca_transform_train_test(retrain, test)
         model.retrain(retrain=retrain)
         return model, test
@@ -403,9 +404,9 @@ class OptunaOptim:
         print("## Retrain best model and test ##")
         # Retrain on full train + val data with best hyperparams and apply on test
         prefix = '' if len(self.study.trials) == self.user_input_params["n_trials"] else '/temp/'
-        if self.test_set_size_percentage == 'yearly':
-            test = self.featureset.loc[str(self.datasets.test_year) + '-01-01': str(self.datasets.test_year) + '-12-31']
-            retrain = self.featureset.loc[self.featureset.index[0]: str(self.datasets.test_year - 1) + '-12-31']
+        if self.user_input_params['test_set_size_percentage'] == 'seasonal':
+            test = self.featureset.iloc[-self.user_input_params["valtest_seasons"]*self.seasonal_periods]
+            retrain = self.featureset.iloc[:-self.user_input_params["valtest_seasons"]*self.seasonal_periods]
         else:
             retrain, test = train_test_split(
                 self.featureset, test_size=self.user_input_params["test_set_size_percentage"] * 0.01, shuffle=False)
@@ -421,14 +422,14 @@ class OptunaOptim:
 
         y_pred_retrain = final_model.predict(X_in=retrain)[0]
         final_model.var_artifical = np.quantile(
-            retrain[final_model.target_column][-len(final_model.prediction):] - y_pred_retrain, 0.68) ** 2
+            retrain[self.user_input_params['target_column']][-len(final_model.prediction):] - y_pred_retrain, 0.68) ** 2
         final_results = pd.DataFrame(index=range(0, self.featureset.shape[0]))
 
         final_results.at[0:len(y_pred_retrain) - 1, 'y_pred_retrain'] = y_pred_retrain
-        final_results.at[0:len(retrain) - 1, 'y_true_retrain'] = retrain[self.target_column].values.flatten()
-        final_results.at[0:len(test) - 1, 'y_true_test'] = test[self.target_column].values.flatten()
+        final_results.at[0:len(retrain) - 1, 'y_true_retrain'] = retrain[self.user_input_params['target_column']].values.flatten()
+        final_results.at[0:len(test) - 1, 'y_true_test'] = test[self.user_input_params['target_column']].values.flatten()
 
-        if self.current_model_name in ['ard', 'bayesridge', 'elasticnet', 'lasso', 'ridge', 'xgboost']:
+        if self.user_input_params['current_model_name'] in ['ard', 'bayesridge', 'elasticnet', 'lasso', 'ridge', 'xgboost']:
             feature_importance = pd.DataFrame(index=range(0, 0))
 
         for count, period in enumerate(self.user_input_params["periodical_refit_cycles"]):
@@ -463,8 +464,8 @@ class OptunaOptim:
                 X_train_val_manip = retrain.tail(self.user_input_params['refit_window']*self.seasonal_periods).copy()
                 X_test_manip = test.copy()
                 if hasattr(model, 'sequential'):
-                    x_test = model.X_scaler.transform(X_test_manip.drop(labels=[self.target_column], axis=1))
-                    y_test = model.y_scaler.transform(X_test_manip[self.target_column].values.reshape(-1, 1))
+                    x_test = model.X_scaler.transform(X_test_manip.drop(labels=[self.user_input_params['target_column']], axis=1))
+                    y_test = model.y_scaler.transform(X_test_manip[self.user_input_params['target_column']].values.reshape(-1, 1))
                     x_test, _ = model.create_sequences(x_test, y_test)
 
                 for i in range(test_len):
@@ -494,13 +495,13 @@ class OptunaOptim:
                         x_test = x_test[1:]
                     if (i+1) % period == 0:
                         X_train_val_manip = X_train_val_manip[self.user_input_params["refit_drops"]:]
-                        if model.dim_reduction:
+                        if model.pca_transform:
                             X_train_val_manip, X_test_manip = \
                                 self.pca_transform_train_test(X_train_val_manip, X_test_manip)
                         model.update(update=X_train_val_manip, period=period)
                         if hasattr(model, 'sequential'):
-                            x_test = model.X_scaler.transform(X_test_manip.drop(labels=[self.target_column], axis=1))
-                            y_test = model.y_scaler.transform(X_test_manip[self.target_column].values.reshape(-1, 1))
+                            x_test = model.X_scaler.transform(X_test_manip.drop(labels=[self.user_input_params['target_column']], axis=1))
+                            y_test = model.y_scaler.transform(X_test_manip[self.user_input_params['target_column']].values.reshape(-1, 1))
                             x_test, _ = model.create_sequences(x_test, y_test)
 
                 y_pred_test = np.array(y_pred_test).flatten()
@@ -522,13 +523,13 @@ class OptunaOptim:
                                                  'params': self.study.best_trial_copy.params, 'note': 'successful'})
 
             # Evaluate and save results
-            if 'lstm' in self.current_model_name:
+            if 'lstm' in self.user_input_params['current_model_name']:
                 test = self.dataset.tail(test_len)
-            eval_scores = eval_metrics.get_evaluation_report(y_true=test[self.target_column], y_pred=y_pred_test,
+            eval_scores = eval_metrics.get_evaluation_report(y_true=test[self.user_input_params['target_column']], y_pred=y_pred_test,
                                                              prefix='test_refitting_period_' + str(period) + '_',
-                                                             current_model_name=self.current_model_name)
+                                                             current_model_name=self.user_input_params['current_model_name'])
 
-            if self.current_model_name in ['ard', 'bayesridge', 'elasticnet', 'lasso', 'ridge', 'xgboost']:
+            if self.user_input_params['current_model_name'] in ['ard', 'bayesridge', 'elasticnet', 'lasso', 'ridge', 'xgboost']:
                 feat_import_df = self.get_feature_importance(model=model, period=period)
                 feature_importance = pd.concat([feature_importance, feat_import_df], axis=1)
 
@@ -556,7 +557,7 @@ class OptunaOptim:
 
         if len(self.study.trials) == self.user_input_params["n_trials"]:
             results_filename = 'final_model_test_results.csv'
-            if self.current_model_name in ['ard', 'bayesridge', 'elasticnet', 'lasso', 'ridge', 'xgboost']:
+            if self.user_input_params['current_model_name'] in ['ard', 'bayesridge', 'elasticnet', 'lasso', 'ridge', 'xgboost']:
                 feature_importance.to_csv(
                     self.save_path + 'final_model_feature_importances.csv', sep=',', decimal='.', float_format='%.10f',
                     index=False)
@@ -564,9 +565,9 @@ class OptunaOptim:
             results_filename = '/temp/intermediate_after_' + str(len(self.study.trials) - 1) + '_test_results.csv'
             feat_import_filename = \
                 '/temp/intermediate_after_' + str(len(self.study.trials) - 1) + '_feat_importances.csv'
-            shutil.copyfile(self.save_path + self.current_model_name + '_runtime_overview.csv',
+            shutil.copyfile(self.save_path + self.user_input_params['current_model_name'] + '_runtime_overview.csv',
                             self.save_path + '/temp/intermediate_after_' + str(len(self.study.trials) - 1) + '_' +
-                            self.current_model_name + '_runtime_overview.csv', )
+                            self.user_input_params['current_model_name'] + '_runtime_overview.csv', )
         final_results.to_csv(self.save_path + results_filename, sep=',', decimal='.', float_format='%.10f', index=False)
 
         return final_eval_scores
@@ -581,16 +582,16 @@ class OptunaOptim:
         :return: DataFrame with feature importance information
         """
         feat_import_df = pd.DataFrame()
-        if self.current_model_name in ['xgboost']:
+        if self.user_input_params['current_model_name'] in ['xgboost']:
             feature_importances = model.model.feature_importances_
             sorted_idx = feature_importances.argsort()[::-1]
             feat_import_df['feature_period_' + str(period)] = \
-                self.featureset.drop(self.target_column, axis=1).columns[sorted_idx]
+                self.featureset.drop(self.user_input_params['target_column'], axis=1).columns[sorted_idx]
             feat_import_df['feature_importance'] = feature_importances[sorted_idx]
         else:
             coef = model.model.coef_.flatten()
             sorted_idx = coef.argsort()[::-1]
-            feat_import_df['feature_period_' + str(period)] = self.featureset.drop(self.target_column, axis=1).columns[sorted_idx]
+            feat_import_df['feature_period_' + str(period)] = self.featureset.drop(self.user_input_params['target_column'], axis=1).columns[sorted_idx]
             feat_import_df['coefficients'] = coef[sorted_idx]
 
         return feat_import_df

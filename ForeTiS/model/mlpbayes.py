@@ -31,7 +31,7 @@ class Mlp(_torch_model.TorchModel):
         n_layers = self.suggest_hyperparam_to_optuna('n_layers')
         model = []
         act_function = self.get_torch_object_for_string(string_to_get=self.suggest_hyperparam_to_optuna('act_function'))
-        self.n_features = self.dataset.shape[1] - 1
+        self.n_features = self.featureset.shape[1] - 1
         in_features = self.n_features
         out_features = int(in_features * self.suggest_hyperparam_to_optuna('n_initial_units_factor'))
         p = self.suggest_hyperparam_to_optuna('dropout')
