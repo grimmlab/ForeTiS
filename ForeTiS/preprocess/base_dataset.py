@@ -15,19 +15,25 @@ class Dataset:
     **Attributes**
 
         - target_column (*str*): the target column for the prediction
-        - data_dir (*str*): data directory where the data is stored
-        - data (*str*): the dataset that you want to use
-        - windowsize_current_statistics (*int*): the windowsize for the feature engineering of the current statistic
-        - windowsize_lagged_statistics (*int*): the windowsize for the feature engineering of the lagged statistics
         - datatype (*str*): if the data is in american or german type
-        - date_column (*str*): the name of the column containg the date
-        - group (*str*): if the data is from the old or API group
         - seasonal_periods (*int*): how many datapoints one season has
         - imputation (*bool*): whether to perfrom imputation or not
-        - holiday_school_column (*str*): the column name containing the school holidays
-        - holiday_public_column (*str*): the column name containing the public holidays
-        - special_days (*list<str>*): the special days in your data
         - resample_weekly (*bool*): whether to resample weekly or not
+        - values_for_counter (*list*): the values that should trigger the counter adder
+        - columns_for_counter (*list*): the columns where the counter adder should be applied
+        - columns_for_lags (*list*): the columns that should be lagged by one sample
+        - columns_for_rolling_mean (*list*): the columns where the rolling mean should be applied
+        - columns_for_lags_rolling_mean (*list*): the columns where seasonal lagged rolling mean should be applied
+        - string_columns (*list*): columns containing strings
+        - float_columns (*list*): columns containing floats
+        - time_column (*str*): columns containing the time information
+        - featuresets_regex (*list*): regular expression with which the feature sets should be filtered
+        - time_format (*str*): the time format, either "W", "D", or "H"
+        - features (*list*): the features of the dataset
+        - categorical_columns (*list*): the categorical columns of the dataset
+        - max_seasonal_lags (*int*): maximal number of seasonal lags to be applied
+        - user_input_params (*mixed*): the arguments passed by the user or default values from run.py respectively
+        - featuresets (*list*): list containing all featuresets that get created in this class
 
     :param data_dir: data directory where the data is stored
     :param data: the dataset that you want to use
@@ -36,6 +42,9 @@ class Dataset:
     :param windowsize_lagged_statistics: the windowsize for the feature engineering of the lagged statistics
     :param imputation_method: the imputation method to use. Options are: 'mean' , 'knn' , 'iterative'
     :param config: the information from dataset_specific_config.ini
+    :param event_lags: the event lags for the counters
+    :param valtest_seasons: the number of seasons to be used for validation and testing when seasonal_valtest is True
+    :param: seasonal_valtest: whether validation and test sets should be a multiple of the season length or a percentage of the dataset
     """
 
     def __init__(self, data_dir: str, data: str, config_file: str, test_set_size_percentage: int,
@@ -152,7 +161,6 @@ class Dataset:
     def set_dtypes(self, df: pd.DataFrame):
         """
         Function setting dtypes of dataset. cols_to_str are converted to string, rest except date to float.
-        Needed due to structure of raw file
 
         :param df: DataFrame whose columns data types should be set
         """
@@ -207,10 +215,7 @@ class Dataset:
 
     def featureadding_and_resampling(self, df: pd.DataFrame) -> list:
         """
-        Function preparing train and test sets for training based on raw dataset:
-        - Feature Extraction
-        (- Resampling if specified)
-        - Deletion of non-target sales columns
+        Function preparing train and test sets based on raw dataset.
 
         :param df: dataset with raw samples
 

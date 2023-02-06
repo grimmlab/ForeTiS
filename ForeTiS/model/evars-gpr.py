@@ -208,7 +208,6 @@ class Evars_gpr(_tensorflow_model.TensorflowModel):
         Deliver PCA transformed train and test set
 
         :param train: data for the training
-        :param test: data for the testing
 
         :return: tuple of transformed train and test dataset
         """

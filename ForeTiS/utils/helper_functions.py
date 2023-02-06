@@ -9,20 +9,6 @@ import numpy as np
 from sklearn.model_selection import ShuffleSplit, TimeSeriesSplit
 import ForeTiS.model
 
-
-def get_list_of_featuresets() -> list:
-    """
-    Get a list of all possible featuresets.
-
-    ! Adapt if new featuresets is added !
-
-    :return: List of all possible featuresets
-    """
-    return ['optimize', 'dataset_weather', 'dataset_cal', 'dataset_sales', 'dataset_sales_corr',
-            'dataset_weather_sales', 'dataset_weather_sales_corr', 'dataset_weather_cal', 'dataset_cal_sales',
-            'dataset_cal_sales_corr', 'dataset_full', 'dataset_full_corr']
-
-
 def get_list_of_implemented_models() -> list:
     """
     Create a list of all implemented models based on files existing in 'model' subdirectory of the repository.
@@ -90,6 +76,11 @@ def get_indexes(df: pd.DataFrame, datasplit: str, folds: int, valtest_seasons: i
 
     :param df: data that should be splited
     :param datasplit: splitting method
+    :param folds: number of folds of the hyperparameter optimization
+    :param valtest_seasons: the number of seasons to be used for validation and testing when seasonal_valtest is True
+    :param seasonal_periods: how many datapoints one season has
+    :param test_set_size_percentage: size of the test set relevant for cv-test and train-val-test
+    :param val_set_size_percentage: size of the validation set relevant for train-val-test
 
     :return: train and test indexes
     """

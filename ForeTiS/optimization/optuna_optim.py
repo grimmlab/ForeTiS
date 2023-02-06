@@ -79,6 +79,12 @@ class OptunaOptim:
             os.makedirs(self.base_path)
         self.save_path = self.base_path
 
+        if self.user_input_params['seasonal_valtest'] and \
+                (self.user_input_params['datasplit'] == 'cv' or self.user_input_params['datasplit'] == 'train-val-test'):
+            self.user_input_params['test_set_size_percentage'] = \
+                int(input("cv or train-val-test and seasonal test or validation set does not work, "
+                          "please input percentage for test and validation set:"))
+
     def create_new_study(self) -> optuna.study.Study:
         """
         Create a new optuna study.
@@ -173,9 +179,6 @@ class OptunaOptim:
         if self.user_input_params['datasplit'] == 'timeseries-cv' and len(self.featureset) < 4*self.seasonal_periods*self.user_input_params['valtest_seasons']:
             print('Timeseries is shorter than 4 years. Will set datasplit to train-val-test.')
             self.user_input_params['datasplit'] = 'train-val-test'
-        if self.user_input_params['seasonal_valtest'] and \
-                (self.user_input_params['datasplit'] == 'cv' or self.user_input_params['datasplit'] == 'train-val-test'):
-            self.user_input_params['test_set_size_percentage'] = int(input("cv or train-val-test and seasonal test or validation set does not work, please input percentage for test and validation set:"))
         if not all(elem == "complete" for elem in self.user_input_params['periodical_refit_cycles']) and max((i for i in self.user_input_params['periodical_refit_cycles'] if isinstance(i, int))) >= (len(self.featureset) - len(train_val))//2:
             print("One or more refitting cycles are longer than the test set. Please reset the refitting cycles.")
             refitting_cycles_lst = []

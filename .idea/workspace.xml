@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="added string imputing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_base_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_base_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/evars-gpr.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/evars-gpr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/StatisticalFeatures.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/StatisticalFeatures.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/utils/helper_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/utils/helper_functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,14 +284,7 @@
       <workItem from="1675330274278" duration="10092000" />
       <workItem from="1675405277920" duration="12723000" />
       <workItem from="1675435085033" duration="74000" />
-      <workItem from="1675667515538" duration="8364000" />
-    </task>
-    <task id="LOCAL-00040" summary="adjusted timeseries cv">
-      <created>1668174254060</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1668174254060</updated>
+      <workItem from="1675667515538" duration="16010000" />
     </task>
     <task id="LOCAL-00041" summary="pca on train data">
       <created>1668587247154</created>
@@ -625,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675684251270</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="added string imputing">
+      <created>1675689904040</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1675689904040</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,61 +694,6 @@
           <url>file://$PROJECT_DIR$/ForeTiS/model/_torch_model.py</url>
           <line>82</line>
           <option name="timeStamp" value="245" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>659</line>
-          <option name="timeStamp" value="276" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>661</line>
-          <option name="timeStamp" value="277" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/model/_sklearn_model.py</url>
-          <line>75</line>
-          <option name="timeStamp" value="284" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>524</line>
-          <option name="timeStamp" value="288" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>414</line>
-          <option name="timeStamp" value="292" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>429</line>
-          <option name="timeStamp" value="294" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>430</line>
-          <option name="timeStamp" value="295" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>431</line>
-          <option name="timeStamp" value="296" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py</url>
-          <line>188</line>
-          <option name="timeStamp" value="310" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py</url>
-          <line>200</line>
-          <option name="timeStamp" value="311" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py</url>
-          <line>185</line>
-          <option name="timeStamp" value="312" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

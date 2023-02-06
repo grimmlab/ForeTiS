@@ -10,6 +10,7 @@ def add_lagged_statistics(seasonal_periods: int, windowsize_lagged_statistics: i
     :param windowsize_lagged_statistics: size of window used for sales statistics
     :param seasonal_lags: seasonal lags to add of the features specified
     :param df: dataset for adding features
+    :param columns_for_lags_rolling_mean: the columns where seasonal lagged rolling mean should be applied
     """
     if seasonal_lags == 0:
         print('No seasonal lags defined!')
@@ -33,6 +34,8 @@ def add_current_statistics(seasonal_periods: int, windowsize_current_statistics:
     :param seasonal_periods: seasonal_period used for seasonal rolling statistics
     :param windowsize_current_statistics: size of window used for feature statistics
     :param df: dataset for adding features
+    :param columns_for_rolling_mean: the columns where the rolling mean should be applied
+    :param columns_for_lags: the columns that should be lagged by one sample
     """
     if seasonal_periods <= windowsize_current_statistics:
         return

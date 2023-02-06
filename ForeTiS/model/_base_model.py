@@ -23,11 +23,16 @@ class BaseModel(abc.ABC):
         - all_hyperparams (*dict*): dictionary with all hyperparameters with related info that can be tuned (structure see :obj:`~ForeTiS.model._base_model.BaseModel.define_hyperparams_to_tune`)
         - dataset (*pd.DataFrame*): the dataset for this optimization trial
         - model: model object
+        - target_column: the target column for the prediction
+        - pca_transform: whether conducting pca transformation should be a hyperparameter to optimize or not
+        - featureset: the recent featureset
 
     :param optuna_trial: Trial of optuna for optimization
     :param datasets: all datasets that are available
-    :param featureset: on which featuresets the models should be optimized
+    :param featureset_name: the name of the recent feature set
     :param target_column: the target column for the prediction
+    :param pca_transform: whether conducting pca transformation should be a hyperparameter to optimize or not
+    :param optimize_featureset: whether the feature set should be optimized or not
 
     """
 
@@ -241,6 +246,9 @@ class BaseModel(abc.ABC):
         return self.optuna_trial.params
 
     def featureset_hyperparam(self):
+        """
+        Method that defines the feature set hyperparameter that should be tuned during optimization and its ranges.
+        """
         featuresets_names = []
         for featureset in self.datasets.featuresets:
             featuresets_names.append(featureset.name)
@@ -252,6 +260,9 @@ class BaseModel(abc.ABC):
         }
 
     def pca_transform(self):
+        """
+        Method that defines the pca transform hyperparameter that should be tuned during optimization and its ranges.
+        """
         return {
             'pca': {
                 'datatype': 'categorical',
