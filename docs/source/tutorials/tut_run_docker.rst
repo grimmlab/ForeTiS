@@ -1,7 +1,6 @@
 HowTo: Run ForeTiS using Docker
 ======================================
 We assume that you succesfully did all steps described in :ref:`Docker workflow`: to setup ForeTiS using Docker.
-Besides this written tutorial, we recorded a :ref:`Video tutorial: Run ForeTiS with Docker` embedded below.
 
 Workflow
 """""""""""
@@ -33,7 +32,3 @@ to start it in interactive mode again. If you did not create a container yet, go
 
 Feel free to test ForeTiS, e.g. with other prediction models.
 If you want to start using your own data, please carefully read our :ref:`Data Guide`: to ensure that your data fulfills all requirements.
-
-Video tutorial: Run ForeTiS with Docker
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Under construction

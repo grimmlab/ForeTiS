@@ -8,8 +8,7 @@ In addition, our framework is designed to allow an easy and straightforward inte
 
 For more information, installation guides, tutorials and much more, see our documentation: https://ForeTiS.readthedocs.io/
 
-ForeTiS and its documentation is currently under construction.
-The pip-package is not yet available, but feel free to already test the Docker workflow as described in our documentation: https://ForeTiS.readthedocs.io/en/latest/tutorials.html#howto-run-ForeTiS-using-docker
+Feel free to use the Docker workflow as described in our documentation: https://ForeTiS.readthedocs.io/en/latest/tutorials.html#howto-run-ForeTiS-using-docker
 
 Contributors
 ----------------------------------------
@@ -21,8 +20,6 @@ This pipeline is developed and maintained by members of the `Bioinformatics lab 
 
 Citation
 ---------------------
-Machine Learning <Outperforms Classical Forecasting on Horticultural Sales Predictions. F Haselbeck, J Killinger, K Menrad, T Hannus, DG Grimm.
-Machine Learning with Applications, 2022 (https://doi.org/10.1016/j.mlwa.2021.100239)
 
 A manuscript for publishing ForeTiS as a further scientific paper is currently under preparation.
 

@@ -41,16 +41,16 @@ Setup
 
         docker run -it -v /PATH/TO/REPO/FOLDER:/REPO_DIRECTORY/IN/CONTAINER -v /PATH/TO/DATA/DIRECTORY:/DATA_DIRECTORY/IN/CONTAINER -v /PATH/TO/RESULTS/SAVE/DIRECTORY:/SAVE_DIRECTORY/IN/CONTAINER --name CONTAINERNAME IMAGENAME
 
-    - Mount the directory where the repository is placed on your machine, the directory where your phenotype and genotype data is stored and the directory where you want to save your results using the option ``-v``.
+    - Mount the directory where the repository is placed on your machine, the directory where your data is stored and the directory where you want to save your results using the option ``-v``.
     - You can restrict the number of cpus using the option ``cpuset-cpus CPU_INDEX_START-CPU_INDEX_STOP``.
     - Specify a gpu device using ``--gpus device=DEVICE_NUMBER`` if you want to use GPU support.
 
 
-    Let's have a look at an example. We assume hat you created a Docker image called ``horti-image``, your repository and data is placed in (subfolders of) ``/myhome/``, you want to save your results to ``/myhome/`` (so ``/myhome/`` is the only directory you need to mount in your container), you only want to use CPUs 0 to 9 and GPU 0 and you want to call your container ``ep_container``. Then you have to run the following command:
+    Let's have a look at an example. We assume hat you created a Docker image called ``foretis-image``, your repository and data is placed in (subfolders of) ``/myhome/``, you want to save your results to ``/myhome/`` (so ``/myhome/`` is the only directory you need to mount in your container), you only want to use CPUs 0 to 9 and GPU 0 and you want to call your container ``ForeTiS_container``. Then you have to run the following command:
 
     .. code-block::
 
-        docker run -it -v /myhome/:/myhome_in_my_container/ --cpuset-cpus 0-9 --gpus device=0 --name horti_container horti_image
+        docker run -it -v /myhome/:/myhome_in_my_container/ --cpuset-cpus 0-9 --gpus device=0 --name ForeTiS_container foretis_image
 
 Your setup is finished! Go to :ref:`HowTo: Run ForeTiS using Docker` to see how you can now use ForeTiS!
 
@@ -63,7 +63,3 @@ See `here <https://docs.docker.com/engine/reference/commandline/docker/>`_ for a
 :docker ps: List all running Docker containers on your machine
 :docker ps -a: List all Docker containers (including stopped ones) on your machine
 :docker start -i CONTAINERNAME: Start a (stopped) Docker container interactively to enter its command line interface
-
-Video tutorial: Docker workflow setup
-"""""""""""""""""""""""""""""""""""""""""""""
-Under construction

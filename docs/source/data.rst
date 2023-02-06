@@ -5,20 +5,6 @@ ForeTiS is designed to work with several file types besides the one we provide i
 
 HDF5 / H5 / H5PY
 ~~~~~~~~~~~~~~~~~~~
-The file can contain the following keys:
-
-- **dataset_weather:** dataset containing only weather information
-- **dataset_cal:** dataset containing only calendar information
-- **dataset_sales:** dataset containing only sales information
-- **dataset_sales_corr:** dataset containing only sales information with products correlating with the focus product
-- **dataset_weather_sales:** dataset containing only weather and sales information
-- **dataset_weather_sales_corr:** dataset containing only weather and sales information with products correlating with the focus product
-- **dataset_weather_cal:** dataset containing only weather and calendar information
-- **dataset_cal_sales:** dataset containing only calendar and sales information
-- **dataset_cal_sales_corr:** dataset containing only calendar and sales information with products correlating with the focus product
-- **dataset_full:** dataset containing weather, calendar and sales information
-- **dataset_full_corr:** dataset containing weather, calendar and sales information with products correlating with the focus product
-
 Depending on the datasets contains in the HDF5 file, you have to adjust the hyperparameters at
 ForeTiS.model._base_model.BaseModel.dataset_hyperparam.
 
@@ -31,19 +17,23 @@ dataset_specific_config.ini
 ----------------------------
 In this file you can define some characteristics of your data. The following points should be adjusted:
 
-- **resolution:** if the resolution of the dataset is daily or weekly
-- **resample_weekly:** whether the data should be resampled daily
-- **seasonal_periods:** the length of one season of the data (e.g. for weekly data 52)
-- **datatype:** if the data is in german (decimal=',', seperator=';') or american datatype (decimal='.', seperator=',')
-- **date_column:** the name of the column that contains the date
-- **holiday_school_column:** the name of the column that contains the school holidays
-- **holiday_public_column:** the name of the column that contains the public holidays
-- **special_days:** days of the year that are very important for your prediction task (e.g. Valentine's Day)
-- **features_sales_regex:** the name of the columns that contain sales information (also possible as regex)
-- **features_weather_regex:** the name of the columns that contain weather information (also possible as regex)
-- **imputation:** whether imputation should be performed
-- **cols_to_condense:** here you can define some names of columns that should be condensed
-- **condensed_col_name:** the name of the new column created from the condensed columns
+- **values_for_counter:** the values that should trigger the counter adder
+- **columns_for_counter:** the columns where the counter adder should be applied
+- **columns_for_lags:** the columns that should be lagged by one sample
+- **columns_for_rolling_mean:** the columns where the rolling mean should be applied
+- **columns_for_lags_rolling_mean:** the columns where seasonal lagged rolling mean should be applied
+- **imputation:** whether to perfrom imputation or not
+- **resample_weekly:** whether to resample weekly or not
+- **string_columns:** columns containing strings
+- **float_columns:** columns containing floats
+- **time_column:** columns containing the time information
+- **time_format:** the time format, either "W", "D", or "H"
+- **seasonal_periods:** how many datapoints one season has
+- **featuresets_regex:** regular expression with which the feature sets should be filtered
+- **features:** the features of the dataset
+- **categorical_columns:** the categorical columns of the dataset
+- **max_seasonal_lags:** maximal number of seasonal lags to be applied
+- **target_column:** the target column for the prediction
 
 Preprocessing
 ----------------
