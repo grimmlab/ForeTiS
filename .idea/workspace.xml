@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForeTiS/model/_template_stat_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ForeTiS/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_add_new.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_add_new.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_template_torch_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_template_torch_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/josef/Schreibtisch/01_HorticulturalSalesPrediction/ForeTiS",
+    "last_opened_file_path": "/home/josef/Schreibtisch/01_HorticulturalSalesPrediction/ForeTiS/ForeTiS/model",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -281,14 +281,7 @@
       <workItem from="1675405277920" duration="12723000" />
       <workItem from="1675435085033" duration="74000" />
       <workItem from="1675667515538" duration="20566000" />
-      <workItem from="1675704508689" duration="690000" />
-    </task>
-    <task id="LOCAL-00044" summary="turnover in euro">
-      <created>1668689802514</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1668689802514</updated>
+      <workItem from="1675704508689" duration="1069000" />
     </task>
     <task id="LOCAL-00045" summary="debugged lstm">
       <created>1669034233154</created>
@@ -626,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675704477929</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="updating docs">
+      <created>1675705212970</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1675705212971</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

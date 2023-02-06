@@ -1,13 +1,13 @@
-import torch
+import pmdarima
 
-from . import _torch_model
+from . import _stat_model
 
 
-class TemplateTorchModel(_torch_model.TorchModel):
+class TemplateStatModel(_stat_model.StatModel):
     """
-    Template file for a prediction model based on :obj:`~ForeTiS.model._torch_model.TorchModel`
+    Template file for a prediction model based on :obj:`~ForeTiS.model._stat_model.StatModel`
 
-    See :obj:`~ForeTiS.model._base_model.BaseModel` and :obj:`~ForeTiS.model._torch_model.TorchModel`
+    See :obj:`~ForeTiS.model._base_model.BaseModel` and :obj:`~ForeTiS.model._stat_model.StatModel`
     for more information on the attributes.
 
     **Steps you have to do to add your own model:**
@@ -22,13 +22,13 @@ class TemplateTorchModel(_torch_model.TorchModel):
 
         5. Define the hyperparameters and ranges you want to use for optimization in *define_hyperparams_to_tune()*.
 
-           CAUTION: Some hyperparameters are already defined in :obj:`~ForeTiS.model._torch_model.TorchModel.common_hyperparams()`,
-           which you can directly use here. Some of them are already suggested in :obj:`~ForeTiS.model._torch_model.TorchModel`.
+           CAUTION: Some hyperparameters are already defined in :obj:`~ForeTiS.model._stat_model.StatModel.common_hyperparams()`,
+           which you can directly use here. Some of them are already suggested in :obj:`~ForeTiS.model._stat_model.StatModel`.
 
         6. Test your new prediction model using toy data
     """
 
-    def define_model(self):
+    def define_model(self) -> pmdarima.ARIMA:
         """
         Definition of the actual prediction model.
 
@@ -38,7 +38,6 @@ class TemplateTorchModel(_torch_model.TorchModel):
 
         See :obj:`~ForeTiS.model._base_model.BaseModel` for more information.
         """
-        ...
 
     def define_hyperparams_to_tune(self) -> dict:
         """
