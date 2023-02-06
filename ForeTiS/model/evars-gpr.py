@@ -190,6 +190,8 @@ class Evars_gpr(_tensorflow_model.TensorflowModel):
                             data=(np.zeros((5, 1)), np.zeros((5, 1))), kernel=self.kernel, mean_function=self.mean_function,
                             noise_variance=self.noise_variance
                         )
+                        if self.pca_transform:
+                            train_samples= self.pca_transform_train_test(train_samples)
                         self.retrain(train_samples)
                         # in case of a successful refit change output_scale_old
                         output_scale_old = self.output_scale
@@ -200,4 +202,23 @@ class Evars_gpr(_tensorflow_model.TensorflowModel):
             self.prediction = self.y_scaler.inverse_transform(predictions)
             confs = self.y_scaler.inverse_transform(confs)
         return self.prediction.flatten(), self.var.flatten(), confs[:, 0]
+
+    def pca_transform_train_test(self, train: pd.DataFrame) -> tuple:
+        """
+        Deliver PCA transformed train and test set
+
+        :param train: data for the training
+        :param test: data for the testing
+
+        :return: tuple of transformed train and test dataset
+        """
+        scaler = sklearn.preprocessing.StandardScaler()
+        train_stand = scaler.fit_transform(train.drop(self.target_column, axis=1))
+        pca = sklearn.decomposition.PCA(0.95)
+        train_transf = pca.fit_transform(train_stand)
+        train_data = pd.DataFrame(data=train_transf,
+                                  columns=['PC' + str(i) for i in range(train_transf.shape[1])],
+                                  index=train.index)
+        train_data[self.target_column] = train[self.target_column]
+        return train_data
 

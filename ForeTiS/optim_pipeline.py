@@ -8,13 +8,13 @@ from ForeTiS.optimization import optuna_optim
 
 def run(data_dir: str, save_dir: str = None, datasplit: str = 'timeseries-cv', test_set_size_percentage=None,
         val_set_size_percentage: int = 20, imputation_method: str = 'None', windowsize_current_statistics: int = 4,
-        windowsize_lagged_statistics: int = 4, models: list = None, target_column: str = None, n_trials: int = 100,
-        pca_transform: bool =False, save_final_model: bool = False, periodical_refit_cycles: list = None,
-        refit_drops: int = 0, data: str = None, config_file: str = None, refit_window: int = 5,
-        intermediate_results_interval: int = None, batch_size: int = 32, n_epochs: int = None, event_lags: int = None,
-        optimize_featureset: bool = None, scale_thr: float = None, scale_seasons: int = None, cf_thr_perc: int = None,
-        scale_window_factor: float = None, cf_r: float = None, cf_order: int = None, cf_smooth: int = None,
-        scale_window_minimum: int = None, max_samples_factor: int = None, valtest_seasons: int = None):
+        windowsize_lagged_statistics: int = 4, models: list = None, n_trials: int = 100, pca_transform: bool =False,
+        save_final_model: bool = False, periodical_refit_cycles: list = None, refit_drops: int = 0, data: str = None,
+        config_file: str = None, refit_window: int = 5, intermediate_results_interval: int = None, batch_size: int = 32,
+        n_epochs: int = None, event_lags: int = None, optimize_featureset: bool = None, scale_thr: float = None,
+        scale_seasons: int = None, cf_thr_perc: int = None, scale_window_factor: float = None, cf_r: float = None,
+        cf_order: int = None, cf_smooth: int = None, scale_window_minimum: int = None, max_samples_factor: int = None,
+        valtest_seasons: int = None):
 
     # Optimization Pipeline #
     helper_functions.set_all_seeds()
@@ -25,7 +25,7 @@ def run(data_dir: str, save_dir: str = None, datasplit: str = 'timeseries-cv', t
     config = configparser.ConfigParser(allow_no_value=True)
     config.read('Config/dataset_specific_config.ini')
     datasets = base_dataset.Dataset(data_dir=data_dir, data=data, config_file=config_file, event_lags=event_lags,
-                                    test_set_size_percentage=test_set_size_percentage, target_column=target_column,
+                                    test_set_size_percentage=test_set_size_percentage,
                                     windowsize_current_statistics=windowsize_current_statistics,
                                     windowsize_lagged_statistics=windowsize_lagged_statistics,
                                     imputation_method=imputation_method, config=config, valtest_seasons=valtest_seasons)
@@ -43,9 +43,8 @@ def run(data_dir: str, save_dir: str = None, datasplit: str = 'timeseries-cv', t
             featureset_names.append(featureset_name)
             optuna_run = optuna_optim.OptunaOptim(save_dir=save_dir, data=data, config_type=config_file,
                                                   featureset_name=featureset_name, datasplit=datasplit,
-                                                  target_column=target_column, n_trials=n_trials,
-                                                  test_set_size_percentage=test_set_size_percentage, models=models,
-                                                  val_set_size_percentage=val_set_size_percentage,
+                                                  n_trials=n_trials, test_set_size_percentage=test_set_size_percentage,
+                                                  models=models, val_set_size_percentage=val_set_size_percentage,
                                                   save_final_model=save_final_model, pca_transform=pca_transform,
                                                   periodical_refit_cycles=periodical_refit_cycles,
                                                   refit_drops=refit_drops, refit_window=refit_window,

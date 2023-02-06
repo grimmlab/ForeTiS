@@ -33,18 +33,18 @@ def add_counters(df: pd.DataFrame, columns_for_counter: list, resample_weekly: b
                         if row[column] in values_for_counter:
                             for lag in event_lags:
                                 if (index + pd.Timedelta(days=lag)) in df.index:
-                                    df.at[index + pd.Timedelta(days=lag), column + '_Counter'] = -math.ceil(lag/7)
+                                    df.at[index + pd.Timedelta(days=lag), 'cal_' + column + '_Counter'] = -math.ceil(lag/7)
     else:
         if None not in columns_for_counter:
             for index, row in df.iterrows():
                 for item in row.items():
                     if item[0] in columns_for_counter:
-                        if row[item] in values_for_counter:
+                        if item[1] in values_for_counter:
                             for lag in event_lags:
                                 if (index+pd.Timedelta(days=lag)) in df.index:
-                                    df.at[index+pd.Timedelta(days=lag), item + '_Counter'] = -lag
+                                    df.at[index+pd.Timedelta(days=lag), 'cal_' + item + '_Counter'] = -lag
     if None not in columns_for_counter:
-        drop_columns(df=df, columns=[columns_for_counter])
+        drop_columns(df=df, columns=columns_for_counter)
     df[[col for col in df.columns if 'Counter' in col]] = \
         df[[col for col in df.columns if 'Counter' in col]].fillna(value=99)
 

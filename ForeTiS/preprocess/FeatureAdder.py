@@ -19,8 +19,7 @@ def add_cal_features(df: pd.DataFrame, columns_for_counter: list, resample_weekl
 
 def add_statistical_features(seasonal_periods: int, windowsize_current_statistics: int, columns_for_lags: list,
                              columns_for_lags_rolling_mean: list, columns_for_rolling_mean: list,
-                             windowsize_lagged_statistics: int, seasonal_lags: int, df: pd.DataFrame,
-                             resample_weekly: bool):
+                             windowsize_lagged_statistics: int, seasonal_lags: int, df: pd.DataFrame):
     """Function adding all statistical features
 
     :param seasonal_periods: seasonality used for seasonal-based features
@@ -28,10 +27,6 @@ def add_statistical_features(seasonal_periods: int, windowsize_current_statistic
     :param windowsize_lagged_statistics: size of window used for sales statistics
     :param seasonal_lags: seasonal lags to add of the features specified
     :param df: dataset used for adding features
-    :param resample_weekly: whether to resample weekly or not
-    :param features_weather_sales: features for statistics
-    :param features_sales: sales features
-    :param correlations: calculated correlations
     """
     add_lagged_statistics(seasonal_periods=seasonal_periods, windowsize_lagged_statistics=windowsize_lagged_statistics,
                           seasonal_lags=seasonal_lags, df=df,

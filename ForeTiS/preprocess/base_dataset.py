@@ -32,14 +32,13 @@ class Dataset:
     :param data_dir: data directory where the data is stored
     :param data: the dataset that you want to use
     :param test_set_size_percentage: size of the test set relevant for cv-test and train-val-test
-    :param target_column: the target column for the prediction
     :param windowsize_current_statistics: the windowsize for the feature engineering of the current statistic
     :param windowsize_lagged_statistics: the windowsize for the feature engineering of the lagged statistics
     :param imputation_method: the imputation method to use. Options are: 'mean' , 'knn' , 'iterative'
     :param config: the information from dataset_specific_config.ini
     """
 
-    def __init__(self, data_dir: str, data: str, config_file: str, test_set_size_percentage: int, target_column: str,
+    def __init__(self, data_dir: str, data: str, config_file: str, test_set_size_percentage: int,
                  windowsize_current_statistics: int, windowsize_lagged_statistics: int, imputation_method: str = 'None',
                  config: configparser.ConfigParser = None, event_lags: int = None, valtest_seasons: int = None):
 
@@ -78,6 +77,7 @@ class Dataset:
         if '' in self.categorical_columns:
             self.categorical_columns = [None]
         self.max_seasonal_lags = config[config_file].getint('max_seasonal_lags')
+        self.target_column = config[config_file]['target_column']
 
         #  check if data is already preprocessed. If not, preprocess the data
         if os.path.exists(os.path.join(data_dir, data + '.h5')):
@@ -88,7 +88,7 @@ class Dataset:
                     featureset = pd.read_hdf(os.path.join(data_dir, data + '.h5'), key=key)
                     featureset.name = key[1:]
                     featuresets.append(featureset)
-            if target_column in featuresets[0]:
+            if self.target_column in featuresets[0]:
                 print('---Dataset is already preprocessed---')
             else:
                 raise Exception('Dataset was already preprocessed, but with another target column. '
@@ -129,7 +129,10 @@ class Dataset:
         # load raw dataset
         dataset_raw = pd.read_csv(os.path.join(data_dir, data + '.csv'), index_col=self.time_column)
         if self.time_format == 'D':
-            dataset_raw.index = pd.to_datetime(dataset_raw.index, format='%Y-%m-%d')
+            try:
+                dataset_raw.index = pd.to_datetime(dataset_raw.index, format='%Y-%m-%d')
+            except:
+                dataset_raw.index = pd.to_datetime(dataset_raw.index, format='%d.%m.%Y')
         if self.time_format == 'H':
             dataset_raw.index = pd.to_datetime(dataset_raw.index, format = '%Y/%m/%d %H:%M:%S')
 
@@ -222,7 +225,6 @@ class Dataset:
                                                   windowsize_current_statistics=self.user_input_params['windowsize_current_statistics'],
                                                   windowsize_lagged_statistics=self.user_input_params['windowsize_lagged_statistics'],
                                                   seasonal_lags=seasonal_lags, df=df,
-                                                  resample_weekly=self.resample_weekly,
                                                   columns_for_lags=self.columns_for_lags,
                                                   columns_for_lags_rolling_mean=self.columns_for_lags_rolling_mean,
                                                   columns_for_rolling_mean=self.columns_for_rolling_mean,)
@@ -239,7 +241,7 @@ class Dataset:
         # resample
         if self.resample_weekly:
             print('-Weekly resample data-')
-            df = df.resample('W').apply(lambda x: custom_resampler(arraylike=x, target_column=self.user_input_params['target_column']))
+            df = df.resample('W').apply(lambda x: custom_resampler(arraylike=x, target_column=self.target_column))
             if 'cal_date_weekday' in df.columns:
                 drop_columns(df=df, columns=['cal_date_weekday'])
             if 'cal_date_weekday_sin' in df.columns:
@@ -254,8 +256,7 @@ class Dataset:
                                                   columns_for_rolling_mean=self.columns_for_rolling_mean,
                                                   windowsize_current_statistics=self.user_input_params['windowsize_current_statistics'],
                                                   windowsize_lagged_statistics=self.user_input_params['windowsize_lagged_statistics'],
-                                                  seasonal_lags=seasonal_lags, df=df,
-                                                  resample_weekly=self.resample_weekly)
+                                                  seasonal_lags=seasonal_lags, df=df)
 
         # drop columns that stay constant
         drop_columns(df=df, columns=df.columns[df.nunique() <= 1])
@@ -274,7 +275,7 @@ class Dataset:
 
         if not None in self.featuresets_regex:
             for featureset_regex in self.featuresets_regex:
-                featureset = pd.concat([df[self.user_input_params['target_column']], df.filter(regex=featureset_regex)], axis=1)
+                featureset = pd.concat([df[self.target_column], df.filter(regex=featureset_regex)], axis=1)
                 featureset.name = 'featureset_' + featureset_regex
                 featureset.to_hdf(filename_h5, key='featureset_' + featureset_regex)
                 featuresets.append(featureset)

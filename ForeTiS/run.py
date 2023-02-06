@@ -35,14 +35,12 @@ if __name__ == '__main__':
                         help="specify the dataset that you want to use.")
     parser.add_argument("-con", "--config_file", type=str, default='nike_sales',
                         help="specify the config type that you want to use.")
-    parser.add_argument("-tc", "--target_column", type=str, default='value',
-                        help="specify the target column for the prediction.")
-    parser.add_argument("-mod", "--models", nargs='+', default=['all'],
+    parser.add_argument("-mod", "--models", nargs='+', default=['evars-gpr', 'gprtf'],
                         help="specify the models to optimize: 'all' or naming according to source file name. "
                              "Multiple models can be selected by just naming multiple model names, "
                              "e.g. --models mlp xgboost. "
                              "The following are available: " + str(helper_functions.get_list_of_implemented_models()))
-    parser.add_argument("-of", "--optimize_featureset", type=bool, default=True,
+    parser.add_argument("-of", "--optimize_featureset", type=bool, default=False,
                         help="specify whether featureset will be optimized."
                              "Standard is False")
 
@@ -57,28 +55,30 @@ if __name__ == '__main__':
                         help="Only relevant if imputation is set in dataset_specific_config.ini: "
                              "define the imputation method to use: 'mean' | 'knn' | 'iterative'. "
                              "Standard is 'mean'")
-    parser.add_argument("-ec", "--event_lags", nargs='+', default=[-7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3],
+    parser.add_argument("-ec", "--event_lags", nargs='+', default=[-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5],
                         help="The event lags for the counters")
 
     # Preprocess Params #
-    parser.add_argument("-split", "--datasplit", type=str, default='timeseries-cv',
+    parser.add_argument("-split", "--datasplit", type=str, default='timerseries-cv',
                         help="specify the data split method to use: 'timeseries-cv' | 'train-val-test' | 'cv'. "
                              "Standard is timeseries-cv")
-    parser.add_argument("-testperc", "--test_set_size_percentage", type=str_or_int, default=20,
+    parser.add_argument("-testperc", "--test_set_size_percentage", type=str_or_int, default='seasonal',
                         help="specify the size of the test set in percentage. "
-                             "Also seasonal can be passed, then seasons will be used as test set. "
+                             "For timeseries-cv, also seasonal can be passed, "
+                             "then seasons will be used as validation and test sets. "
                              "Standard is seasonal")
     parser.add_argument("-vs", "--valtest_seasons", type=int, default=1,
                         help="Only relevant for seasonal validation and test set: "
                              "define the number of seasons to be used. "
                              "Standard is 1")
     parser.add_argument("-valperc", "--val_set_size_percentage", type=int, default=20,
-                        help="Only relevant for data split method 'train-val-test': "
+                        help="Only relevant for data split methods 'train-val-test' and 'cv', "
+                             "if 'seasonal is not defined as test_set_size_percentage: "
                              "define the size of the validation set in percentage. "
                              "Standard is 20")
 
     # Model and Optimization Params #
-    parser.add_argument("-tr", "--n_trials", type=int, default=5,
+    parser.add_argument("-tr", "--n_trials", type=int, default=200,
                         help="specify the number of trials for the Bayesian optimization (optuna).")
     parser.add_argument("-sf", "--save_final_model", type=bool, default=True,
                         help="specify whether to save the final model to hard drive or not "
@@ -99,7 +99,7 @@ if __name__ == '__main__':
     parser.add_argument("-iri", "--intermediate_results_interval", type=int, default=None,
                         help="specify the number of trials after which intermediate results will be calculated. "
                              "Standard is None")
-    parser.add_argument("-pca", "--pca_transform", type=bool, default=False,
+    parser.add_argument("-pca", "--pca_transform", type=bool, default=True,
                         help="specify whether pca dimensionality reduction will be performed or not. When True is passed,"
                              "it will be optimized."
                              "Standard is False")

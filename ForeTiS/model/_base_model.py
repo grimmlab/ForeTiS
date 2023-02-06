@@ -64,7 +64,7 @@ class BaseModel(abc.ABC):
         else:
             for featureset in datasets.featuresets:
                 if featureset.name == featureset_name:
-                    self.featureset = featureset_name
+                    self.featureset = featureset
                     break
 
         self.model = self.define_model()
