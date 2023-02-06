@@ -172,27 +172,35 @@ class Dataset:
 
         :return: imputed dataset, train and test set
         """
-        cols_to_impute = df.loc[:, df.isna().any()].select_dtypes(exclude=['string', 'object']).columns.tolist()
+        cols_to_impute = df.loc[:, df.isna().any()]
         if len(cols_to_impute) == 0:
             return df
         cols_to_add = [col for col in df.columns.tolist() if col not in cols_to_impute]
 
+        num_cols_to_impute = cols_to_impute.select_dtypes(exclude=['string', 'object']).columns.tolist()
+        str_cols_to_impute = cols_to_impute.select_dtypes(include=['string', 'object']).columns.tolist()
+
         if test_set_size_percentage == 'seasonal':
-            test = df.iloc[-self.user_input_params['valtest_seasons']*self.seasonal_periods]
-            train_val = pd.concat([df, test]).drop_duplicates(keep=False)
+            train_val = df.iloc[:-self.user_input_params['valtest_seasons']*self.seasonal_periods]
         else:
             train_val, _ = train_test_split(df, test_size=test_set_size_percentage * 0.01, random_state=42,
                                             shuffle=False)
 
+        if len(str_cols_to_impute) > 0:
+            str_imputer = get_simple_imputer(df=train_val.filter(str_cols_to_impute), strategy='most_frequent')
+            str_data = str_imputer.transform(X=df.filter(str_cols_to_impute))
+
         if imputation_method == 'mean':
-            imputer = get_simple_imputer(df=train_val.filter(cols_to_impute))
+            imputer = get_simple_imputer(df=train_val.filter(num_cols_to_impute))
         elif imputation_method == 'knn':
-            imputer = get_knn_imputer(df=train_val.filter(cols_to_impute))
+            imputer = get_knn_imputer(df=train_val.filter(num_cols_to_impute))
         else:
-            imputer = get_iter_imputer(df=train_val.filter(cols_to_impute))
-        data = imputer.transform(X=df.filter(cols_to_impute))
-        dataset_imp = pd.concat([pd.DataFrame(data=data,
-                                              columns=cols_to_impute, index=df.index), df[cols_to_add]],
+            imputer = get_iter_imputer(df=train_val.filter(num_cols_to_impute))
+        num_data = imputer.transform(X=df.filter(num_cols_to_impute))
+
+        dataset_imp = pd.concat([pd.DataFrame(data=num_data, columns=num_cols_to_impute, index=df.index),
+                                 pd.DataFrame(data=str_data, columns=str_cols_to_impute, index=df.index),
+                                 df[cols_to_add]],
                                 axis=1, sort=False)
         return dataset_imp
 

@@ -17,3 +17,5 @@ tables==3.7.0
 bayesian_torch
 nbsphinx
 blitz-bayesian-pytorch
+changefinder
+matplotlib

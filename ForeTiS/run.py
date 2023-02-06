@@ -16,13 +16,6 @@ if __name__ == '__main__':
     warnings.simplefilter(action='ignore', category=FutureWarning)
     warnings.simplefilter(action='ignore', category=ExperimentalWarning)
 
-
-    def str_or_int(arg):
-        if type(arg) == str:
-            return str(arg)
-        else:
-            return int(arg)
-
     # User Input #
     parser = argparse.ArgumentParser()
     # Input Params #
@@ -31,9 +24,9 @@ if __name__ == '__main__':
     parser.add_argument("-sd", "--save_dir", type=str, default='docs/source/tutorials/tutorial_data',
                         help="Provide the full path of the directory in which you want to save your results. "
                              "Default is same as data_dir.")
-    parser.add_argument("-data", "--data", type=str, default='nike_sales',
+    parser.add_argument("-data", "--data", type=str, default='Metro_Interstate_Traffic_Volume',
                         help="specify the dataset that you want to use.")
-    parser.add_argument("-con", "--config_file", type=str, default='nike_sales',
+    parser.add_argument("-con", "--config_file", type=str, default='Metro_Interstate_Traffic_Volume',
                         help="specify the config type that you want to use.")
     parser.add_argument("-mod", "--models", nargs='+', default=['evars-gpr', 'gprtf'],
                         help="specify the models to optimize: 'all' or naming according to source file name. "
@@ -55,14 +48,14 @@ if __name__ == '__main__':
                         help="Only relevant if imputation is set in dataset_specific_config.ini: "
                              "define the imputation method to use: 'mean' | 'knn' | 'iterative'. "
                              "Standard is 'mean'")
-    parser.add_argument("-ec", "--event_lags", nargs='+', default=[-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5],
+    parser.add_argument("-ec", "--event_lags", nargs='+', default=[-7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3],
                         help="The event lags for the counters")
 
     # Preprocess Params #
     parser.add_argument("-split", "--datasplit", type=str, default='timerseries-cv',
                         help="specify the data split method to use: 'timeseries-cv' | 'train-val-test' | 'cv'. "
                              "Standard is timeseries-cv")
-    parser.add_argument("-testperc", "--test_set_size_percentage", type=str_or_int, default='seasonal',
+    parser.add_argument("-testperc", "--test_set_size_percentage", default='seasonal',
                         help="specify the size of the test set in percentage. "
                              "For timeseries-cv, also seasonal can be passed, "
                              "then seasons will be used as validation and test sets. "
@@ -89,7 +82,7 @@ if __name__ == '__main__':
                              "0 means no periodical refitting, "
                              "complete means no periodical refitting and the whole train dataset will be used for "
                              "retraining instead of the refit_window specified below. "
-                             "Standard is ['complete', 0, 1, 2, 4, 8]")
+                             "Standard is ['complete', 0, 1, 2]")
     parser.add_argument("-rd", "--refit_drops", type=int, default=0,
                         help="specify how many rows of the train dataset get dropped before refitting. "
                              "Standard is 0")
@@ -99,7 +92,7 @@ if __name__ == '__main__':
     parser.add_argument("-iri", "--intermediate_results_interval", type=int, default=None,
                         help="specify the number of trials after which intermediate results will be calculated. "
                              "Standard is None")
-    parser.add_argument("-pca", "--pca_transform", type=bool, default=True,
+    parser.add_argument("-pca", "--pca_transform", type=bool, default=False,
                         help="specify whether pca dimensionality reduction will be performed or not. When True is passed,"
                              "it will be optimized."
                              "Standard is False")
