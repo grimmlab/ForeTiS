@@ -7,7 +7,7 @@ Overview
 The design of the model class makes ForeTiS easy extendable with new prediction models.
 The subsequent figure gives an overview on its structure.
 
-.. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/main/docs/image/classoverview.png
+.. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/master/docs/image/classoverview.png
     :width: 600
     :alt: structure of ForeTiS.model
     :align: center
@@ -138,7 +138,7 @@ Now we need to define the two attributes and implement the two methods.
 Further, we optimize the two hyperparameters ``n_neighbors`` and ``weights``.
 These need to be suggested to optuna via ``self.suggest_hyperparam_to_optuna(PARAM_NAME`` in ``define_model()``
 and defined with their ranges in ``define_hyperparams_to_tune()``
-(see `here <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/_base_model.py#L88>`_
+(see `here <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/_base_model.py#:~:text=def%20define_hyperparams_to_tune(self)%20%2D%3E%20dict%3A>`_
 for more information regarding the format and possible options for hyperparameter definition).
 
     .. code-block::

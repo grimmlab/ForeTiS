@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
+      <change afterPath="$PROJECT_DIR$/docs/image/Algo.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/data.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/data.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/install_docker.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/install_docker.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/install_pip.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/install.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/install.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_add_new.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_add_new.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_codewalkthrough.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_run_docker.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_run_docker.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,14 +282,7 @@
       <workItem from="1675330274278" duration="10092000" />
       <workItem from="1675405277920" duration="12723000" />
       <workItem from="1675435085033" duration="74000" />
-      <workItem from="1675667515538" duration="18503000" />
-    </task>
-    <task id="LOCAL-00042" summary="correlations on train data">
-      <created>1668604435906</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1668604435906</updated>
+      <workItem from="1675667515538" duration="20522000" />
     </task>
     <task id="LOCAL-00043" summary="adjusted resampling to correlations">
       <created>1668677901723</created>
@@ -631,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675698642500</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="updating docs">
+      <created>1675701767243</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1675701767243</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
