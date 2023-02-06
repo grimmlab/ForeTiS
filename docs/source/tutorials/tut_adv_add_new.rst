@@ -102,7 +102,7 @@ as a new prediction model.
 
 First, we copy the template file into the folder containing ForeTiS's subpackage *model* and rename it to *knn.py*.
 Further, we rename the class within the file to ``Knn`` and add ``"knn"`` to ``__all__`` in
-`ForeTiS.model.__init__.py <https://github.com/grimmlab/ForeTiS/blob/b9b5d5e588f4201f84eca8617601081e8d034f92/ForeTiS/model/__init__.py>`_.
+`ForeTiS.model.__init__.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/__init__.py>`_.
 
 So with updated comments (with ``:obj:`` references for linking in the auto-generated API documentation),
 our file now contains the following code:
