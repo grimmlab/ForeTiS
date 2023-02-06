@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="debugging">
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="added string imputing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ForeTiS/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/run.py" afterDir="false" />
@@ -280,14 +280,7 @@
       <workItem from="1675330274278" duration="10092000" />
       <workItem from="1675405277920" duration="12723000" />
       <workItem from="1675435085033" duration="74000" />
-      <workItem from="1675667515538" duration="6062000" />
-    </task>
-    <task id="LOCAL-00039" summary="adjusted bayes neural nets">
-      <created>1667995973653</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1667995973653</updated>
+      <workItem from="1675667515538" duration="8364000" />
     </task>
     <task id="LOCAL-00040" summary="adjusted timeseries cv">
       <created>1668174254060</created>
@@ -625,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675680442265</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="added string imputing">
+      <created>1675684251270</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1675684251270</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,7 +646,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="turnover in euro" />
     <MESSAGE value="debugged lstm" />
     <MESSAGE value="debugged mlp" />
     <MESSAGE value="new bayesnet package and other stuff" />
@@ -671,7 +670,8 @@
     <MESSAGE value="checked evars-gpr" />
     <MESSAGE value="initial push" />
     <MESSAGE value="debugging" />
-    <option name="LAST_COMMIT_MESSAGE" value="debugging" />
+    <MESSAGE value="added string imputing" />
+    <option name="LAST_COMMIT_MESSAGE" value="added string imputing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -732,14 +732,19 @@
           <option name="timeStamp" value="296" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/preprocess/DateCalenderFeatures.py</url>
-          <line>41</line>
-          <option name="timeStamp" value="300" />
+          <url>file://$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py</url>
+          <line>188</line>
+          <option name="timeStamp" value="310" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py</url>
-          <line>182</line>
-          <option name="timeStamp" value="308" />
+          <line>200</line>
+          <option name="timeStamp" value="311" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py</url>
+          <line>185</line>
+          <option name="timeStamp" value="312" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -752,7 +757,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ForeTiS$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1675683993936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ForeTiS$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1675684732348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HorticulturalSalesPrediction$HorticulturalSalesPrediction_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1666270498365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ForeTiS_general$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1674152614768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

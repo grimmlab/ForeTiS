@@ -55,18 +55,21 @@ if __name__ == '__main__':
     parser.add_argument("-split", "--datasplit", type=str, default='timerseries-cv',
                         help="specify the data split method to use: 'timeseries-cv' | 'train-val-test' | 'cv'. "
                              "Standard is timeseries-cv")
-    parser.add_argument("-testperc", "--test_set_size_percentage", default='seasonal',
-                        help="specify the size of the test set in percentage. "
-                             "For timeseries-cv, also seasonal can be passed, "
-                             "then seasons will be used as validation and test sets. "
-                             "Standard is seasonal")
+    parser.add_argument("-sv", "--seasonal_valtest", type=bool, default=True,
+                        help="specify whether validation and test sets should be a multiple of the season length or"
+                             "a percentage of the dataset. "
+                             "Standard is True")
     parser.add_argument("-vs", "--valtest_seasons", type=int, default=1,
-                        help="Only relevant for seasonal validation and test set: "
+                        help="Only relevant when seasonal_valtest is True: "
                              "define the number of seasons to be used. "
                              "Standard is 1")
+    parser.add_argument("-testperc", "--test_set_size_percentage", type=int, default=20,
+                        help="Only relevant when seasonal_valtest is False: "
+                             "specify the size of the test set in percentage. "
+                             "Standard is 20")
     parser.add_argument("-valperc", "--val_set_size_percentage", type=int, default=20,
-                        help="Only relevant for data split methods 'train-val-test' and 'cv', "
-                             "if 'seasonal is not defined as test_set_size_percentage: "
+                        help="Only relevant for data split methods 'train-val-test' and 'cv' "
+                             "or when seasonal_valtest is False, "
                              "define the size of the validation set in percentage. "
                              "Standard is 20")
 

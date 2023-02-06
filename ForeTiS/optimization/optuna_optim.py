@@ -64,7 +64,7 @@ class OptunaOptim:
                  intermediate_results_interval: int, pca_transform: bool, config: configparser.ConfigParser,
                  optimize_featureset, scale_thr: float, scale_seasons: int, scale_window_factor: float, cf_r: float,
                  cf_order: int, cf_smooth: int, cf_thr_perc: int, scale_window_minimum: int, max_samples_factor: int,
-                 valtest_seasons: int):
+                 valtest_seasons: int, seasonal_valtest: bool):
         self.study = None
         self.current_best_val_result = None
         self.early_stopping_point = None
@@ -159,7 +159,7 @@ class OptunaOptim:
 
         # set the datasplit
         self.featureset = model.featureset
-        if self.user_input_params['test_set_size_percentage'] == 'seasonal':
+        if self.user_input_params['seasonal_valtest']:
             train_val = self.featureset.iloc[: -self.user_input_params["valtest_seasons"]*self.seasonal_periods]
             train_val.index.freq = train_val.index.inferred_freq
         else:
@@ -173,7 +173,7 @@ class OptunaOptim:
         if self.user_input_params['datasplit'] == 'timeseries-cv' and len(self.featureset) < 4*self.seasonal_periods*self.user_input_params['valtest_seasons']:
             print('Timeseries is shorter than 4 years. Will set datasplit to train-val-test.')
             self.user_input_params['datasplit'] = 'train-val-test'
-        if self.user_input_params['test_set_size_percentage'] == "seasonal" and \
+        if self.user_input_params['seasonal_valtest'] and \
                 (self.user_input_params['datasplit'] == 'cv' or self.user_input_params['datasplit'] == 'train-val-test'):
             self.user_input_params['test_set_size_percentage'] = int(input("cv or train-val-test and seasonal test or validation set does not work, please input percentage for test and validation set:"))
         if not all(elem == "complete" for elem in self.user_input_params['periodical_refit_cycles']) and max((i for i in self.user_input_params['periodical_refit_cycles'] if isinstance(i, int))) >= (len(self.featureset) - len(train_val))//2:
@@ -427,7 +427,7 @@ class OptunaOptim:
         print("## Retrain best model and test ##")
         # Retrain on full train + val data with best hyperparams and apply on test
         prefix = '' if len(self.study.trials) == self.user_input_params["n_trials"] else '/temp/'
-        if self.user_input_params['test_set_size_percentage'] == 'seasonal':
+        if self.user_input_params['seasonal_valtest']:
             test = self.featureset.iloc[-(self.user_input_params["valtest_seasons"]*self.seasonal_periods):]
             retrain = self.featureset.iloc[:-self.user_input_params["valtest_seasons"]*self.seasonal_periods]
         else:

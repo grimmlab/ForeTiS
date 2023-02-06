@@ -40,7 +40,8 @@ class Dataset:
 
     def __init__(self, data_dir: str, data: str, config_file: str, test_set_size_percentage: int,
                  windowsize_current_statistics: int, windowsize_lagged_statistics: int, imputation_method: str = 'None',
-                 config: configparser.ConfigParser = None, event_lags: int = None, valtest_seasons: int = None):
+                 config: configparser.ConfigParser = None, event_lags: int = None, valtest_seasons: int = None,
+                 seasonal_valtest: bool = None):
 
         self.user_input_params = locals()  # distribute all handed over params in whole class
 
@@ -161,7 +162,7 @@ class Dataset:
             elif col != self.float_columns:
                 df[col] = df[col].astype(dtype='float')
 
-    def impute_dataset_train_test(self, df: pd.DataFrame = None, test_set_size_percentage: float = 20,
+    def impute_dataset_train_test(self, df: pd.DataFrame = None, test_set_size_percentage: int = 20,
                                   imputation_method: str = None) -> pd.DataFrame:
         """
         Get imputed dataset as well as train and test set (fitted to train set)
@@ -180,7 +181,7 @@ class Dataset:
         num_cols_to_impute = cols_to_impute.select_dtypes(exclude=['string', 'object']).columns.tolist()
         str_cols_to_impute = cols_to_impute.select_dtypes(include=['string', 'object']).columns.tolist()
 
-        if test_set_size_percentage == 'seasonal':
+        if self.user_input_params['seasonal_valtest']:
             train_val = df.iloc[:-self.user_input_params['valtest_seasons']*self.seasonal_periods]
         else:
             train_val, _ = train_test_split(df, test_size=test_set_size_percentage * 0.01, random_state=42,
