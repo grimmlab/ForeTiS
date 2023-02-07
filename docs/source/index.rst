@@ -11,9 +11,9 @@ regularly updated in different periods with new data by so-called periodical ref
 potential scenario for a productive operation.
 The subsequent scheme gives an overview on the hyperparameter optimization, training, and testing processes in ForeTiS.
 
-.. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/master/docs/image/Algo.pdf
+.. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/master/docs/image/Algo.png
     :width: 600
-    :alt: structure of ForeTiS.model
+    :alt: scheme of ForeTiS
     :align: center
 
 In addition, our framework is designed to allow an easy and straightforward integration of further prediction models.
