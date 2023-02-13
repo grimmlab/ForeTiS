@@ -40,56 +40,50 @@ the validation loss is monitored and if it does not improve for a certain number
 the training process is stopped. When working with our MLP implementation, it is important to keep in mind
 that some relevant code and hyperparameters can also be found in TorchModel.
 
-The definition of the LSTM model itself as well as of some specific hyperparameters and ranges can be found in the `Mlp class <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/mlp.py>`_.
-In the code block below, we show its ``define_model()`` method. Our MLP model consists of ``n_layers`` of blocks, which
-include a ``Linear()``, ``BatchNorm()`` and ``Dropout`` layer. The last of these blocks is followed by a ``Linear()`` output layer.
-The number of outputs in the first layers is defined by a hyperparameter (``n_initial_units_factor``),
-that is multiplied with the number of inputs. Then, with each of the above-mentioned blocks, the number of outputs
-decreases by a percentage parameter ``perc_decrease``.
+The definition of the LSTM model itself as well as of some specific hyperparameters and ranges can be found in the `LSTM class <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/lstm.py>`_.
+In the code block below, we show its ``define_model()`` method. Our LSTM model consists of one layer, which
+include a ``LSTM()``, ``Dropout``, and ``Linear()`` layer.
+The number of layers of the LSTM layer s is defined by a hyperparameter (``n_lstm_layers``).
 Further, we use ``Dropout`` for regularization and define the dropout rate as the hyperparameter ``p``.
 Finally, we transform the list to which we added all network layers into a ``torch.nn.Sequential()`` object.
 
     .. code-block::
 
-            def define_model(self) -> torch.nn.Sequential:
-                """
-                Definition of an MLP network.
+                def define_model(self) -> torch.nn.Sequential:
+                    """
+                    Definition of a LSTM network.
 
-                Architecture:
+                    Architecture:
+                        - LSTM, Dropout, Linear
+                        - Linear output layer
 
-                    - N_LAYERS of (Linear (+ ActivationFunction) (+ BatchNorm) + Dropout)
-                    - Linear output layer
-                    - Dropout layer
+                    Number of output channels of the first layer, dropout rate, frequency of a doubling of the output channels and
+                    number of units in the first linear layer. may be fixed or optimized.
+                    """
+                    self.y_scaler = sklearn.preprocessing.StandardScaler()
+                    self.sequential = True
+                    self.seq_length = self.suggest_hyperparam_to_optuna('seq_length')
+                    model = []
+                    p = self.suggest_hyperparam_to_optuna('dropout')
+                    n_feature = self.dataset.shape[1]
+                    lstm_hidden_dim = self.suggest_hyperparam_to_optuna('lstm_hidden_dim')
 
-                Number of units in the first linear layer and percentage decrease after each may be fixed or optimized.
-                """
-                n_layers = self.suggest_hyperparam_to_optuna('n_layers')
-                model = []
-                act_function = self.get_torch_object_for_string(string_to_get=self.suggest_hyperparam_to_optuna('act_function'))
-                self.n_features = self.featureset.shape[1] - 1
-                in_features = self.n_features
-                out_features = int(in_features * self.suggest_hyperparam_to_optuna('n_initial_units_factor'))
-                p = self.suggest_hyperparam_to_optuna('dropout')
-                perc_decrease = self.suggest_hyperparam_to_optuna('perc_decrease_per_layer')
-                batch_norm = self.suggest_hyperparam_to_optuna('batch_norm')
-                for layer in range(n_layers):
-                    model.append(torch.nn.Linear(in_features=in_features, out_features=out_features))
-                    if act_function is not None:
-                        model.append(act_function)
-                    if batch_norm:
-                        model.append(torch.nn.BatchNorm1d(num_features=out_features))
-                    model.append(torch.nn.Dropout(p=p))
-                    in_features = out_features
-                    out_features = int(in_features * (1-perc_decrease))
-                model.append(torch.nn.Linear(in_features=in_features, out_features=self.n_outputs))
-
-                return torch.nn.Sequential(*model)
+                    model.append(PrepareForlstm())
+                    model.append(torch.nn.LSTM(input_size=n_feature, hidden_size=lstm_hidden_dim,
+                                               num_layers=self.suggest_hyperparam_to_optuna('n_lstm_layers'), dropout=p))
+                    model.append(GetOutputZero())
+                    model.append(PrepareForDropout())
+                    model.append(torch.nn.Dropout(p))
+                    model.append(torch.nn.Linear(in_features=lstm_hidden_dim, out_features=self.n_outputs))
+                    return torch.nn.Sequential(*model)
 
 ``self.n_outputs`` is inherited from ``BaseModel``, where it is set to 1 for the regression task (one continuous output).
 
-Also, we implemented the Bayesian form of the MLP model which can be found in the `Mlpbayes class <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/mlpbayes.py>`_.
+Also, we implemented the Bayesian form of the LSTM model which can be found in the `LSTMbayes class <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/lstmbayes.py>`_.
 
 **References**
 
 1. Bishop, Christopher M. (2006). Pattern recognition and machine learning. New York, Springer.
 2. Goodfellow, I., Bengio, Y.,, Courville, A. (2016). Deep Learning. MIT Press. Available at https://www.deeplearningbook.org/
+3. Charles Blundell, Julien Cornebise, Koray Kavukcuoglu, and Daan Wierstra. Weight uncertainty in neural networks. arXiv preprint arXiv:1505.05424, 2015.
+4. Hochreiter, Sepp & Schmidhuber, Jürgen. (1997). Long Short-term Memory. Neural computation. 9. 1735-80. 10.1162/neco.1997.9.8.1735.
