@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/HowTo Use ForeTiS as a pip package.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/HowTo Use ForeTiS as a pip package.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-    </list>
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -288,14 +282,7 @@
       <workItem from="1675850587211" duration="689000" />
       <workItem from="1675929690418" duration="3563000" />
       <workItem from="1676115840617" duration="5012000" />
-      <workItem from="1676285614358" duration="9955000" />
-    </task>
-    <task id="LOCAL-00048" summary="new bayesnet package and other stuff">
-      <created>1669282250543</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1669282250543</updated>
+      <workItem from="1676285614358" duration="10297000" />
     </task>
     <task id="LOCAL-00049" summary="adjusted run.py">
       <created>1669283938307</created>
@@ -633,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676297674375</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="updating docs">
+      <created>1676300001485</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1676300001485</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

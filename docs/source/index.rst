@@ -39,6 +39,8 @@ A manuscript for publishing ForeTiS as a further scientific paper is currently u
    :titlesonly:
 
    install
+   quickstart
    tutorials
    data
+   models
    API Documentation <autoapi/ForeTiS/index>
