@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/baseline.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/baseline.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/bayesreg.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/bayesreg.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/linreg.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/linreg.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/models/arimax.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/arimax.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/models/es.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/es.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/models/gpr.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/gpr.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,14 +287,7 @@
       <workItem from="1675850587211" duration="689000" />
       <workItem from="1675929690418" duration="3563000" />
       <workItem from="1676115840617" duration="5012000" />
-      <workItem from="1676285614358" duration="20640000" />
-    </task>
-    <task id="LOCAL-00054" summary="added retries if testing failes">
-      <created>1669396597584</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1669396597586</updated>
+      <workItem from="1676285614358" duration="24682000" />
     </task>
     <task id="LOCAL-00055" summary="added retries">
       <created>1669455109630</created>
@@ -632,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676308857136</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="updating docs">
+      <created>1676313449583</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1676313449583</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
