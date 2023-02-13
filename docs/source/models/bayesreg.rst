@@ -12,7 +12,6 @@ Gaussian prior over the coefficients w with precision
     .. math::
         \lambda^{-1}
 
-.
 Instead of setting lambda manually, it is possible to treat it as a random variable to be estimated from the data.
 
 To obtain a fully probabilistic model, the output y is assumed to be Gaussian distributed around Xw:

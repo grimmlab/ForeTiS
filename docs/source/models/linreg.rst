@@ -73,8 +73,8 @@ The following code block shows the implementation of LASSO in `lasso.py <https:/
                 }
 
 The other two regression models are implemented in a separate files containing very similar code.
-Its implementation can be found in `elasticnet.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/elasticnet.py>`_.
-Its implementation can be found in `ridge.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/ridge.py>`_.
+Its implementation can be found in `elasticnet.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/elasticnet.py>`_
+and`ridge.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/ridge.py>`_.
 
 
 **References**
