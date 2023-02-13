@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs" />
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
+      <change afterPath="$PROJECT_DIR$/docs/source/models/hyperparam_optim.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/models/linreg.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/models/mlp.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/models/xgb.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/models.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models.rst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/josef/Schreibtisch/01_HorticulturalSalesPrediction/ForeTiS/docs/source/tutorials",
+    "last_opened_file_path": "/home/josef/Schreibtisch/01_HorticulturalSalesPrediction/ForeTiS/docs/source/models",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,11 +67,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/source/models" />
       <recent name="$PROJECT_DIR$/docs/source/tutorials" />
       <recent name="$PROJECT_DIR$/docs/source" />
       <recent name="$PROJECT_DIR$/docs/image" />
       <recent name="$PROJECT_DIR$/ForeTiS/model" />
-      <recent name="$PROJECT_DIR$/HorticulturalSalesPrediction/model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ForeTiS/model/_additionalmodels" />
@@ -282,14 +289,7 @@
       <workItem from="1675850587211" duration="689000" />
       <workItem from="1675929690418" duration="3563000" />
       <workItem from="1676115840617" duration="5012000" />
-      <workItem from="1676285614358" duration="10297000" />
-    </task>
-    <task id="LOCAL-00049" summary="adjusted run.py">
-      <created>1669283938307</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1669283938307</updated>
+      <workItem from="1676285614358" duration="14182000" />
     </task>
     <task id="LOCAL-00050" summary="Dockerfile">
       <created>1669284557841</created>
@@ -627,7 +627,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676300001485</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="updating docs">
+      <created>1676300403519</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1676300403519</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

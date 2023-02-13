@@ -26,11 +26,11 @@ In the following table, we give the keys for all prediction models as well as li
      - Source Code
    * - Automatic Relevance Determination Regression
      - ard
-     - :ref:`ARD`
+     - :ref:`Bayesian Regression`
      - `ard.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/ard.py>`_
    * - ARIMA
      - arima
-     - :ref:`ARIMA`
+     - :ref:`ARIMAX`
      - `arima.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/arima.py>`_
    * - ARIMAX
      - arimax
@@ -38,63 +38,63 @@ In the following table, we give the keys for all prediction models as well as li
      - `arimax.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/arimax.py>`_
    * - Average Historical
      - averagehsitorical
-     - :ref:`Average Historical`
+     - :ref:`Baseline Models`
      - `averagehistorical.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/averagehistorical.py>`_
    * - Average Moving
      - averagemoving
-     - :ref:`Average Moving`
+     - :ref:`Baseline Models`
      - `averagemoving.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/averagemoving.py>`_
    * - Average Seasonal
      - averageseasonal
-     - :ref:`Average Seasonal`
+     - :ref:`Baseline Models`
      - `averageseasonal.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/averageseasonal.py>`_
    * - Average Seasonal Lag
      - averageseasonallag
-     - :ref:`Average Seasonal Lag`
+     - :ref:`Baseline Models`
      - `averageseasonallag.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/averageseasonallag.py>`_
-* - Bayesian Ridge Regression
+   * - Bayesian Ridge Regression
      - bayesridge
-     - :ref:`Bayesian Ridge Regression`
+     - :ref:`Bayesian Regression`
      - `bayesridge.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/bayesridge.py>`_
-* - Exponential Smoothing
+   * - Exponential Smoothing
      - es
      - :ref:`Exponential Smoothing`
      - `es.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/es.py>`_
-* - EVARS-GPR
+   * - EVARS-GPR
      - evars-gpr
-     - :ref:`EVARS-GPR`
+     - :ref:`Gaussian Process Regression`
      - `evars-gpr.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/evars-gpr.py>`_
-* - Gaussian Process Regression (TensorFlow Implemetation)
+   * - Gaussian Process Regression (TensorFlow Implemetation)
      - gprtf
-     - :ref:`Gaussian Process Regression (TensorFlow Implemetation)`
+     - :ref:`Gaussian Process Regression`
      - `gprtf.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/gprtf.py>`_
-* - Lasso Regression
+   * - Lasso Regression
      - lasso
-     - :ref:`Lasso Regression`
+     - :ref:`Linear Regression`
      - `lasso.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/lasso.py>`_
-* - Long Short-Term Memory (LSTM) Network
+   * - Long Short-Term Memory (LSTM) Network
      - lstm
      - :ref:`LSTM Network`
      - `lstm.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/lstm.py>`_
-* - Bayesian Long Short-Term Memory (LSTM) Network
+   * - Bayesian Long Short-Term Memory (LSTM) Network
      - lstmbayes
-     - :ref:`Bayesian LSTM Network`
+     - :ref:`LSTM Network`
      - `lstmbayes.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/lstmbayes.py>`_
-* - Average Seasonal
-     - averageseasonal
-     - :ref:`Average Seasonal`
-     - `averageseasonal.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/averageseasonal.py>`_
-* - Bayesian Multilayer Perceptron
-     - bayesmlp
-     - :ref:`Bayesian Multilayer Perceptron`
-     - `bayesmlp.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/bayesmlp.py>`_
-* - Multilayer Perceptron
+   * - Elastic Net Regression
+     - elasticnet
+     - :ref:`Linear Regression`
+     - `elasticnet.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/elasticnet.py>`_
+   * - Multilayer Perceptron
      - mlp
      - :ref:`Multilayer Perceptron`
      - `mlp.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/mlp.py>`_
-* - Ridge Regression
+   * - Bayesian Multilayer Perceptron
+     - mlpbayes
+     - :ref:`Multilayer Perceptron`
+     - `bayesmlp.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/bayesmlp.py>`_
+   * - Ridge Regression
      - ridge
-     - :ref:`Ridge Regression`
+     - :ref:`Linear Regression`
      - `ridge.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/ridge.py>`_
    * - XGBoost
      - xgboost
