@@ -6,15 +6,15 @@ from ForeTiS.preprocess import base_dataset
 from ForeTiS.optimization import optuna_optim
 
 
-def run(data_dir: str, save_dir: str = None, datasplit: str = 'timeseries-cv', test_set_size_percentage=None,
-        val_set_size_percentage: int = 20, imputation_method: str = 'None', windowsize_current_statistics: int = 4,
-        windowsize_lagged_statistics: int = 4, models: list = None, n_trials: int = 100, pca_transform: bool =False,
+def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set_size_percentage: int = 20,
+        val_set_size_percentage: int = 20, imputation_method: str = None, windowsize_current_statistics: int = 3,
+        windowsize_lagged_statistics: int = 3, models: list = None, n_trials: int = 200, pca_transform: bool =False,
         save_final_model: bool = False, periodical_refit_cycles: list = None, refit_drops: int = 0, data: str = None,
         config_file: str = None, refit_window: int = 5, intermediate_results_interval: int = None, batch_size: int = 32,
-        n_epochs: int = None, event_lags: int = None, optimize_featureset: bool = None, scale_thr: float = None,
-        scale_seasons: int = None, cf_thr_perc: int = None, scale_window_factor: float = None, cf_r: float = None,
-        cf_order: int = None, cf_smooth: int = None, scale_window_minimum: int = None, max_samples_factor: int = None,
-        valtest_seasons: int = None, seasonal_valtest: bool = None):
+        n_epochs: int = 100000, event_lags: int = None, optimize_featureset: bool = False, scale_thr: float = 0.1,
+        scale_seasons: int = 2, cf_thr_perc: int = 70, scale_window_factor: float = 0.1, cf_r: float = 0.4,
+        cf_order: int = 1, cf_smooth: int = 4, scale_window_minimum: int = 2, max_samples_factor: int = 10,
+        valtest_seasons: int = 1, seasonal_valtest: bool = True):
 
     # Optimization Pipeline #
     helper_functions.set_all_seeds()

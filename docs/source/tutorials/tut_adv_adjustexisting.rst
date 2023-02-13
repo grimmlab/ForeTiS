@@ -128,7 +128,7 @@ Let's have a look at an example using
                     }
                 }
 
-There are multiple options to define a hyperparameter in easyPheno, see
+There are multiple options to define a hyperparameter in ForeTiS, see
 `define_hyperparams_to_tune() <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/_base_model.py#L88>`_
 for more information regarding the format.
 In the example above, three parameters are optimized depending on the number of features, besides the ones which are

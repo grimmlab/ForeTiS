@@ -206,6 +206,8 @@ class OptunaOptim:
 
         if 'cv' in self.user_input_params['datasplit']:
             folds = round((len(train_val)/self.seasonal_periods))//2
+            if folds == 0:
+                raise Exception("Can not create a single fold. Probably training set too short and seasonal periods too long.")
             if folds > 3:
                 folds = 3
             train_indexes, val_indexes = helper_functions.get_indexes(
@@ -257,7 +259,7 @@ class OptunaOptim:
                 # store results
                 objective_values.append(objective_value)
                 validation_results.at[0:len(train) - 1, fold_name + '_train_true']\
-                    = train[self.target_column]
+                    = train.loc[:, [self.target_column]].values.reshape(-1)
                 if 'lstm' in self.user_input_params['current_model_name']:
                     try:
                         validation_results.at[0:len(train) - model.seq_length - 1, fold_name + '_train_pred'] = \
@@ -628,9 +630,9 @@ class OptunaOptim:
         return feat_import_df
 
     def plot_results(self, final_results: pd.DataFrame):
-        best_rmse = 0
+        best_rmse = 999999999
         for periodical_refit_cycle in self.user_input_params['periodical_refit_cycles']:
-            if final_results['test_refitting_period_' + str(periodical_refit_cycle) + '_rmse'].iloc[0] > best_rmse:
+            if final_results['test_refitting_period_' + str(periodical_refit_cycle) + '_rmse'].iloc[0] < best_rmse:
                 best_refitting_cycle = periodical_refit_cycle
         RMSE = int(final_results['test_refitting_period_' + str(best_refitting_cycle) + '_rmse'].iloc[0])
 

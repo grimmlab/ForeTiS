@@ -24,11 +24,11 @@ if __name__ == '__main__':
     parser.add_argument("-sd", "--save_dir", type=str, default='docs/source/tutorials/tutorial_data',
                         help="Provide the full path of the directory in which you want to save your results. "
                              "Default is same as data_dir.")
-    parser.add_argument("-data", "--data", type=str, default='Metro_Interstate_Traffic_Volume',
+    parser.add_argument("-data", "--data", type=str, default='BikeSharing',
                         help="specify the dataset that you want to use.")
-    parser.add_argument("-con", "--config_file", type=str, default='Metro_Interstate_Traffic_Volume',
+    parser.add_argument("-con", "--config_file", type=str, default='BikeSharing',
                         help="specify the config type that you want to use.")
-    parser.add_argument("-mod", "--models", nargs='+', default=['evars-gpr', 'gprtf'],
+    parser.add_argument("-mod", "--models", nargs='+', default=['arima', 'arimax'],
                         help="specify the models to optimize: 'all' or naming according to source file name. "
                              "Multiple models can be selected by just naming multiple model names, "
                              "e.g. --models mlp xgboost. "
@@ -55,10 +55,15 @@ if __name__ == '__main__':
     parser.add_argument("-split", "--datasplit", type=str, default='timerseries-cv',
                         help="specify the data split method to use: 'timeseries-cv' | 'train-val-test' | 'cv'. "
                              "Standard is timeseries-cv")
-    parser.add_argument("-sv", "--seasonal_valtest", type=bool, default=True,
+    parser.add_argument("-sv", "--seasonal_valtest", action='store_true', default=True,
                         help="specify whether validation and test sets should be a multiple of the season length or"
                              "a percentage of the dataset. "
-                             "Standard is True")
+                             "Either pass --seasonal-valtest for True or --no-seasonal_valtest for False.")
+    parser.add_argument("-nsv", "--no-seasonal_valtest", dest='seasonal_valtest', action='store_false', default=False,
+                        help="specify whether validation and test sets should be a multiple of the season length or"
+                             "a percentage of the dataset. "
+                             "Either pass --seasonal-valtest for True or --no-seasonal_valtest for False.")
+    parser.set_defaults(seasonal_valtest=False)
     parser.add_argument("-vs", "--valtest_seasons", type=int, default=1,
                         help="Only relevant when seasonal_valtest is True: "
                              "define the number of seasons to be used. "

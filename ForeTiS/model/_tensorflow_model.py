@@ -20,7 +20,7 @@ class TensorflowModel(_base_model.BaseModel, abc.ABC):
 
         *Inherited attributes*
 
-        See :obj:`~easypheno.model._base_model.BaseModel`.
+        See :obj:`~ForeTiS.model._base_model.BaseModel`.
 
         *Additional attributes*
 
