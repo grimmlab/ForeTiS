@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs" />
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/lstmbayes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/lstmbayes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/mlpbayes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/mlpbayes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/models/lstm.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/lstm.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/models/mlp.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/mlp.rst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -282,14 +288,7 @@
       <workItem from="1675850587211" duration="689000" />
       <workItem from="1675929690418" duration="3563000" />
       <workItem from="1676115840617" duration="5012000" />
-      <workItem from="1676285614358" duration="14530000" />
-    </task>
-    <task id="LOCAL-00051" summary="some debugging">
-      <created>1669364967666</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1669364967667</updated>
+      <workItem from="1676285614358" duration="15314000" />
     </task>
     <task id="LOCAL-00052" summary="debugged the yearly trainval-test split">
       <created>1669366497146</created>
@@ -627,7 +626,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676304336078</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="updating docs">
+      <created>1676304954666</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1676304954666</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

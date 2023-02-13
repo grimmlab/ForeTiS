@@ -8,7 +8,7 @@ from ._model_classes import GetOutputZero, PrepareForlstm, PrepareForDropout
 from blitz.modules import BayesianLSTM, BayesianLinear
 
 
-class LSTM(_torch_model.TorchModel):
+class LSTMbayes(_torch_model.TorchModel):
     """
     Implementation of a class for a bayesian Long Short-Term Memory (LSTM) network.
 

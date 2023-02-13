@@ -17,7 +17,7 @@ For instance, if you want to run Extreme Gradient Boost implemented in *xgboost.
 In the following table, we give the keys for all prediction models as well as links to detailed descriptions and the source code:
 
 .. list-table:: Time Series Forecasting Models
-   :widths: 25 15 20 20 20
+   :widths: 25 15 20 20
    :header-rows: 1
 
    * - Model

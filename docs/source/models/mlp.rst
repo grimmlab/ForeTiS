@@ -87,8 +87,11 @@ Finally, we transform the list to which we added all network layers into a ``tor
 
 ``self.n_outputs`` is inherited from ``BaseModel``, where it is set to 1 for the regression task (one continuous output).
 
+Also, we implemented the Bayesian form of the MLP model which can be found in the `Mlpbayes class <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/mlpbayes.py>`_.
+
 **References**
 
 1. Bishop, Christopher M. (2006). Pattern recognition and machine learning. New York, Springer.
 2. Goodfellow, I., Bengio, Y.,, Courville, A. (2016). Deep Learning. MIT Press. Available at https://www.deeplearningbook.org/
+3. Charles Blundell, Julien Cornebise, Koray Kavukcuoglu, and Daan Wierstra. Weight uncertainty in neural networks. arXiv preprint arXiv:1505.05424, 2015.
 

@@ -6,7 +6,7 @@ from . import _torch_model
 from blitz.modules import BayesianLinear
 
 
-class Mlp(_torch_model.TorchModel):
+class Mlpbayes(_torch_model.TorchModel):
     """
     Implementation of a class for a bayesian feedforward Multilayer Perceptron (MLP).
 
