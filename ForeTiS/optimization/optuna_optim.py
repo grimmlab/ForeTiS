@@ -14,6 +14,7 @@ import copy
 import configparser
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import pathlib
 
 mpl.rcParams['pdf.fonttype'] = 42
 mpl.rcParams['ps.fonttype'] = 42
@@ -57,7 +58,7 @@ class OptunaOptim:
     :param intermediate_results_interval: number of trials after which intermediate results will be saved
     """
 
-    def __init__(self, save_dir: str, data: str, config_type: str, featureset_name: str, datasplit: str,
+    def __init__(self, save_dir: pathlib.Path, data: str, config_type: str, featureset_name: str, datasplit: str,
                  test_set_size_percentage: int, val_set_size_percentage: int, models: list, n_trials: int,
                  save_final_model: bool, batch_size: int, n_epochs: int, current_model_name: str,
                  datasets: base_dataset.Dataset, periodical_refit_cycles: list, refit_drops: int, refit_window: int,
@@ -72,9 +73,9 @@ class OptunaOptim:
         self.target_column = config[config_type]['target_column']
         self.best_trials = []
         self.user_input_params = locals()  # distribute all handed over params in whole class
-        self.base_path = save_dir + '/results/' + current_model_name + '/' + \
-                         datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + '_' + self.user_input_params[
-                             'featureset_name'] + '/'
+        self.base_path = save_dir.joinpath('results', current_model_name,
+                                           datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"), '_',
+                                           self.user_input_params['featureset_name'])
         if not os.path.exists(self.base_path):
             os.makedirs(self.base_path)
         self.save_path = self.base_path
@@ -95,7 +96,7 @@ class OptunaOptim:
                      self.user_input_params['current_model_name'] + '-TRIALS' + str(self.user_input_params["n_trials"]) \
                      + '-FEATURESET' + self.user_input_params['featureset_name']
         storage = optuna.storages.RDBStorage(
-            "sqlite:///" + self.save_path + 'Optuna_DB-' + study_name + ".db", heartbeat_interval=60, grace_period=120,
+            "sqlite:///" + str(self.save_path.joinpath('Optuna_DB.db')), heartbeat_interval=60, grace_period=120,
             failed_trial_callback=optuna.storages.RetryFailedTrialCallback(max_retry=3))
         study = optuna.create_study(
             storage=storage, study_name=study_name, direction='minimize', sampler=optuna.samplers.TPESampler(seed=42),
@@ -191,8 +192,9 @@ class OptunaOptim:
             self.user_input_params['periodical_refit_cycles'] = refitting_cycles_lst
 
         # save the unfitted model
-        os.makedirs(self.save_path + 'temp/', exist_ok=True)
-        model.save_model(path=self.save_path + 'temp/', filename='unfitted_model_trial' + str(trial.number))
+        self.save_path.joinpath('temp').mkdir(parents=True, exist_ok=True)
+        model.save_model(path=self.save_path.joinpath('temp'),
+                         filename='unfitted_model_trial' + str(trial.number))
         print('Params for Trial ' + str(trial.number))
         print(trial.params)
         if self.check_params_for_duplicate(current_params=trial.params):
@@ -230,8 +232,8 @@ class OptunaOptim:
                 train, val = self.pca_transform_train_test(train, val)
 
             # load the unfitted model to prevent information leak between folds
-            model = _model_functions.load_model(
-                path=self.save_path + 'temp/', filename='unfitted_model_trial' + str(trial.number))
+            model = _model_functions.load_model(path=self.save_path.joinpath('temp'),
+                                                filename='unfitted_model_trial' + str(trial.number))
 
             try:
                 # run train and validation loop for this fold
@@ -301,12 +303,14 @@ class OptunaOptim:
                 self.early_stopping_point = int(np.mean(early_stopping_points))
             self.current_best_val_result = current_val_result
             # persist results
-            validation_results.to_csv(self.save_path + 'temp/validation_results_trial' + str(trial.number) + '.csv',
-                                      sep=',', decimal='.', float_format='%.10f', index=False)
+            validation_results.to_csv(
+                self.save_path.joinpath('temp', 'validation_results_trial' + str(trial.number) + '.csv'),
+                sep=',', decimal='.', float_format='%.10f', index=False
+            )
             self.best_trials.insert(0, trial.number)
         else:
             # delete unfitted model
-            os.remove(self.save_path + 'temp/' + 'unfitted_model_trial' + str(trial.number))
+            self.save_path.joinpath('temp', 'unfitted_model_trial' + str(trial.number)).unlink()
 
         # save runtime information of this trial
         self.write_runtime_csv(
@@ -335,7 +339,7 @@ class OptunaOptim:
 
         :param dict_runtime: dictionary with runtime information
         """
-        with open(self.save_path + self.user_input_params['current_model_name'] + '_runtime_overview.csv', 'a') as runtime_file:
+        with open(self.save_path.joinpath(self.user_input_params['current_model_name'] + '_runtime_overview.csv'), 'a') as runtime_file:
             headers = ['Trial', 'refitting_cycle', 'process_time_s', 'real_time_s', 'params', 'note']
             writer = csv.DictWriter(f=runtime_file, fieldnames=headers)
             if runtime_file.tell() == 0:
@@ -348,7 +352,7 @@ class OptunaOptim:
 
         :return: dict with runtime info enhanced with runtime stats
         """
-        csv_file = pd.read_csv(self.save_path + self.user_input_params['current_model_name'] + '_runtime_overview.csv')
+        csv_file = pd.read_csv(self.save_path.joinpath(self.user_input_params['current_model_name'] + '_runtime_overview.csv'))
         if csv_file['Trial'].dtype is object and any(["retrain" in elem for elem in csv_file["Trial"]]):
             csv_file = csv_file[csv_file["Trial"].str.contains("retrain") is False]
         process_times = csv_file['process_time_s']
@@ -441,12 +445,10 @@ class OptunaOptim:
 
         start_process_time = time.process_time()
         start_realclock_time = time.time()
-
+        postfix = '' if len(self.study.trials) == self.user_input_params["n_trials"] else 'temp'
         final_model = self.load_retrain_model(
-            path=self.save_path, filename=prefix + 'unfitted_model_trial' + str(self.study.best_trial_copy.number),
+            path=self.save_path.joinpath(postfix), filename=prefix + 'unfitted_model_trial' + str(self.study.best_trial_copy.number),
             retrain=retrain, test=test, early_stopping_point=self.early_stopping_point)
-        if len(self.study.trials) == self.user_input_params["n_trials"] and self.user_input_params["save_final_model"]:
-            final_model.save_model(path=self.save_path, filename='final_retrained_model')
 
         if final_model.pca_transform:
             retrain, test = self.pca_transform_train_test(retrain, test)
@@ -588,18 +590,26 @@ class OptunaOptim:
 
         if len(self.study.trials) == self.user_input_params["n_trials"]:
             results_filename = 'final_model_test_results.csv'
-            if self.user_input_params['current_model_name'] in ['ard', 'bayesridge', 'elasticnet', 'lasso', 'ridge', 'xgboost']:
-                feature_importance.to_csv(
-                    self.save_path + 'final_model_feature_importances.csv', sep=',', decimal='.', float_format='%.10f',
-                    index=False)
+            feat_import_filename = 'final_model_feature_importances.csv'
+            if self.user_input_params["save_final_model"]:
+                final_model.save_model(path=self.save_path, filename='final_retrained_model')
         else:
-            results_filename = '/temp/intermediate_after_' + str(len(self.study.trials) - 1) + '_test_results.csv'
+            results_filename = 'intermediate_after_' + str(len(self.study.trials) - 1) + '_test_results.csv'
             feat_import_filename = \
-                '/temp/intermediate_after_' + str(len(self.study.trials) - 1) + '_feat_importances.csv'
-            shutil.copyfile(self.save_path + self.user_input_params['current_model_name'] + '_runtime_overview.csv',
-                            self.save_path + '/temp/intermediate_after_' + str(len(self.study.trials) - 1) + '_' +
-                            self.user_input_params['current_model_name'] + '_runtime_overview.csv', )
-        final_results.to_csv(self.save_path + results_filename, sep=',', decimal='.', float_format='%.10f', index=False)
+                'intermediate_after_' + str(len(self.study.trials) - 1) + '_feat_importances.csv'
+            shutil.copyfile(self.save_path.joinpath(self.current_model_name + '_runtime_overview.csv'),
+                            self.save_path.joinpath('temp',
+                                                    'intermediate_after_' + str(len(self.study.trials) - 1) + '_' +
+                                                    self.current_model_name + '_runtime_overview.csv'), )
+        final_results.to_csv(
+            self.save_path.joinpath(postfix, results_filename),
+            sep=',', decimal='.', float_format='%.10f', index=False
+        )
+        if self.user_input_params['current_model_name'] in ['ard', 'bayesridge', 'elasticnet', 'lasso', 'ridge', 'xgboost']:
+            feature_importance.to_csv(
+                self.save_path.joinpath(postfix, feat_import_filename),
+                sep=',', decimal='.', float_format='%.10f', index=False
+            )
 
         self.plot_results(final_results)
 
@@ -668,7 +678,9 @@ class OptunaOptim:
 
         plt.show()
 
-        plt.savefig(self.save_path + self.user_input_params['current_model_name'] + '_' + self.user_input_params['featureset_name'] + '_' + 'best_refitting_cycle' + '_' + str(best_refitting_cycle) + '.pdf', format='pdf', bbox_inches='tight')
+        plt.savefig(self.save_path.joinpath(self.user_input_params['current_model_name'] + '_' +
+                                            self.user_input_params['featureset_name'] + '_' + 'best_refitting_cycle' +
+                                            '_' + str(best_refitting_cycle) + '.pdf'), format='pdf', bbox_inches='tight')
 
     @property
     def run_optuna_optimization(self) -> dict:
@@ -680,7 +692,7 @@ class OptunaOptim:
         helper_functions.set_all_seeds()
         overall_results = {}
         print("## Starting Optimization")
-        self.save_path = self.base_path + "/"
+        self.save_path = self.base_path
         if not os.path.exists(self.save_path):
             os.makedirs(self.save_path)
         # Create a new study
@@ -705,9 +717,11 @@ class OptunaOptim:
             print("    {}: {}".format(key, value))
 
         # Move validation results and models of best trial
-        files_to_keep = glob.glob(self.save_path + 'temp/' + '*trial' + str(self.study.best_trial_copy.number) + '*')
+        # files_to_keep = glob.glob(self.save_path + 'temp/' + '*trial' + str(self.study.best_trial_copy.number) + '*')
+        files_to_keep_path = self.save_path.joinpath('temp', '*trial' + str(self.study.best_trial_copy.number) + '*')
+        files_to_keep = pathlib.Path(files_to_keep_path.parent).expanduser().glob(files_to_keep_path.name)
         for file in files_to_keep:
-            shutil.copyfile(file, self.save_path + file.split('/')[-1])
+            shutil.copyfile(file, self.save_path.joinpath(file.name))
 
         # Retrain on full train + val data with best hyperparams and apply on test
         for retry in range(len(self.best_trials)):
@@ -728,12 +742,13 @@ class OptunaOptim:
                 for key, value in self.study.best_trial_copy.params.items():
                     print("    {}: {}".format(key, value))
 
-                files_to_keep = glob.glob(
-                    self.save_path + 'temp/' + '*trial' + str(self.study.best_trial_copy.number) + '*')
+                # files_to_keep = glob.glob(self.save_path + 'temp/' + '*trial' + str(self.study.best_trial_copy.number) + '*')
+                files_to_keep_path = self.save_path.joinpath('temp', '*trial' + str(self.study.best_trial.number) + '*')
+                files_to_keep = pathlib.Path(files_to_keep_path.parent).expanduser().glob(files_to_keep_path.name)
                 for file in files_to_keep:
-                    shutil.copyfile(file, self.save_path + file.split('/')[-1])
+                    shutil.copyfile(file, self.save_path.joinpath(file.name))
                 continue
-            shutil.rmtree(self.save_path + 'temp/')
+            shutil.rmtree(self.save_path.joinpath('temp'))
             break
         overall_results['Test'] = {'best_params': self.study.best_trial_copy.params, 'eval_metrics': final_eval_scores,
                                    'runtime_metrics': runtime_metrics, 'retries': retry}

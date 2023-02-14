@@ -278,4 +278,4 @@ class BaseModel(abc.ABC):
         :param path: path where the model will be saved
         :param filename: filename of the model
         """
-        joblib.dump(self, path + filename, compress=3)
+        joblib.dump(self, path.joinpath(filename), compress=3)

@@ -1,6 +1,8 @@
 import joblib
+import tensorflow as tf
 
-from . import _base_model
+from . import _base_model, _tensorflow_model
+
 
 
 def load_model(path: str, filename: str) -> _base_model.BaseModel:
@@ -10,6 +12,8 @@ def load_model(path: str, filename: str) -> _base_model.BaseModel:
     :param filename: filename of the model
     :return: model instance
     """
-    path = path + '/' if path[-1] != '/' else path
-    model = joblib.load(path + filename)
+    model = joblib.load(path.joinpath(filename))
+    # special case for loading tensorflow optimizer
+    if issubclass(type(model), _tensorflow_model.TensorflowModel):
+        model.optimizer = tf.keras.optimizers.deserialize(model.optimizer)
     return model

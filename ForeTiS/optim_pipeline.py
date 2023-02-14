@@ -1,5 +1,7 @@
 import pprint
 import configparser
+import pathlib
+from pathlib import Path
 
 from ForeTiS.utils import helper_functions
 from ForeTiS.preprocess import base_dataset
@@ -16,6 +18,11 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
         cf_order: int = 1, cf_smooth: int = 4, scale_window_minimum: int = 2, max_samples_factor: int = 10,
         valtest_seasons: int = 1, seasonal_valtest: bool = True):
 
+    # create Path
+    data_dir = pathlib.Path(data_dir)
+    # set save directory
+    save_dir = data_dir if save_dir is None else pathlib.Path(save_dir)
+    save_dir = save_dir if save_dir.is_absolute() else save_dir.resolve()
     # Optimization Pipeline #
     helper_functions.set_all_seeds()
     models_to_optimize = helper_functions.get_list_of_implemented_models() if models == ['all'] else models
@@ -23,7 +30,9 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
     model_featureset_overview = {}
     featureset_names = []
     config = configparser.ConfigParser(allow_no_value=True)
-    config.read('Config/dataset_specific_config.ini')
+    root = Path(__file__).parent
+    ini_path = root.joinpath('dataset_specific_config.ini')
+    config.read_file(open(ini_path, 'r'))
     datasets = base_dataset.Dataset(data_dir=data_dir, data=data, config_file=config_file, event_lags=event_lags,
                                     test_set_size_percentage=test_set_size_percentage,
                                     windowsize_current_statistics=windowsize_current_statistics,
