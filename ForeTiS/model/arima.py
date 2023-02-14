@@ -72,6 +72,6 @@ class Arima(_stat_model.StatModel):
             },
             'seasonal_periods': {
                 'datatype': 'categorical',
-                'list_of_values': [52]
+                'list_of_values': [self.datasets.seasonal_periods]
             }
         }

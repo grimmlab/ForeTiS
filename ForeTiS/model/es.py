@@ -55,7 +55,7 @@ class Es(_stat_model.StatModel):
             },
             'seasonal_periods': {
                 'datatype': 'categorical',
-                'list_of_values': [None, 52]
+                'list_of_values': [None, self.datasets.seasonal_periods]
             },
             'use_brute': {
                 'datatype': 'categorical',

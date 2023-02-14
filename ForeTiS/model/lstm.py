@@ -57,7 +57,7 @@ class LSTM(_torch_model.TorchModel):
             'seq_length': {
                 'datatype': 'int',
                 'lower_bound': 1,
-                'upper_bound': 52
+                'upper_bound': self.datasets.seasonal_periods
             },
             'n_lstm_layers': {
                 'datatype': 'int',

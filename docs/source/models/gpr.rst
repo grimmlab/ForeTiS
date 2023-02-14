@@ -31,8 +31,8 @@ This is becasue both approaches share the almost the same method, except for the
 
 **References**
 
-1. Haselbeck, F., Killinger, J., Menrad, K., Hannus, T., Grimm, D.G., 2022. Machine Learning Outperforms Classical Forecasting on
-Horticultural Sales Predictions. Machine Learning with Applications 7, 100239.
+1. Haselbeck, F., Grimm, D.G., 2021. EVARS-GPR: EVent-triggered Augmented Refitting of Gaussian Process Regression for Seasonal
+Data.
 2. Alexander G. de G. Matthews, Mark van der Wilk, Tom Nickson, Keisuke. Fujii, Alexis Boukouvalas, Pablo León-Villagrá,
 Zoubin Ghahramani, and James Hensman. GPflow: A Gaussian process library using TensorFlow. Journal of Machine Learning
 Research, 18(40):1–6, apr 2017.
