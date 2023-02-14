@@ -74,7 +74,7 @@ class OptunaOptim:
         self.best_trials = []
         self.user_input_params = locals()  # distribute all handed over params in whole class
         self.base_path = save_dir.joinpath('results', current_model_name,
-                                           datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"), '_',
+                                           datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + '_' +
                                            self.user_input_params['featureset_name'])
         if not os.path.exists(self.base_path):
             os.makedirs(self.base_path)
