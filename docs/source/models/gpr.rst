@@ -1,4 +1,4 @@
-Linear Regression
+Gaussian Process Regression
 =============================================
 Subsequently, we give details on the Gaussian Process Regression approaches that are integrated in ForeTiS.
 References for a more detailed theoretical background can be found at the end of this page, which were also used for writing this text.
@@ -27,7 +27,6 @@ This is becasue both approaches share the almost the same method, except for the
 
             See :obj:`~ForeTiS.model._base_model.BaseModel` for more information on the attributes.
             """
-
 
 **References**
 

@@ -101,6 +101,30 @@ In the following table, we give the keys for all prediction models as well as li
      - :ref:`XGBoost`
      - `xgboost.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/xgboost.py>`_
 
+Also, ForeTiS contains the follwing additional models. These are easy to integrate by just copy and pasting them to the models folder.
+They do not get support or updates anymore by the authors, as we decided to use other framework for the algorithms, but
+they still should work.
+
+.. list-table:: Additional Time Series Forecasting Models
+   :widths: 25 15 20 20
+   :header-rows: 1
+
+   * - Model
+     - Key in ForeTiS
+     - Description
+     - Source Code
+   * - Gaussian Process Regression (with sklearn framework)
+     - gpr_sklearn
+     - :ref:`Gaussian Process Regression`
+     - `gpr_sklearn.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/additionalmodels/gpr_sklearn.py>`_
+   * - Bayesian Multilayer Perceptron (with IntelLabs BayesianTorch framework)
+     - mlpbayes_intel
+     - :ref:`Multilayer Perceptron`
+     - `mlpbayes_intel.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/additionalmodels/mlpbayes_intel.py>`_
+   * - Bayesian Long Short-Term Memory (LSTM) Network (with IntelLabs BayesianTorch framework)
+     - lstmbayes_intel
+     - :ref:`LSTM Network`
+     - `lstmbayes_intel.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/additionalmodels/lstmbayes_intel.py>`_
 
 If you are interested in adjusting an existing model or its hyperparameters: :ref:`HowTo: Adjust existing prediction models and their hyperparameters`.
 
