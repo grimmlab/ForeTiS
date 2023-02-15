@@ -44,6 +44,8 @@ html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {"logo_only": True, 'navigation_depth': 5, 'titles_only': False}
 
+html_logo = "../image/Logo_ForeTiS_Text.png"
+
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 

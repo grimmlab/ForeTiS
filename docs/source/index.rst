@@ -1,3 +1,7 @@
+.. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/main/docs/image/Logo_ForeTiS_Text.png
+    :width: 600
+    :alt: ForeTiS
+
 ForeTiS: A Forecasting Time Series Framework
 ===================================================
 ForeTiS is a Python framework that enables the rigorous training, comparison and analysis of predictions for a variety of different models.
