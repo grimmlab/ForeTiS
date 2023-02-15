@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="creating python package">
-      <change afterPath="$PROJECT_DIR$/docs/image/Logo_ForeTiS_Text.png" afterDir="false" />
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating doc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/image/Logo_ForeTiS_Text.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/image/Logo_ForeTiS_Text.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/HowTo Use ForeTiS as a pip package.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/HowTo Use ForeTiS as a pip package.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,14 +291,7 @@
       <workItem from="1676364714190" duration="473000" />
       <workItem from="1676365449443" duration="20627000" />
       <workItem from="1676407541442" duration="1758000" />
-      <workItem from="1676469992112" duration="1640000" />
-    </task>
-    <task id="LOCAL-00061" summary="adjusted hyperparams for statsmodels">
-      <created>1670063652242</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1670063652242</updated>
+      <workItem from="1676469992112" duration="2391000" />
     </task>
     <task id="LOCAL-00062" summary="updated optuna version">
       <created>1670567602900</created>
@@ -639,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676408891237</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="updating doc">
+      <created>1676473486395</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1676473486396</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,7 +657,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="new bayesnet package and other stuff" />
     <MESSAGE value="adjusted run.py" />
     <MESSAGE value="Dockerfile" />
     <MESSAGE value="some debugging" />
@@ -685,7 +681,8 @@
     <MESSAGE value="added string imputing" />
     <MESSAGE value="updating docs" />
     <MESSAGE value="creating python package" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating python package" />
+    <MESSAGE value="updating doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating doc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

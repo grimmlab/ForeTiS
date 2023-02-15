@@ -1,4 +1,4 @@
-<div align="left"><img src="https://raw.githubusercontent.com/grimmlab/ForeTiS/main/docs/image/Logo_ForeTiS_Text.png" height="80"/></div>
+<div align="left"><img src="https://raw.githubusercontent.com/grimmlab/ForeTiS/master/docs/image/Logo_ForeTiS_Text.png" height="80"/></div>
 
 # ForeTiS: A Forecasting Time Series framework
 

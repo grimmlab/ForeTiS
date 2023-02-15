@@ -1,4 +1,4 @@
-.. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/main/docs/image/Logo_ForeTiS_Text.png
+.. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/master/docs/image/Logo_ForeTiS_Text.png
     :width: 600
     :alt: ForeTiS
 
