@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating doc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/Logo_ForeTiS_Text.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/image/Logo_ForeTiS_Text.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/image/Algo.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/image/Algo.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/image/Algo.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/image/Algo.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,14 +290,7 @@
       <workItem from="1676364714190" duration="473000" />
       <workItem from="1676365449443" duration="20627000" />
       <workItem from="1676407541442" duration="1758000" />
-      <workItem from="1676469992112" duration="2391000" />
-    </task>
-    <task id="LOCAL-00062" summary="updated optuna version">
-      <created>1670567602900</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1670567602901</updated>
+      <workItem from="1676469992112" duration="3364000" />
     </task>
     <task id="LOCAL-00063" summary="debugged StatisticalFeatures.py">
       <created>1670585781213</created>
@@ -636,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676473486396</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="updating doc">
+      <created>1676474227105</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1676474227105</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
