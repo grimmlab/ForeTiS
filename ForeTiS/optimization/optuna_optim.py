@@ -328,8 +328,8 @@ class OptunaOptim:
         :param trial_params: parameters of the trial
         :param reason: hint for the reason of the Exception
         """
-        if os.path.exists(self.save_path + 'temp/' + 'unfitted_model_trial' + str(trial_number)):
-            os.remove(self.save_path + 'temp/' + 'unfitted_model_trial' + str(trial_number))
+        if self.save_path.joinpath('temp', 'unfitted_model_trial' + str(trial_number)).exists():
+            self.save_path.joinpath('temp', 'unfitted_model_trial' + str(trial_number)).unlink()
         self.write_runtime_csv(dict_runtime={'Trial': trial_number, 'process_time_s': np.nan, 'real_time_s': np.nan,
                                              'params': trial_params, 'note': reason})
 
@@ -644,7 +644,7 @@ class OptunaOptim:
         for periodical_refit_cycle in self.user_input_params['periodical_refit_cycles']:
             if final_results['test_refitting_period_' + str(periodical_refit_cycle) + '_rmse'].iloc[0] < best_rmse:
                 best_refitting_cycle = periodical_refit_cycle
-        RMSE = int(final_results['test_refitting_period_' + str(best_refitting_cycle) + '_rmse'].iloc[0])
+        RMSE = round(final_results['test_refitting_period_' + str(best_refitting_cycle) + '_rmse'].iloc[0])
 
         pred = final_results['y_pred_test_refitting_period_' + str(best_refitting_cycle)].dropna().values
         true = final_results['y_true_test'].dropna().values
@@ -674,13 +674,15 @@ class OptunaOptim:
         else:
             plt.xticks(x)
 
-        ax.legend(['RMSE: ' + str(RMSE), "True Data", "Standard Deviation"], frameon=False)
+        ax.legend(['Forecasts(' + str(best_refitting_cycle) + ') with ' + self.user_input_params['current_model_name'] + ' (RMSE: ' + str(RMSE) + ')', "True Data"], frameon=False)
 
+        fig1 = plt.gcf()
         plt.show()
+        plt.draw()
 
-        plt.savefig(self.save_path.joinpath(self.user_input_params['current_model_name'] + '_' +
+        fig1.savefig(self.save_path.joinpath(self.user_input_params['current_model_name'] + '_' +
                                             self.user_input_params['featureset_name'] + '_' + 'best_refitting_cycle' +
-                                            '_' + str(best_refitting_cycle) + '.pdf'), format='pdf', bbox_inches='tight')
+                                            '_' + str(best_refitting_cycle) + '.png'), format='png', bbox_inches='tight')
 
     @property
     def run_optuna_optimization(self) -> dict:

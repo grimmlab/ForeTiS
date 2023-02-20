@@ -42,7 +42,7 @@ templates_path = ['_templates']
 
 html_theme = 'sphinx_rtd_theme'
 
-html_theme_options = {"logo_only": True, 'navigation_depth': 5, 'titles_only': False}
+html_theme_options = {"logo_only": True, 'navigation_depth': 5, 'titles_only': False, 'style_nav_header_background': 'white'}
 
 html_logo = "../image/Logo_ForeTiS_Text.png"
 

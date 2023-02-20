@@ -24,9 +24,9 @@ if __name__ == '__main__':
     parser.add_argument("-sd", "--save_dir", type=str, default='docs/source/tutorials/tutorial_data',
                         help="Provide the full path of the directory in which you want to save your results. "
                              "Default is same as data_dir.")
-    parser.add_argument("-data", "--data", type=str, default='nike_sales',
+    parser.add_argument("-data", "--data", type=str, default='DailyDelhiClimateTrain',
                         help="specify the dataset that you want to use.")
-    parser.add_argument("-con", "--config_file", type=str, default='nike_sales',
+    parser.add_argument("-con", "--config_file", type=str, default='DailyDelhiClimate',
                         help="specify the config type that you want to use.")
     parser.add_argument("-mod", "--models", nargs='+', default=['xgboost'],
                         help="specify the models to optimize: 'all' or naming according to source file name. "
@@ -38,10 +38,10 @@ if __name__ == '__main__':
                              "Standard is False")
 
     # Data Engineering Params
-    parser.add_argument("-wf", "--windowsize_current_statistics", type=int, default=3,
+    parser.add_argument("-wf", "--windowsize_current_statistics", type=int, default=5,
                         help="specify the windowsize for the feature engineering of the current statistics. "
                              "Standard is 3")
-    parser.add_argument("-ws", "--windowsize_lagged_statistics", type=int, default=3,
+    parser.add_argument("-ws", "--windowsize_lagged_statistics", type=int, default=2,
                         help="specify the windowsize for the feature engineering of the lagged statistics. "
                              "Standard is 3")
     parser.add_argument("-im", "--imputation_method", type=str, default='mean',
@@ -52,7 +52,7 @@ if __name__ == '__main__':
                         help="The event lags for the counters")
 
     # Preprocess Params #
-    parser.add_argument("-split", "--datasplit", type=str, default='timerseries-cv',
+    parser.add_argument("-split", "--datasplit", type=str, default='cv',
                         help="specify the data split method to use: 'timeseries-cv' | 'train-val-test' | 'cv'. "
                              "Standard is timeseries-cv")
     parser.add_argument("-sv", "--seasonal_valtest", action='store_true', default=True,
@@ -63,7 +63,7 @@ if __name__ == '__main__':
                         help="specify whether validation and test sets should be a multiple of the season length or"
                              "a percentage of the dataset. "
                              "Either pass --seasonal-valtest for True or --no-seasonal_valtest for False.")
-    parser.set_defaults(seasonal_valtest=True)
+    parser.set_defaults(seasonal_valtest=False)
     parser.add_argument("-vs", "--valtest_seasons", type=int, default=1,
                         help="Only relevant when seasonal_valtest is True: "
                              "define the number of seasons to be used. "

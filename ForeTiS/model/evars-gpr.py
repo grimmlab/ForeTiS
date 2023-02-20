@@ -174,9 +174,9 @@ class Evars_gpr(_tensorflow_model.TensorflowModel):
                             pd.Timedelta(2 * self.seasonal_periods + self.scale_window + 1, unit=self.time_format):
                             self.change_point_index -
                             pd.Timedelta(2 * self.seasonal_periods + 1, unit=self.time_format)][self.target_column])
-                    if self.__scale_seasons == 1:
+                    if self.__scale_seasons == 1 and mean_prev_seas_1 != 0:
                         self.output_scale = mean_now / mean_prev_seas_1
-                    elif self.__scale_seasons == 2:
+                    elif self.__scale_seasons == 2 and mean_prev_seas_1 != 0 and mean_prev_seas_2 != 0:
                         self.output_scale = np.mean([mean_now / mean_prev_seas_1, mean_now / mean_prev_seas_2])
                     if self.output_scale == 0:
                         raise Exception
