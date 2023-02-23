@@ -1,6 +1,24 @@
 import sklearn
 import numpy as np
 
+def smape(y_true: np.array, y_pred: np.array) -> float:
+    """
+    Function delivering Symmetric Mean Absolute Percentage Error between prediction and actual values
+    :param y_true: actual values
+    :param y_pred: prediction values
+    :return: sMAPE between prediction and actual values
+    """
+    return 100 / len(y_true) * np.sum(np.abs(y_pred - y_true) / ((np.abs(y_true) + np.abs(y_pred)) / 2))
+
+
+def mape(y_true: np.array, y_pred: np.array) -> float:
+    """
+    Function delivering Mean Absolute Percentage Error between prediction and actual values
+    :param y_true: actual values
+    :param y_pred: prediction values
+    :return: MAPE between prediction and actual values
+    """
+    return np.mean(np.abs((y_true - y_pred) / (y_true + 0.1))) * 100  # +0.1 to avoid div by zero
 
 def get_evaluation_report(y_true: np.array, y_pred: np.array, prefix: str = '', current_model_name: str = None) -> dict:
     """
@@ -25,7 +43,9 @@ def get_evaluation_report(y_true: np.array, y_pred: np.array, prefix: str = '', 
         prefix + 'mse': sklearn.metrics.mean_squared_error(y_true=y_true, y_pred=y_pred),
         prefix + 'rmse': sklearn.metrics.mean_squared_error(y_true=y_true, y_pred=y_pred, squared=False),
         prefix + 'r2_score': sklearn.metrics.r2_score(y_true=y_true, y_pred=y_pred),
-        prefix + 'explained_variance': sklearn.metrics.explained_variance_score(y_true=y_true, y_pred=y_pred)
+        prefix + 'explained_variance': sklearn.metrics.explained_variance_score(y_true=y_true, y_pred=y_pred),
+        prefix + 'MAPE': mape(y_true=y_true, y_pred=y_pred),
+        prefix + 'sMAPE': smape(y_true=y_true, y_pred=y_pred)
     }
 
     return eval_report_dict

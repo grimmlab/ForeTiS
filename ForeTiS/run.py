@@ -24,11 +24,11 @@ if __name__ == '__main__':
     parser.add_argument("-sd", "--save_dir", type=str, default='docs/source/tutorials/tutorial_data',
                         help="Provide the full path of the directory in which you want to save your results. "
                              "Default is same as data_dir.")
-    parser.add_argument("-data", "--data", type=str, default='DailyDelhiClimateTrain',
+    parser.add_argument("-data", "--data", type=str, default='nike_sales',
                         help="specify the dataset that you want to use.")
-    parser.add_argument("-con", "--config_file", type=str, default='DailyDelhiClimate',
+    parser.add_argument("-con", "--config_file", type=str, default='nike_sales',
                         help="specify the config type that you want to use.")
-    parser.add_argument("-mod", "--models", nargs='+', default=['xgboost'],
+    parser.add_argument("-mod", "--models", nargs='+', default=['ard'],
                         help="specify the models to optimize: 'all' or naming according to source file name. "
                              "Multiple models can be selected by just naming multiple model names, "
                              "e.g. --models mlp xgboost. "
@@ -52,7 +52,7 @@ if __name__ == '__main__':
                         help="The event lags for the counters")
 
     # Preprocess Params #
-    parser.add_argument("-split", "--datasplit", type=str, default='cv',
+    parser.add_argument("-split", "--datasplit", type=str, default='train-val-test',
                         help="specify the data split method to use: 'timeseries-cv' | 'train-val-test' | 'cv'. "
                              "Standard is timeseries-cv")
     parser.add_argument("-sv", "--seasonal_valtest", action='store_true', default=True,
@@ -63,12 +63,12 @@ if __name__ == '__main__':
                         help="specify whether validation and test sets should be a multiple of the season length or"
                              "a percentage of the dataset. "
                              "Either pass --seasonal-valtest for True or --no-seasonal_valtest for False.")
-    parser.set_defaults(seasonal_valtest=False)
+    parser.set_defaults(seasonal_valtest=True)
     parser.add_argument("-vs", "--valtest_seasons", type=int, default=1,
                         help="Only relevant when seasonal_valtest is True: "
                              "define the number of seasons to be used. "
                              "Standard is 1")
-    parser.add_argument("-testperc", "--test_set_size_percentage", type=int, default=20,
+    parser.add_argument("-testperc", "--test_set_size_percentage", type=int, default=30,
                         help="Only relevant when seasonal_valtest is False: "
                              "specify the size of the test set in percentage. "
                              "Standard is 20")
@@ -79,13 +79,13 @@ if __name__ == '__main__':
                              "Standard is 20")
 
     # Model and Optimization Params #
-    parser.add_argument("-tr", "--n_trials", type=int, default=200,
+    parser.add_argument("-tr", "--n_trials", type=int, default=2,
                         help="specify the number of trials for the Bayesian optimization (optuna).")
     parser.add_argument("-sf", "--save_final_model", type=bool, default=True,
                         help="specify whether to save the final model to hard drive or not "
                              "(caution: some models may use a lot of disk space, "
                              "unfitted models that can be retrained are already saved by default).")
-    parser.add_argument("-prc", "--periodical_refit_cycles", type=list, default=['complete', 0, 1, 2],
+    parser.add_argument("-prc", "--periodical_refit_frequency", type=list, default=['complete', 0, 1, 2],
                         help="specify with which periods periodical refitting will be done. "
                              "0 means no periodical refitting, "
                              "complete means no periodical refitting and the whole train dataset will be used for "

@@ -4,7 +4,7 @@ import pandas as pd
 import sklearn
 import numpy as np
 import os
-import glob
+import warnings
 import shutil
 from sklearn.model_selection import train_test_split
 import csv
@@ -53,7 +53,7 @@ class OptunaOptim:
     :param batch_size: batch size for neural network models
     :param n_epochs: number of epochs for neural network models
     :param current_model_name: name of the current model according to naming of .py file in package model
-    :param periodical_refit_cycles: if and for which intervals periodical refitting should be performed
+    :param periodical_refit_frequency: if and for which intervals periodical refitting should be performed
     :param refit_drops: after how many periods the model should get updated
     :param intermediate_results_interval: number of trials after which intermediate results will be saved
     """
@@ -61,7 +61,7 @@ class OptunaOptim:
     def __init__(self, save_dir: pathlib.Path, data: str, config_type: str, featureset_name: str, datasplit: str,
                  test_set_size_percentage: int, val_set_size_percentage: int, models: list, n_trials: int,
                  save_final_model: bool, batch_size: int, n_epochs: int, current_model_name: str,
-                 datasets: base_dataset.Dataset, periodical_refit_cycles: list, refit_drops: int, refit_window: int,
+                 datasets: base_dataset.Dataset, periodical_refit_frequency: list, refit_drops: int, refit_window: int,
                  intermediate_results_interval: int, pca_transform: bool, config: configparser.ConfigParser,
                  optimize_featureset, scale_thr: float, scale_seasons: int, scale_window_factor: float, cf_r: float,
                  cf_order: int, cf_smooth: int, cf_thr_perc: int, scale_window_minimum: int, max_samples_factor: int,
@@ -82,9 +82,8 @@ class OptunaOptim:
 
         if self.user_input_params['seasonal_valtest'] and \
                 (self.user_input_params['datasplit'] == 'cv' or self.user_input_params['datasplit'] == 'train-val-test'):
-            self.user_input_params['test_set_size_percentage'] = \
-                int(input("cv or train-val-test and seasonal test or validation set does not work, "
-                          "please input percentage for test and validation set:"))
+            warnings.warn('seasonal_valtest is set to true, while datasplit is set to cv or train-val-test. '
+                          'Will ignore seasonal_valtest.')
 
     def create_new_study(self) -> optuna.study.Study:
         """
@@ -166,7 +165,7 @@ class OptunaOptim:
 
         # set the datasplit
         self.featureset = model.featureset
-        if self.user_input_params['seasonal_valtest']:
+        if self.user_input_params['datasplit'] == 'timeseries-cv' and self.user_input_params['seasonal_valtest']:
             train_val = self.featureset.iloc[: -self.user_input_params["valtest_seasons"]*self.seasonal_periods]
             train_val.index.freq = train_val.index.inferred_freq
         else:
@@ -182,7 +181,7 @@ class OptunaOptim:
             self.user_input_params['datasplit'] = 'train-val-test'
         if self.user_input_params['datasplit'] != 'timeseries-cv' and self.user_input_params['current_model_name'] in ['lstm', 'lstmbayes', 'es', 'arima', 'arimax']:
             raise Exception("Model with time depedency onyl work together with timerseries-cv.")
-        if not all(elem == "complete" for elem in self.user_input_params['periodical_refit_cycles']) and max((i for i in self.user_input_params['periodical_refit_cycles'] if isinstance(i, int))) >= (len(self.featureset) - len(train_val))//2:
+        if not all(elem == "complete" for elem in self.user_input_params['periodical_refit_frequency']) and max((i for i in self.user_input_params['periodical_refit_frequency'] if isinstance(i, int))) >= (len(self.featureset) - len(train_val))//2:
             print("One or more refitting cycles are longer than the test set. Please reset the refitting cycles.")
             refitting_cycles_lst = []
             number_refit_cycles = int(input("Number of refitting cycles: "))
@@ -191,7 +190,7 @@ class OptunaOptim:
                 if refit_cycle != 'complete':
                     refit_cycle = int(refit_cycle)
                 refitting_cycles_lst.append(refit_cycle)
-            self.user_input_params['periodical_refit_cycles'] = refitting_cycles_lst
+            self.user_input_params['periodical_refit_frequency'] = refitting_cycles_lst
 
         # save the unfitted model
         self.save_path.joinpath('temp').mkdir(parents=True, exist_ok=True)
@@ -438,7 +437,7 @@ class OptunaOptim:
         print("## Retrain best model and test ##")
         # Retrain on full train + val data with best hyperparams and apply on test
         prefix = '' if len(self.study.trials) == self.user_input_params["n_trials"] else '/temp/'
-        if self.user_input_params['seasonal_valtest']:
+        if self.user_input_params['datasplit'] == 'timeseries-cv' and self.user_input_params['seasonal_valtest']:
             test = self.featureset.iloc[-(self.user_input_params["valtest_seasons"]*self.seasonal_periods):]
             retrain = self.featureset.iloc[:-self.user_input_params["valtest_seasons"]*self.seasonal_periods]
         else:
@@ -467,7 +466,7 @@ class OptunaOptim:
         if self.user_input_params['current_model_name'] in ['ard', 'bayesridge', 'elasticnet', 'lasso', 'ridge', 'xgboost']:
             feature_importance = pd.DataFrame(index=range(0, 0))
 
-        for count, period in enumerate(self.user_input_params['periodical_refit_cycles']):
+        for count, period in enumerate(self.user_input_params['periodical_refit_frequency']):
             test_len = test.shape[0]
             if hasattr(final_model, 'sequential'):
                 test = self.featureset.tail(len(test) + final_model.seq_length)
@@ -643,7 +642,7 @@ class OptunaOptim:
 
     def plot_results(self, final_results: pd.DataFrame):
         best_rmse = 999999999
-        for periodical_refit_cycle in self.user_input_params['periodical_refit_cycles']:
+        for periodical_refit_cycle in self.user_input_params['periodical_refit_frequency']:
             if final_results['test_refitting_period_' + str(periodical_refit_cycle) + '_rmse'].iloc[0] < best_rmse:
                 best_refitting_cycle = periodical_refit_cycle
         RMSE = round(final_results['test_refitting_period_' + str(best_refitting_cycle) + '_rmse'].iloc[0])
