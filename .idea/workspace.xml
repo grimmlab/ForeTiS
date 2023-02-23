@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updated docs">
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="added (s)MAPE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/evaluation/eval_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/evaluation/eval_metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ForeTiS/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/HowTo Use ForeTiS as a pip package.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/HowTo Use ForeTiS as a pip package.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,14 +297,8 @@
       <workItem from="1676898412216" duration="6460000" />
       <workItem from="1676963631904" duration="483000" />
       <workItem from="1677151434303" duration="3442000" />
-      <workItem from="1677167939998" duration="345000" />
-    </task>
-    <task id="LOCAL-00070" summary="deleted retailer names">
-      <created>1673348163756</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1673348163756</updated>
+      <workItem from="1677167939998" duration="478000" />
+      <workItem from="1677169877778" duration="1841000" />
     </task>
     <task id="LOCAL-00071" summary="initial push">
       <created>1674231804696</created>
@@ -646,7 +636,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676914166697</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="added (s)MAPE">
+      <created>1677168297558</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1677168297558</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +664,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="some debugging" />
     <MESSAGE value="debugged the yearly trainval-test split" />
     <MESSAGE value="added retries if testing failes" />
     <MESSAGE value="added retries" />
@@ -692,7 +688,8 @@
     <MESSAGE value="updating doc" />
     <MESSAGE value="timeseries-cv security mechanism added" />
     <MESSAGE value="updated docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated docs" />
+    <MESSAGE value="added (s)MAPE" />
+    <option name="LAST_COMMIT_MESSAGE" value="added (s)MAPE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -733,7 +730,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ForeTiS$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1677168191188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ForeTiS$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1677170295373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HorticulturalSalesPrediction$HorticulturalSalesPrediction_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1666270498365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ForeTiS_general$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1674152614768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
