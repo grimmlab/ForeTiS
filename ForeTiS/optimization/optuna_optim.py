@@ -494,6 +494,7 @@ class OptunaOptim:
                 y_pred_test_var = np.full((len(y_pred_test),), y_pred_test_var)
 
             else:
+                model.retrain(retrain=retrain.tail(self.user_input_params['refit_window'] * self.seasonal_periods))
                 y_pred_test = list()
                 y_pred_test_var = list()
                 if hasattr(final_model, 'conf'):

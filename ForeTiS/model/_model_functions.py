@@ -14,6 +14,6 @@ def load_model(path: str, filename: str) -> _base_model.BaseModel:
     """
     model = joblib.load(path.joinpath(filename))
     # special case for loading tensorflow optimizer
-    if issubclass(type(model), _tensorflow_model.TensorflowModel):
-        model.optimizer = tf.keras.optimizers.deserialize(model.optimizer)
+    # if issubclass(type(model), _tensorflow_model.TensorflowModel):
+    #     model.optimizer = tf.keras.optimizers.deserialize(model.optimizer)
     return model
