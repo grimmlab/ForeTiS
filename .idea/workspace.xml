@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="changed defaults values">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/utils/helper_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/utils/helper_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/DailyDelhiClimateTrain.csv" beforeDir="false" />
-    </list>
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="debugged datasplits" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -305,14 +298,7 @@
       <workItem from="1677169877778" duration="2041000" />
       <workItem from="1677180654731" duration="703000" />
       <workItem from="1677221726706" duration="831000" />
-      <workItem from="1677225759062" duration="4039000" />
-    </task>
-    <task id="LOCAL-00072" summary="checked evars-gpr">
-      <created>1674244383103</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1674244383103</updated>
+      <workItem from="1677225759062" duration="4394000" />
     </task>
     <task id="LOCAL-00073" summary="initial push">
       <created>1674563173281</created>
@@ -650,7 +636,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677174509877</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="debugged datasplits">
+      <created>1677231814633</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1677231814634</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,7 +664,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="added retries if testing failes" />
     <MESSAGE value="added retries" />
     <MESSAGE value="debugged retries" />
     <MESSAGE value="debugged heusser" />
@@ -696,7 +688,8 @@
     <MESSAGE value="updated docs" />
     <MESSAGE value="added (s)MAPE" />
     <MESSAGE value="changed defaults values" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed defaults values" />
+    <MESSAGE value="debugged datasplits" />
+    <option name="LAST_COMMIT_MESSAGE" value="debugged datasplits" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
