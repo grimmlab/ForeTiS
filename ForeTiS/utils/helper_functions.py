@@ -69,8 +69,8 @@ def set_all_seeds(seed: int=42):
     tf.random.set_seed(seed)
 
 
-def get_indexes(df: pd.DataFrame, datasplit: str, folds: int, valtest_seasons: int, seasonal_periods: int,
-                test_set_size_percentage: int, val_set_size_percentage: int):
+def get_indexes(df: pd.DataFrame, datasplit: str, folds: int, seasonal_valtest, valtest_seasons: int,
+                seasonal_periods: int, val_set_size_percentage: int):
     """
     Get the indexes for cv
 
@@ -87,7 +87,7 @@ def get_indexes(df: pd.DataFrame, datasplit: str, folds: int, valtest_seasons: i
     train_indexes = []
     test_indexes = []
     if datasplit == 'timeseries-cv':
-        if test_set_size_percentage == "seasonal":
+        if seasonal_valtest:
             for fold in range(folds):
                 train_df_index = df.iloc[:-((folds-fold) * valtest_seasons * seasonal_periods)].index
                 train_df_indexes = []

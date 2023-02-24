@@ -65,7 +65,7 @@ class OptunaOptim:
                  intermediate_results_interval: int, pca_transform: bool, config: configparser.ConfigParser,
                  optimize_featureset, scale_thr: float, scale_seasons: int, scale_window_factor: float, cf_r: float,
                  cf_order: int, cf_smooth: int, cf_thr_perc: int, scale_window_minimum: int, max_samples_factor: int,
-                 valtest_seasons: int, seasonal_valtest: bool):
+                 valtest_seasons: int, seasonal_valtest: bool, n_splits: int):
         self.study = None
         self.current_best_val_result = None
         self.early_stopping_point = None
@@ -173,14 +173,14 @@ class OptunaOptim:
                 self.featureset, test_size=self.user_input_params["test_set_size_percentage"] * 0.01, shuffle=False)
 
         # Security mechanisms
-        if self.user_input_params['datasplit'] == 'cv' and self.user_input_params['current_model_name'] == 'es':
-            print('Exponential Smoothing depends on continuous time series. Will set datasplit to timeseries-cv.')
-            self.user_input_params['datasplit'] = 'timeseries-cv'
-        if self.user_input_params['datasplit'] == 'timeseries-cv' and len(self.featureset) < 4*self.seasonal_periods*self.user_input_params['valtest_seasons']:
-            print('Timeseries is shorter than 4 years. Will set datasplit to train-val-test.')
-            self.user_input_params['datasplit'] = 'train-val-test'
+        # if self.user_input_params['datasplit'] == 'cv' and self.user_input_params['current_model_name'] == 'es':
+        #     print('Exponential Smoothing depends on continuous time series. Will set datasplit to timeseries-cv.')
+        #     self.user_input_params['datasplit'] = 'timeseries-cv'
+        # if self.user_input_params['datasplit'] == 'timeseries-cv' and self.user_input_params['seasonal_valtest'] and len(self.featureset) < 4*self.seasonal_periods*self.user_input_params['valtest_seasons']:
+        #     print('Timeseries is shorter than 4 seasons. Will set datasplit to train-val-test.')
+        #     self.user_input_params['datasplit'] = 'train-val-test'
         if self.user_input_params['datasplit'] != 'timeseries-cv' and self.user_input_params['current_model_name'] in ['lstm', 'lstmbayes', 'es', 'arima', 'arimax']:
-            raise Exception("Model with time depedency onyl work together with timerseries-cv.")
+            raise Exception("Model with time dependency only work together with timerseries-cv.")
         if not all(elem == "complete" for elem in self.user_input_params['periodical_refit_frequency']) and max((i for i in self.user_input_params['periodical_refit_frequency'] if isinstance(i, int))) >= (len(self.featureset) - len(train_val))//2:
             print("One or more refitting cycles are longer than the test set. Please reset the refitting cycles.")
             refitting_cycles_lst = []
@@ -208,14 +208,18 @@ class OptunaOptim:
         validation_results = pd.DataFrame(index=range(0, self.featureset.shape[0]))
 
         if 'cv' in self.user_input_params['datasplit']:
-            folds = round((len(train_val)/self.seasonal_periods))//2
-            if folds == 0:
-                raise Exception("Can not create a single fold. Probably training set too short and seasonal periods too long.")
+            if self.user_input_params['seasonal_valtest']:
+                folds = round((len(train_val)/self.seasonal_periods))//2
+                if folds == 0:
+                    raise Exception(
+                        "Can not create a single fold. Probably training set too short and seasonal periods too long.")
+            else:
+                folds = self.user_input_params['n_splits']
             if folds > 3:
                 folds = 3
             train_indexes, val_indexes = helper_functions.get_indexes(
                 df=train_val, datasplit=self.user_input_params['datasplit'],
-                test_set_size_percentage=self.user_input_params['test_set_size_percentage'],
+                seasonal_valtest=self.user_input_params['seasonal_valtest'],
                 valtest_seasons=self.user_input_params['valtest_seasons'], folds=folds,
                 seasonal_periods=self.seasonal_periods,
                 val_set_size_percentage=self.user_input_params["val_set_size_percentage"])

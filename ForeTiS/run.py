@@ -77,6 +77,10 @@ if __name__ == '__main__':
                              "or when seasonal_valtest is False, "
                              "define the size of the validation set in percentage. "
                              "Standard is 20")
+    parser.add_argument("-splits", "--n_splits", type=int, default=3,
+                        help="Only relevant for datasplit method 'cv': define the number of "
+                             "splits to use for 'timeseries-cv' or 'cv'. "
+                             "Standard is 3")
 
     # Model and Optimization Params #
     parser.add_argument("-tr", "--n_trials", type=int, default=200,
