@@ -173,12 +173,6 @@ class OptunaOptim:
                 self.featureset, test_size=self.user_input_params["test_set_size_percentage"] * 0.01, shuffle=False)
 
         # Security mechanisms
-        # if self.user_input_params['datasplit'] == 'cv' and self.user_input_params['current_model_name'] == 'es':
-        #     print('Exponential Smoothing depends on continuous time series. Will set datasplit to timeseries-cv.')
-        #     self.user_input_params['datasplit'] = 'timeseries-cv'
-        # if self.user_input_params['datasplit'] == 'timeseries-cv' and self.user_input_params['seasonal_valtest'] and len(self.featureset) < 4*self.seasonal_periods*self.user_input_params['valtest_seasons']:
-        #     print('Timeseries is shorter than 4 seasons. Will set datasplit to train-val-test.')
-        #     self.user_input_params['datasplit'] = 'train-val-test'
         if self.user_input_params['datasplit'] != 'timeseries-cv' and self.user_input_params['current_model_name'] in ['lstm', 'lstmbayes', 'es', 'arima', 'arimax']:
             raise Exception("Model with time dependency only work together with timerseries-cv.")
         if not all(elem == "complete" for elem in self.user_input_params['periodical_refit_frequency']) and max((i for i in self.user_input_params['periodical_refit_frequency'] if isinstance(i, int))) >= (len(self.featureset) - len(train_val))//2:
@@ -650,7 +644,8 @@ class OptunaOptim:
         for periodical_refit_cycle in self.user_input_params['periodical_refit_frequency']:
             if final_results['test_refitting_period_' + str(periodical_refit_cycle) + '_rmse'].iloc[0] < best_rmse:
                 best_refitting_cycle = periodical_refit_cycle
-        RMSE = round(final_results['test_refitting_period_' + str(best_refitting_cycle) + '_rmse'].iloc[0])
+                best_rmse = final_results['test_refitting_period_' + str(periodical_refit_cycle) + '_rmse'].iloc[0]
+        RMSE = round(best_rmse)
 
         pred = final_results['y_pred_test_refitting_period_' + str(best_refitting_cycle)].dropna().values
         true = final_results['y_true_test'].dropna().values
@@ -751,7 +746,7 @@ class OptunaOptim:
                     print("    {}: {}".format(key, value))
 
                 # files_to_keep = glob.glob(self.save_path + 'temp/' + '*trial' + str(self.study.best_trial_copy.number) + '*')
-                files_to_keep_path = self.save_path.joinpath('temp', '*trial' + str(self.study.best_trial.number) + '*')
+                files_to_keep_path = self.save_path.joinpath('temp', '*trial' + str(self.study.best_trial_copy.number) + '*')
                 files_to_keep = pathlib.Path(files_to_keep_path.parent).expanduser().glob(files_to_keep_path.name)
                 for file in files_to_keep:
                     shutil.copyfile(file, self.save_path.joinpath(file.name))

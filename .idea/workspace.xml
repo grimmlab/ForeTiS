@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="&#10;debugged datasplits">
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="changed config file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/dataset_specific_config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/dataset_specific_config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_model_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_model_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -303,14 +301,11 @@
       <workItem from="1677169877778" duration="2041000" />
       <workItem from="1677180654731" duration="703000" />
       <workItem from="1677221726706" duration="831000" />
-      <workItem from="1677225759062" duration="9935000" />
-    </task>
-    <task id="LOCAL-00074" summary="initial push">
-      <created>1674563855429</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1674563855429</updated>
+      <workItem from="1677225759062" duration="14630000" />
+      <workItem from="1677315847163" duration="1451000" />
+      <workItem from="1677482696644" duration="769000" />
+      <workItem from="1677487927432" duration="1632000" />
+      <workItem from="1677493305454" duration="6098000" />
     </task>
     <task id="LOCAL-00075" summary="initial push">
       <created>1674564001218</created>
@@ -648,7 +643,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677232296576</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="changed config file">
+      <created>1677244731707</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1677244731707</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,7 +671,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="debugged retries" />
     <MESSAGE value="debugged heusser" />
     <MESSAGE value="debugged FeatureAdder.py" />
     <MESSAGE value="debugged periodical refitting" />
@@ -694,7 +695,8 @@
     <MESSAGE value="changed defaults values" />
     <MESSAGE value="debugged datasplits" />
     <MESSAGE value="&#10;debugged datasplits" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;debugged datasplits" />
+    <MESSAGE value="changed config file" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed config file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -726,12 +728,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>219</line>
+          <line>213</line>
           <option name="timeStamp" value="265" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>211</line>
+          <line>205</line>
           <option name="timeStamp" value="266" />
         </line-breakpoint>
       </breakpoints>
@@ -745,7 +747,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ForeTiS$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1677243958914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ForeTiS$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1677249400395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HorticulturalSalesPrediction$HorticulturalSalesPrediction_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1666270498365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ForeTiS_general$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1674152614768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

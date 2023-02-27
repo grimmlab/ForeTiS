@@ -134,13 +134,13 @@ If you want to integrate your own prediction model: :ref:`HowTo: Integrate your 
     :maxdepth: 4
     :hidden:
 
-    models/arimax
     models/baseline
-    models/bayesreg
     models/es
-    models/gpr
-    models/hyperparam_optim
+    models/arimax
     models/linreg
+    models/bayesreg
+    models/gpr
+    models/xgb
     models/lstm
     models/mlp
-    models/xgb
+    models/hyperparam_optim
