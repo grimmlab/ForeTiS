@@ -1,3 +1,5 @@
+import pathlib
+
 import pandas as pd
 import os
 import configparser
@@ -47,47 +49,48 @@ class Dataset:
     :param: seasonal_valtest: whether validation and test sets should be a multiple of the season length or a percentage of the dataset
     """
 
-    def __init__(self, data_dir: str, data: str, config_file: str, test_set_size_percentage: int,
+    def __init__(self, data_dir: pathlib.Path, data: str, config_file_section: str, test_set_size_percentage: int,
                  windowsize_current_statistics: int, windowsize_lagged_statistics: int, imputation_method: str = 'None',
                  config: configparser.ConfigParser = None, event_lags: int = None, valtest_seasons: int = None,
                  seasonal_valtest: bool = None):
 
         self.user_input_params = locals()  # distribute all handed over params in whole class
 
-        self.values_for_counter = config[config_file]['values_for_counter'].replace(" ", "").split(',')
+        self.values_for_counter = config[config_file_section]['values_for_counter'].replace(" ", "").split(',')
         if '' in self.values_for_counter:
             self.values_for_counter = None
-        self.columns_for_counter = config[config_file]['columns_for_counter'].replace(" ", "").split(',')
+        self.columns_for_counter = config[config_file_section]['columns_for_counter'].replace(" ", "").split(',')
         if '' in self.columns_for_counter:
             self.columns_for_counter = [None]
-        self.columns_for_lags = config[config_file]['columns_for_lags'].replace(" ", "").split(',')
+        self.columns_for_lags = config[config_file_section]['columns_for_lags'].replace(" ", "").split(',')
         if '' in self.columns_for_lags:
             self.columns_for_lags = [None]
-        self.columns_for_rolling_mean = config[config_file]['columns_for_rolling_mean'].replace(" ", "").split(',')
+        self.columns_for_rolling_mean = \
+            config[config_file_section]['columns_for_rolling_mean'].replace(" ", "").split(',')
         if '' in self.columns_for_rolling_mean:
             self.columns_for_rolling_mean = [None]
         self.columns_for_lags_rolling_mean = \
-            config[config_file]['columns_for_lags_rolling_mean'].replace(" ", "").split(',')
+            config[config_file_section]['columns_for_lags_rolling_mean'].replace(" ", "").split(',')
         if '' in self.columns_for_lags_rolling_mean:
             self.columns_for_lags_rolling_mean = [None]
-        self.string_columns = config[config_file]['string_columns'].replace(" ", "").split(',')
+        self.string_columns = config[config_file_section]['string_columns'].replace(" ", "").split(',')
         if '' in self.string_columns:
             self.string_columns = [None]
-        self.float_columns = config[config_file]['float_columns'].replace(" ", "").split(',')
-        self.time_column = config[config_file]['time_column']
-        self.seasonal_periods = config[config_file].getint('seasonal_periods')
-        self.featuresets_regex = config[config_file]['featuresets_regex'].replace(" ", "").split(',')
+        self.float_columns = config[config_file_section]['float_columns'].replace(" ", "").split(',')
+        self.time_column = config[config_file_section]['time_column']
+        self.seasonal_periods = config[config_file_section].getint('seasonal_periods')
+        self.featuresets_regex = config[config_file_section]['featuresets_regex'].replace(" ", "").split(',')
         if '' in self.featuresets_regex:
             self.featuresets_regex = [None]
-        self.imputation = config[config_file].getboolean('imputation')
-        self.resample_weekly = config[config_file].getboolean('resample_weekly')
-        self.time_format = config[config_file]['time_format']
-        self.features = config[config_file]['features'].replace(" ", "").split(',')
-        self.categorical_columns = config[config_file]['categorical_columns'].replace(" ", "").split(',')
+        self.imputation = config[config_file_section].getboolean('imputation')
+        self.resample_weekly = config[config_file_section].getboolean('resample_weekly')
+        self.time_format = config[config_file_section]['time_format']
+        self.features = config[config_file_section]['features'].replace(" ", "").split(',')
+        self.categorical_columns = config[config_file_section]['categorical_columns'].replace(" ", "").split(',')
         if '' in self.categorical_columns:
             self.categorical_columns = [None]
-        self.max_seasonal_lags = config[config_file].getint('max_seasonal_lags')
-        self.target_column = config[config_file]['target_column']
+        self.max_seasonal_lags = config[config_file_section].getint('max_seasonal_lags')
+        self.target_column = config[config_file_section]['target_column']
 
         #  check if data is already preprocessed. If not, preprocess the data
         if os.path.exists(os.path.join(data_dir, data + '.h5')):

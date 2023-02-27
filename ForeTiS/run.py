@@ -26,8 +26,12 @@ if __name__ == '__main__':
                              "Default is same as data_dir.")
     parser.add_argument("-data", "--data", type=str, default=None,
                         help="specify the dataset that you want to use.")
-    parser.add_argument("-con", "--config_file", type=str, default=None,
-                        help="specify the config type that you want to use.")
+    parser.add_argument("-con_path", "--config_file_path", type=str, default=None,
+                        help="specify the path to the config file you want to use."
+                             "Default: dataset_specific_config.ini in ForeTiS root folder")
+    parser.add_argument("-con_sec", "--config_file_section", type=str, default=None,
+                        help="specify the section within the specified config file you want to use."
+                             "Default: same as name of the dataset.")
     parser.add_argument("-mod", "--models", nargs='+', default=['all'],
                         help="specify the models to optimize: 'all' or naming according to source file name. "
                              "Multiple models can be selected by just naming multiple model names, "

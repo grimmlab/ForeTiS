@@ -12,7 +12,8 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
         val_set_size_percentage: int = 20, n_splits: int = 3, imputation_method: str = None,
         windowsize_current_statistics: int = 3, windowsize_lagged_statistics: int = 3, models: list = None,
         n_trials: int = 200, pca_transform: bool =False, save_final_model: bool = False,
-        periodical_refit_frequency: list = None, refit_drops: int = 0, data: str = None, config_file: str = None,
+        periodical_refit_frequency: list = None, refit_drops: int = 0, data: str = None,
+        config_file_path: str = None, config_file_section: str = None,
         refit_window: int = 5, intermediate_results_interval: int = None, batch_size: int = 32,
         n_epochs: int = 100000, event_lags: int = None, optimize_featureset: bool = False, scale_thr: float = 0.1,
         scale_seasons: int = 2, cf_thr_perc: int = 70, scale_window_factor: float = 0.1, cf_r: float = 0.4,
@@ -21,9 +22,13 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
 
     # create Path
     data_dir = pathlib.Path(data_dir)
+    config_file_path = pathlib.Path(config_file_path) if config_file_path is not None else \
+        Path(__file__).parent.joinpath('dataset_specific_config.ini')
     # set save directory
     save_dir = data_dir if save_dir is None else pathlib.Path(save_dir)
     save_dir = save_dir if save_dir.is_absolute() else save_dir.resolve()
+    # set config_file_section to dataset name if it is none
+    config_file_section = config_file_section if config_file_section is not None else data
     # Optimization Pipeline #
     helper_functions.set_all_seeds()
     models_to_optimize = helper_functions.get_list_of_implemented_models() if models == ['all'] else models
@@ -31,10 +36,9 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
     model_featureset_overview = {}
     featureset_names = []
     config = configparser.ConfigParser(allow_no_value=True)
-    root = Path(__file__).parent
-    ini_path = root.joinpath('dataset_specific_config.ini')
-    config.read_file(open(ini_path, 'r'))
-    datasets = base_dataset.Dataset(data_dir=data_dir, data=data, config_file=config_file, event_lags=event_lags,
+    config.read_file(open(config_file_path, 'r'))
+    datasets = base_dataset.Dataset(data_dir=data_dir, data=data, config_file_section=config_file_section,
+                                    event_lags=event_lags,
                                     test_set_size_percentage=test_set_size_percentage,
                                     windowsize_current_statistics=windowsize_current_statistics,
                                     windowsize_lagged_statistics=windowsize_lagged_statistics,
@@ -52,7 +56,7 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
             else:
                 featureset_name = featureset.name
             featureset_names.append(featureset_name)
-            optuna_run = optuna_optim.OptunaOptim(save_dir=save_dir, data=data, config_type=config_file,
+            optuna_run = optuna_optim.OptunaOptim(save_dir=save_dir, data=data, config_file_section=config_file_section,
                                                   featureset_name=featureset_name, datasplit=datasplit,
                                                   n_trials=n_trials, test_set_size_percentage=test_set_size_percentage,
                                                   models=models, val_set_size_percentage=val_set_size_percentage,

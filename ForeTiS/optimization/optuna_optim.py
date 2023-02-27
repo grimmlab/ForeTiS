@@ -58,9 +58,9 @@ class OptunaOptim:
     :param intermediate_results_interval: number of trials after which intermediate results will be saved
     """
 
-    def __init__(self, save_dir: pathlib.Path, data: str, config_type: str, featureset_name: str, datasplit: str,
-                 test_set_size_percentage: int, val_set_size_percentage: int, models: list, n_trials: int,
-                 save_final_model: bool, batch_size: int, n_epochs: int, current_model_name: str,
+    def __init__(self, save_dir: pathlib.Path, data: str, config_file_section: str, featureset_name: str,
+                 datasplit: str, test_set_size_percentage: int, val_set_size_percentage: int, models: list,
+                 n_trials: int, save_final_model: bool, batch_size: int, n_epochs: int, current_model_name: str,
                  datasets: base_dataset.Dataset, periodical_refit_frequency: list, refit_drops: int, refit_window: int,
                  intermediate_results_interval: int, pca_transform: bool, config: configparser.ConfigParser,
                  optimize_featureset, scale_thr: float, scale_seasons: int, scale_window_factor: float, cf_r: float,
@@ -69,8 +69,8 @@ class OptunaOptim:
         self.study = None
         self.current_best_val_result = None
         self.early_stopping_point = None
-        self.seasonal_periods = config[config_type].getint('seasonal_periods')
-        self.target_column = config[config_type]['target_column']
+        self.seasonal_periods = config[config_file_section].getint('seasonal_periods')
+        self.target_column = config[config_file_section]['target_column']
         self.best_trials = []
         self.user_input_params = locals()  # distribute all handed over params in whole class
         self.base_path = save_dir.joinpath('results', current_model_name,
