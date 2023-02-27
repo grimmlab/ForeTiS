@@ -13,9 +13,17 @@ To enable automatic hyperparameter optimization, we leverage state-of-the-art an
 Besides the named features, the forecasting models can adapt to changing trends and patterns in the data by being
 regularly updated in different periods with new data by so-called periodical refitting. Doing so can simulate a
 potential scenario for a productive operation.
-The subsequent scheme gives an overview on the hyperparameter optimization, training, and testing processes in ForeTiS.
+The subsequent scheme gives an overview of the structure of ForeTiS: In preparation, we summarize the fully automated
+and configurable data preprocessing and feature engineering. We already integrated several time series forecasting models
+in model from which the user can choose. Furthermore, the design of this module enables a straightforward
+integration of new prediction models. For automated hyperparameter optimization, we leverage state-of-the-art
+Bayesian optimization using the Python package Optuna. With the module testing, we allow the user to test
+different refitting procedures. Finally, we provide several methods to analyze results in evaluation. To start the
+optimization pipeline, users only need to supply a CSV file containing the data and a configuration file that enables pipeline customization. This design allows end users to apply time series forecasting with only a single-line
+command. In addition, we support researchers aiming to develop new forecasting methods with quick integration
+in a reliable framework and benchmarking against existing approaches.
 
-.. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/master/docs/image/Algo.png
+.. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/master/docs/image/ForeTiS_Figure1_raw.png
     :width: 600
     :alt: scheme of ForeTiS
     :align: center

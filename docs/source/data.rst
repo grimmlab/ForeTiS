@@ -2,6 +2,8 @@ Data Guide
 ===================
 To run ForeTiS on your data, you need to provide a CSV or HDF5/H5/H5PY file like described below.
 ForeTiS is designed to work with several file types besides the one we provide in this repository as tutorial data.
+For a better understanding, we provide a tutorial video, where we conduct case studies and in this course also go into
+detail about the data to be provided: :ref:`tut_adv_casestudies`.
 
 HDF5 / H5 / H5PY
 ~~~~~~~~~~~~~~~~~~~
@@ -11,7 +13,12 @@ ForeTiS.model._base_model.BaseModel.dataset_hyperparam.
 CSV
 ~~~~~
 To use your own CSV data, the dataset must be in such a manner that the dataset_specific_config.ini file can be filled
-like described below.
+like you can see in the figure below or as described under :ref:`dataset_specific_config.ini`.
+
+.. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/master/docs/image/csv_example.png
+    :width: 600
+    :alt: Example of a CSV file fitting for ForeTiS
+    :align: center
 
 dataset_specific_config.ini
 ----------------------------
