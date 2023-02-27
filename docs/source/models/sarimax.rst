@@ -1,6 +1,6 @@
-ARIMAX
+SARIMAX
 =============================================
-Subsequently, we give details on the ARIMAX approaches that are integrated in ForeTiS.
+Subsequently, we give details on the SARIMAX approaches that are integrated in ForeTiS.
 For our implementation, we use the machine learning framework statsmodels, which also provides a `user guide for these models <https://www.statsmodels.org/stable/index.html>`_.
 
 We implemented the ARIMA method with seasonal component, called SARIMA or SARIMAX, respectively. ARIMAX is the
@@ -8,9 +8,9 @@ abbreviation for Auto-Regressive Integrated Moving Average with eXogenous variab
 autoregressive components (AR), moving average component (MA), and a difference order I. (S)ARIMAX takes exogenous
 variables into account.
 
-Both approaches - ARIMA and ARIMAX - are currently implemented in ForeTiS.
+Both approaches - SARIMA and SARIMAX - are currently implemented in ForeTiS.
 
-The following code block shows the implementation of ARIMA in `arima.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/arima.py>`_.
+The following code block shows the implementation of SARIMA in `sarima.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/sarima.py>`_.
 
     .. code-block::
 
@@ -81,5 +81,5 @@ The following code block shows the implementation of ARIMA in `arima.py <https:/
                     }
                 }
 
-ARIMAX is implemented in a separate files containing very similar code.
-Its implementation can be found in `arimax.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/arimax.py>`_.
+SARIMAX is implemented in a separate files containing very similar code.
+Its implementation can be found in `sarimax.py <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/sarimax.py>`_.

@@ -16,11 +16,7 @@ class Dataset:
 
     **Attributes**
 
-        - target_column (*str*): the target column for the prediction
-        - datatype (*str*): if the data is in american or german type
-        - seasonal_periods (*int*): how many datapoints one season has
-        - imputation (*bool*): whether to perfrom imputation or not
-        - resample_weekly (*bool*): whether to resample weekly or not
+        - user_input_params (*mixed*): the arguments passed by the user or default values from run.py respectively
         - values_for_counter (*list*): the values that should trigger the counter adder
         - columns_for_counter (*list*): the columns where the counter adder should be applied
         - columns_for_lags (*list*): the columns that should be lagged by one sample
@@ -29,16 +25,20 @@ class Dataset:
         - string_columns (*list*): columns containing strings
         - float_columns (*list*): columns containing floats
         - time_column (*str*): columns containing the time information
+        - seasonal_periods (*int*): how many datapoints one season has
         - featuresets_regex (*list*): regular expression with which the feature sets should be filtered
+        - imputation (*bool*): whether to perfrom imputation or not
+        - resample_weekly (*bool*): whether to resample weekly or not
         - time_format (*str*): the time format, either "W", "D", or "H"
         - features (*list*): the features of the dataset
         - categorical_columns (*list*): the categorical columns of the dataset
         - max_seasonal_lags (*int*): maximal number of seasonal lags to be applied
-        - user_input_params (*mixed*): the arguments passed by the user or default values from run.py respectively
+        - target_column (*str*): the target column for the prediction
         - featuresets (*list*): list containing all featuresets that get created in this class
 
     :param data_dir: data directory where the data is stored
     :param data: the dataset that you want to use
+    :param config_file_section: the section of the config file for the used dataset
     :param test_set_size_percentage: size of the test set relevant for cv-test and train-val-test
     :param windowsize_current_statistics: the windowsize for the feature engineering of the current statistic
     :param windowsize_lagged_statistics: the windowsize for the feature engineering of the lagged statistics

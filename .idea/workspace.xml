@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="changed config file">
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/arima.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/sarima.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/arimax.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/sarimax.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/models.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/models/arimax.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/sarimax.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,26 +47,26 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/josef/Schreibtisch/easyPheno",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/josef/Schreibtisch/easyPheno&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs/source/models" />
@@ -305,14 +311,8 @@
       <workItem from="1677315847163" duration="1451000" />
       <workItem from="1677482696644" duration="769000" />
       <workItem from="1677487927432" duration="1632000" />
-      <workItem from="1677493305454" duration="6098000" />
-    </task>
-    <task id="LOCAL-00075" summary="initial push">
-      <created>1674564001218</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1674564001219</updated>
+      <workItem from="1677493305454" duration="7081000" />
+      <workItem from="1677509827771" duration="2866000" />
     </task>
     <task id="LOCAL-00076" summary="initial push">
       <created>1674565809002</created>
@@ -650,7 +650,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677244731707</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="updating docs">
+      <created>1677506588958</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1677506588959</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +693,6 @@
     <MESSAGE value="initial push" />
     <MESSAGE value="debugging" />
     <MESSAGE value="added string imputing" />
-    <MESSAGE value="updating docs" />
     <MESSAGE value="creating python package" />
     <MESSAGE value="updating doc" />
     <MESSAGE value="timeseries-cv security mechanism added" />
@@ -696,7 +702,8 @@
     <MESSAGE value="debugged datasplits" />
     <MESSAGE value="&#10;debugged datasplits" />
     <MESSAGE value="changed config file" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed config file" />
+    <MESSAGE value="updating docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating docs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -728,12 +735,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>213</line>
+          <line>234</line>
           <option name="timeStamp" value="265" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>205</line>
+          <line>226</line>
           <option name="timeStamp" value="266" />
         </line-breakpoint>
       </breakpoints>

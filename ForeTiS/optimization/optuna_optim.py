@@ -35,17 +35,21 @@ class OptunaOptim:
 
     ** Attributes **
 
-        - current_model_name (*str*): name of the current model according to naming of .py alkle in package model
-        - dataset (*obj:`~ForeTiS.preprocess.base_dataset.Dataset*): dataset to use for optimization run
-        - base_path (*str*): base_path for save_path
-        - save_path (*str*): path for model and results storing
         - study (*optuna.study.Study*): optuna study for optimization run
         - current_best_val_result (*float*): the best validation result so far
         - early_stopping_point (*int*): point at which early stopping occured (relevant for some models)
+        - seasonal_periods (*int*): number of samples in one season of the used dataset
         - target_column (*str*): target column for which predictions shall be made
+        - best_trials (*list*): list containing the numbers of the best trials
         - user_input_params (*dict*): all params handed over to the constructor that are needed in the whole class
+        - base_path (*str*): base_path for save_path
+        - save_path (*str*): path for model and results storing
 
-    :param save_dir: directory for saving the results.
+    :param save_dir: directory for saving the results
+    :param data: the dataset that you want to use
+    :param config_file_section: the section of the config file for the used dataset
+    :param featureset_name: name of the feature set used
+    :param datasplit: the used datasplit method, either 'timeseries-cv', 'train-val-test', 'cv'
     :param test_set_size_percentage: size of the test set relevant for cv-test and train-val-test
     :param val_set_size_percentage: size of the validation set relevant for train-val-test
     :param n_trials: number of trials for optuna
@@ -53,17 +57,34 @@ class OptunaOptim:
     :param batch_size: batch size for neural network models
     :param n_epochs: number of epochs for neural network models
     :param current_model_name: name of the current model according to naming of .py file in package model
+    :param datasets: the Dataset class containing the feature sets
     :param periodical_refit_frequency: if and for which intervals periodical refitting should be performed
     :param refit_drops: after how many periods the model should get updated
+    :param refit_window: seasons get used for refitting
     :param intermediate_results_interval: number of trials after which intermediate results will be saved
+    :param pca_transform: whether pca dimensionality reduction will be optimized or not
+    :param config: the information from dataset_specific_config.ini
+    :param optimize_featureset: whether feature set will be optimized or not output scale threshold
+    :param scale_thr: only relevant for evars-gpr: output scale threshold
+    :param scale_seasons: only relevant for evars-gpr: output scale seasons taken into account
+    :param scale_window_factor: only relevant for evars-gpr: scale window factor based on seasonal periods
+    :param cf_r: only relevant for evars-gpr: changefinders r param (decay factor older values)
+    :param cf_order: only relevant for evars-gpr: changefinders SDAR model order param
+    :param cf_smooth: only relevant for evars-gpr: changefinders smoothing param
+    :param cf_thr_perc: only relevant for evars-gpr: percentile of train set anomaly factors as threshold for cpd with changefinder
+    :param scale_window_minimum: only relevant for evars-gpr: scale window minimum
+    :param max_samples_factor: only relevant for evars-gpr: max samples factor of seasons to keep for gpr pipeline
+    :param valtest_seasons: define the number of seasons to be used when seasonal_valtest is True
+    :param seasonal_valtest: whether validation and test sets should be a multiple of the season length
+    :param n_splits: splits to use for 'timeseries-cv' or 'cv'
     """
 
     def __init__(self, save_dir: pathlib.Path, data: str, config_file_section: str, featureset_name: str,
-                 datasplit: str, test_set_size_percentage: int, val_set_size_percentage: int, models: list,
-                 n_trials: int, save_final_model: bool, batch_size: int, n_epochs: int, current_model_name: str,
+                 datasplit: str, test_set_size_percentage: int, val_set_size_percentage: int, n_trials: int,
+                 save_final_model: bool, batch_size: int, n_epochs: int, current_model_name: str,
                  datasets: base_dataset.Dataset, periodical_refit_frequency: list, refit_drops: int, refit_window: int,
                  intermediate_results_interval: int, pca_transform: bool, config: configparser.ConfigParser,
-                 optimize_featureset, scale_thr: float, scale_seasons: int, scale_window_factor: float, cf_r: float,
+                 optimize_featureset: bool, scale_thr: float, scale_seasons: int, scale_window_factor: float, cf_r: float,
                  cf_order: int, cf_smooth: int, cf_thr_perc: int, scale_window_minimum: int, max_samples_factor: int,
                  valtest_seasons: int, seasonal_valtest: bool, n_splits: int):
         self.study = None

@@ -28,14 +28,14 @@ In the following table, we give the keys for all prediction models as well as li
      - ard
      - :ref:`Bayesian Regression`
      - `ard.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/ard.py>`_
-   * - ARIMA
-     - arima
-     - :ref:`ARIMAX`
-     - `arima.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/arima.py>`_
-   * - ARIMAX
-     - arimax
-     - :ref:`ARIMAX`
-     - `arimax.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/arimax.py>`_
+   * - SARIMA
+     - sarima
+     - :ref:`SARIMAX`
+     - `sarima.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/sarima.py>`_
+   * - SARIMAX
+     - sarimax
+     - :ref:`SARIMAX`
+     - `sarimax.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/sarimax.py>`_
    * - Average Historical
      - averagehsitorical
      - :ref:`Baseline Models`
@@ -136,7 +136,7 @@ If you want to integrate your own prediction model: :ref:`HowTo: Integrate your 
 
     models/baseline
     models/es
-    models/arimax
+    models/sarimax
     models/linreg
     models/bayesreg
     models/gpr
