@@ -12,13 +12,51 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
         val_set_size_percentage: int = 20, n_splits: int = 3, imputation_method: str = None,
         windowsize_current_statistics: int = 3, windowsize_lagged_statistics: int = 3, models: list = None,
         n_trials: int = 200, pca_transform: bool =False, save_final_model: bool = False,
-        periodical_refit_frequency: list = None, refit_drops: int = 0, data: str = None,
-        config_file_path: str = None, config_file_section: str = None,
-        refit_window: int = 5, intermediate_results_interval: int = None, batch_size: int = 32,
-        n_epochs: int = 100000, event_lags: int = None, optimize_featureset: bool = False, scale_thr: float = 0.1,
-        scale_seasons: int = 2, cf_thr_perc: int = 70, scale_window_factor: float = 0.1, cf_r: float = 0.4,
-        cf_order: int = 1, cf_smooth: int = 4, scale_window_minimum: int = 2, max_samples_factor: int = 10,
-        valtest_seasons: int = 1, seasonal_valtest: bool = True):
+        periodical_refit_frequency: list = None, refit_drops: int = 0, data: str = None, config_file_path: str = None,
+        config_file_section: str = None, refit_window: int = 5, intermediate_results_interval: int = None,
+        batch_size: int = 32, n_epochs: int = 100000, event_lags: int = None, optimize_featureset: bool = False,
+        scale_thr: float = 0.1, scale_seasons: int = 2, cf_thr_perc: int = 70, scale_window_factor: float = 0.1,
+        cf_r: float = 0.4, cf_order: int = 1, cf_smooth: int = 4, scale_window_minimum: int = 2,
+        max_samples_factor: int = 10, valtest_seasons: int = 1, seasonal_valtest: bool = True):
+    """
+    Run the whole optimization pipeline
+
+    :param data_dir: data directory where the phenotype and genotype matrix are stored
+    :param save_dir: directory for saving the results. Default is None, so same directory as data_dir
+    :param datasplit: datasplit to use. Options are: nested-cv, cv-test, train-val-test
+    :param test_set_size_percentage: size of the test set relevant for cv-test and train-val-test
+    :param val_set_size_percentage: size of the validation set relevant for train-val-test
+    :param n_splits: splits to use for 'timeseries-cv' or 'cv'
+    :param imputation_method: the imputation method to use. Options are: 'mean' , 'knn' , 'iterative'
+    :param windowsize_current_statistics: the windowsize for the feature engineering of the current statistic
+    :param windowsize_lagged_statistics: the windowsize for the feature engineering of the lagged statistics
+    :param models: list of models that should be optimized
+    :param n_trials: number of trials for optuna
+    :param pca_transform: whether pca dimensionality reduction will be optimized or not
+    :param save_final_model: specify if the final model should be saved
+    :param periodical_refit_frequency: if and for which intervals periodical refitting should be performed
+    :param refit_drops: after how many periods the model should get updated
+    :param data: the dataset that you want to use
+    :param config_file_path: the path of the config file
+    :param config_file_section: the section of the config file for the used dataset
+    :param refit_window: seasons get used for refitting
+    :param intermediate_results_interval: number of trials after which intermediate results will be saved
+    :param batch_size: batch size for neural network models
+    :param n_epochs: number of epochs for neural network models
+    :param event_lags: the event lags for the counters
+    :param optimize_featureset: whether feature set will be optimized or not output scale threshold
+    :param scale_thr: only relevant for evars-gpr: output scale threshold
+    :param scale_seasons: only relevant for evars-gpr: output scale seasons taken into account
+    :param cf_thr_perc: only relevant for evars-gpr: percentile of train set anomaly factors as threshold for cpd with changefinder
+    :param scale_window_factor: only relevant for evars-gpr: scale window factor based on seasonal periods
+    :param cf_r: only relevant for evars-gpr: changefinders r param (decay factor older values)
+    :param cf_order: only relevant for evars-gpr: changefinders SDAR model order param
+    :param cf_smooth: only relevant for evars-gpr: changefinders smoothing param
+    :param scale_window_minimum: only relevant for evars-gpr: scale window minimum
+    :param max_samples_factor: only relevant for evars-gpr: max samples factor of seasons to keep for gpr pipeline
+    :param valtest_seasons: define the number of seasons to be used when seasonal_valtest is True
+    :param seasonal_valtest: whether validation and test sets should be a multiple of the season length
+    """
 
     # create Path
     data_dir = pathlib.Path(data_dir)

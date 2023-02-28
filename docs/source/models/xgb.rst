@@ -18,14 +18,14 @@ are similar to concepts of bagging, e.g. using random subsets of samples and fea
 Besides this, for XGBoost a learning rate shrinking the weights update for correcting ensemble errors during the learning process is typically used.
 
 XGBoost is an efficient implementation that leverages Gradient Boosting, for which further details can be found in the
-`original paper <https://dl.acm.org/doi/10.1145/2939672.2939785>`_. It has proven its predictive power in many application areas, e.g. in Kaggle competitions.
+`original paper <https://dl.acm.org/doi/10.1145/2939672.2939785>`_. It has proven its predictive power in many application
+areas, e.g. in Kaggle competitions.
 
 
 For XGBoost, we use a specific library that is also available as a Python package. In the code block below,
-you can see our implementation. In ``define_model()``, we distinguish between the ``'classification'`` and ``'regression'`` case.
-Furthermore, we optimize several hyperparameters, such as the number of weak learners (``n_estimators``) or the ``learning_rate``.
-A full explanation of all XGBoost parameters can be found in their documentation:
-`XGBoost Parameter Guide <https://xgboost.readthedocs.io/en/stable/parameter.html>`_
+you can see our implementation. Furthermore, we optimize several hyperparameters, such as the number of weak learners
+(``n_estimators``) or the ``learning_rate``. A full explanation of all XGBoost parameters can be found in their
+documentation: `XGBoost Parameter Guide <https://xgboost.readthedocs.io/en/stable/parameter.html>`_
 
 
     .. code-block::

@@ -160,10 +160,7 @@ for more information regarding the format and possible options for hyperparamete
                 """
                 n_neighbors = self.suggest_hyperparam_to_optuna('n_neighbors')
                 weights = self.suggest_hyperparam_to_optuna('weights')
-                if self.task == 'classification':
-                    return sklearn.neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights)
-                else:
-                    return sklearn.neighbors.KNeighborsRegressor(n_neighbors=n_neighbors, weights=weights)
+                return sklearn.neighbors.KNeighborsRegressor(n_neighbors=n_neighbors, weights=weights)
 
             def define_hyperparams_to_tune(self) -> dict:
                 """

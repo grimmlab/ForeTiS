@@ -16,4 +16,5 @@ bayesian_torch
 blitz-bayesian-pytorch
 changefinder
 matplotlib
+sqlalchemy==1.4.46
 
