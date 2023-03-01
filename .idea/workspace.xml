@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docker/docker_requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/docker_requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/xgb.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/xgb.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_add_new.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_add_new.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,14 +306,7 @@
       <workItem from="1677487927432" duration="1632000" />
       <workItem from="1677493305454" duration="7081000" />
       <workItem from="1677509827771" duration="6099000" />
-      <workItem from="1677602439914" duration="772000" />
-    </task>
-    <task id="LOCAL-00078" summary="initial push">
-      <created>1674577415675</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1674577415675</updated>
+      <workItem from="1677602439914" duration="1525000" />
     </task>
     <task id="LOCAL-00079" summary="initial push">
       <created>1674577502824</created>
@@ -657,7 +644,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677520284748</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="updating docs">
+      <created>1677603334173</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1677603334174</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

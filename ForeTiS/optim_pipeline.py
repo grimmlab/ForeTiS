@@ -57,7 +57,6 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
     :param valtest_seasons: define the number of seasons to be used when seasonal_valtest is True
     :param seasonal_valtest: whether validation and test sets should be a multiple of the season length
     """
-
     # create Path
     data_dir = pathlib.Path(data_dir)
     config_file_path = pathlib.Path(config_file_path) if config_file_path is not None else \

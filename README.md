@@ -19,7 +19,5 @@ This pipeline is developed and maintained by members of the [Bioinformatics lab]
 - [Florian Haselbeck, M.Sc.](https://bit.cs.tum.de/team/florian-haselbeck/)
 
 ## Citation
-Machine Learning <Outperforms Classical Forecasting on Horticultural Sales Predictions. F Haselbeck, J Killinger, K Menrad, T Hannus, DG Grimm.
-Machine Learning with Applications, 2022 (https://doi.org/10.1016/j.mlwa.2021.100239)
-
-A manuscript for publishing ForeTiS as a further scientific paper is currently under preparation.
+ForeTiS: A Comprehensive Time Series Forecasting Framework in Python. J Eiglsperger F Haselbeck, DG Grimm.
+Under preparation
