@@ -5,7 +5,7 @@ Besides this written tutorial, we recorded a :ref:`Case studies video`, where we
 
 Workflow
 """""""""""
-You are at the **root directory within your Docker container**, i.e. after step 5 of the setup at :ref:`Docker workflow`:.
+You are at the **root directory within your Docker container**, i.e. after step 5 of the setup at :ref:`Docker workflow`:
 
 If you closed the Docker container you created at the end of the installation, just use ``docker start -i CONTAINERNAME``
 to start it in interactive mode again. If you did not create a container yet, go back to step 5 of the setup.
