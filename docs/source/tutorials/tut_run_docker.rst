@@ -1,7 +1,7 @@
 HowTo: Run ForeTiS using Docker
 ======================================
 We assume that you succesfully did all steps described in :ref:`Docker workflow`: to setup ForeTiS using Docker.
-Besides this written tutorial, we recorded a :ref:`Case studies video`, where we run ForeTiS using Docker.
+Besides this written tutorial, we recorded a :ref:`Video tutorial: ForeTiS case studies`, where we run ForeTiS using Docker.
 
 Workflow
 """""""""""
