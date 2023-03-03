@@ -8,7 +8,7 @@ ForeTiS is a Python framework that enables the rigorous training, comparison and
 ForeTiS includes multiple state-of-the-art prediction models or machine learning methods, respectively. 
 These range from classical models, such as regularized linear regression over ensemble learners, e.g. XGBoost, to deep learning-based architectures, such as Multilayer Perceptron (MLP). 
 To enable automatic hyperparameter optimization, we leverage state-of-the-art and efficient Bayesian optimization techniques. 
-In addition, our framework is designed to allow an easy and straightforward integration of further prediction models.
+In addition, our framework is designed to allow an easy and straightforward integration and benchmarking of further prediction models.
 
 ## Documentation
 For more information, installation guides, tutorials and much more, see our documentation: https://foretis.readthedocs.io/
@@ -19,5 +19,6 @@ This pipeline is developed and maintained by members of the [Bioinformatics lab]
 - [Florian Haselbeck, M.Sc.](https://bit.cs.tum.de/team/florian-haselbeck/)
 
 ## Citation
-ForeTiS: A Comprehensive Time Series Forecasting Framework in Python. J Eiglsperger F Haselbeck, DG Grimm.
-Under preparation
+ForeTiS: A Comprehensive Time Series Forecasting Framework in Python.  
+J Eiglsperger, F Haselbeck and DG Grimm.  
+*currently under review*
