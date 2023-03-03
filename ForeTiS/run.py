@@ -33,7 +33,7 @@ if __name__ == '__main__':
     parser.add_argument("-con_sec", "--config_file_section", type=str, default='nike_sales',
                         help="specify the section within the specified config file you want to use."
                              "Default: same as name of the dataset.")
-    parser.add_argument("-mod", "--models", nargs='+', default=['lasso'],
+    parser.add_argument("-mod", "--models", nargs='+', default=['all'],
                         help="specify the models to optimize: 'all' or naming according to source file name. "
                              "Multiple models can be selected by just naming multiple model names, "
                              "e.g. --models mlp xgboost. "
@@ -90,7 +90,7 @@ if __name__ == '__main__':
                              "Standard is 3")
 
     # Model and Optimization Params #
-    parser.add_argument("-tr", "--n_trials", type=int, default=2,
+    parser.add_argument("-tr", "--n_trials", type=int, default=200,
                         help="specify the number of trials for the Bayesian optimization (optuna)."
                         "Standard is 200")
     parser.add_argument("-sf", "--save_final_model", type=bool, default=True,
@@ -98,7 +98,7 @@ if __name__ == '__main__':
                              "(caution: some models may use a lot of disk space, "
                              "unfitted models that can be retrained are already saved by default)."
                              "Standard is True")
-    parser.add_argument("-prc", "--periodical_refit_frequency", type=list, default=['complete'],
+    parser.add_argument("-prc", "--periodical_refit_frequency", type=list, default=['complete', 0, 1, 2, 3],
                         help="specify with which periods periodical refitting will be done. "
                              "0 means no periodical refitting, "
                              "complete means no periodical refitting and the whole train dataset will be used for "
