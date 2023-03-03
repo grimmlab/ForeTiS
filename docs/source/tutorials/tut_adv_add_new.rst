@@ -1,6 +1,9 @@
 HowTo: Integrate your own prediction model
 ==================================================
 In this tutorial, we will show you how to integrate your own new prediction model into ForeTiS using an example.
+We recommend to first watch the :ref:`Code walkthrough video` for a better understanding of ForeTiS' structure.
+
+We further recorded a :ref:`Video tutorial: Integrate new model`, which is embedded below .
 
 Overview
 """"""""""""""
@@ -187,4 +190,11 @@ with the option ``-mod knn`` (see :ref:`HowTo: Run ForeTiS using Docker`).
 This example gives an overview on how to integrate your own prediction model.
 Feel free to get guidance from existing prediction models as well.
 We are always happy to welcome new contributors and appreciate if you help improving ForeTiS by providing your code.
+
+Video tutorial: Integrate new model
+""""""""""""""""""""""""""""""""""""
+.. youtube:: K9ZTd6rf-4M
+    :width: 640
+    :height: 360
+    :aspect: 16:9
 

@@ -63,3 +63,10 @@ See `here <https://docs.docker.com/engine/reference/commandline/docker/>`_ for a
 :docker ps: List all running Docker containers on your machine
 :docker ps -a: List all Docker containers (including stopped ones) on your machine
 :docker start -i CONTAINERNAME: Start a (stopped) Docker container interactively to enter its command line interface
+
+Video tutorial: Docker workflow setup
+"""""""""""""""""""""""""""""""""""""""""""""
+.. youtube:: SoTtsMZ70Uc
+    :width: 640
+    :height: 360
+    :aspect: 16:9

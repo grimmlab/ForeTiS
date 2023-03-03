@@ -14,8 +14,8 @@ We will therefore focus on these two methods in this tutorial.
 
 If you want to create your own model, see :ref:`HowTo: Integrate your own prediction model`.
 
-We already integrated several predictions models, e.g.
-`RidgeRegression <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/ridge.py>`_
+We already integrated several predictions models (see :ref:`Prediction Models`)
+, e.g. `RidgeRegression <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/ridge.py>`_
 and `Mlp <https://github.com/grimmlab/ForeTiS/blob/main/ForeTiS/model/mlp.py>`_, which we will use
 for demonstration purposes in this HowTo.
 
