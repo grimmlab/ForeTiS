@@ -136,7 +136,7 @@ If you want to integrate your own prediction model: :ref:`HowTo: Integrate your 
 
     models/baseline
     models/es
-    models/sarimax
+    models/sarima(x)
     models/linreg
     models/bayesreg
     models/gpr
