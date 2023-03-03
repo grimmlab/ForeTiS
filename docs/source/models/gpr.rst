@@ -30,10 +30,6 @@ This is becasue both approaches share the almost the same method, except for the
 
 **References**
 
-1. Haselbeck, F., Grimm, D.G., 2021. EVARS-GPR: EVent-triggered Augmented Refitting of Gaussian Process Regression for Seasonal
-Data.
-2. Alexander G. de G. Matthews, Mark van der Wilk, Tom Nickson, Keisuke. Fujii, Alexis Boukouvalas, Pablo León-Villagrá,
-Zoubin Ghahramani, and James Hensman. GPflow: A Gaussian process library using TensorFlow. Journal of Machine Learning
-Research, 18(40):1–6, apr 2017.
-3. Mark van der Wilk, Vincent Dutordoir, ST John, Artem Artemev, Vincent Adam, and James Hensman. A framework for
-interdomain and multioutput Gaussian processes. arXiv:2003.01115, 2020.
+1. Haselbeck, F., Grimm, D.G., 2021. EVARS-GPR: EVent-triggered Augmented Refitting of Gaussian Process Regression for SeasonalData.
+2. Alexander G. de G. Matthews, Mark van der Wilk, Tom Nickson, Keisuke. Fujii, Alexis Boukouvalas, Pablo León-Villagrá, Zoubin Ghahramani, and James Hensman. GPflow: A Gaussian process library using TensorFlow. Journal of Machine Learning Research, 18(40):1–6, apr 2017.
+3. Mark van der Wilk, Vincent Dutordoir, ST John, Artem Artemev, Vincent Adam, and James Hensman. A framework for interdomain and multioutput Gaussian processes. arXiv:2003.01115, 2020.

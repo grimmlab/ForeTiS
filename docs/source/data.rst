@@ -5,15 +5,12 @@ ForeTiS is designed to work with several file types besides the one we provide i
 For a better understanding, we provide a tutorial video, where we conduct case studies and in this course also go into
 detail about the data to be provided: :ref:`tut_adv_casestudies`.
 
-HDF5 / H5 / H5PY
-~~~~~~~~~~~~~~~~~~~
-Depending on the datasets contains in the HDF5 file, you have to adjust the hyperparameters at
-ForeTiS.model._base_model.BaseModel.dataset_hyperparam.
-
 CSV
 ~~~~~
 To use your own CSV data, the dataset must be in such a manner that the dataset_specific_config.ini file can be filled
-like you can see in the figure below or as described under :ref:`dataset_specific_config.ini`.
+like you can see in the figure below or as described under :ref:`dataset_specific_config.ini`. This figure is an example
+for a csv file that is suitable for ForeTiS. Important is that it contains a header with the naming of the columns,
+one sample per row, features and target value in the columns, and a column with the time information.
 
 .. image:: https://raw.githubusercontent.com/grimmlab/ForeTiS/master/docs/image/csv_example.png
     :width: 600
@@ -41,6 +38,9 @@ In this file you can define some characteristics of your data. The following poi
 - **categorical_columns:** the categorical columns of the dataset
 - **max_seasonal_lags:** maximal number of seasonal lags to be applied
 - **target_column:** the target column for the prediction
+
+In the :ref:`Video tutorial: ForeTiS case studies`, you can see exemplary on two case studies, how the configuration file
+should look like.
 
 Preprocessing
 ----------------

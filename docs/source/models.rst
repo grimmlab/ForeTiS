@@ -30,11 +30,11 @@ In the following table, we give the keys for all prediction models as well as li
      - `ard.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/ard.py>`_
    * - SARIMA
      - sarima
-     - :ref:`SARIMAX`
+     - :ref:`SARIMA(X)`
      - `sarima.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/sarima.py>`_
    * - SARIMAX
      - sarimax
-     - :ref:`SARIMAX`
+     - :ref:`SARIMA(X)`
      - `sarimax.py <https://github.com/grimmlab/ForeTiS/blob/master/ForeTiS/model/sarimax.py>`_
    * - Average Historical
      - averagehsitorical

@@ -1,4 +1,4 @@
-SARIMAX
+SARIMA(X)
 =============================================
 Subsequently, we give details on the SARIMAX approaches that are integrated in ForeTiS.
 For our implementation, we use the machine learning framework statsmodels, which also provides a `user guide for these models <https://www.statsmodels.org/stable/index.html>`_.

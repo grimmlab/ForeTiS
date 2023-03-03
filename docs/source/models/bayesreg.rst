@@ -101,6 +101,5 @@ Its implementation can be found in `bayesridge.py <https://github.com/grimmlab/F
 3. M. E. Tipping, Sparse Bayesian Learning and the Relevance Vector Machine, Journal of Machine Learning Research, Vol. 1, 2001.
 4. D. J. C. MacKay, Bayesian nonlinear modeling for the prediction competition, ASHRAE Transactions, 1994.
 5. Christopher M. Bishop: Pattern Recognition and Machine Learning, 2006
-6. Wipf, David, und Srikantan Nagarajan. „A New View of Automatic Relevance Determination“.
-In Advances in Neural Information Processing Systems, Bd. 20. Curran Associates, Inc., 2007.
+6. Wipf, David, und Srikantan Nagarajan. „A New View of Automatic Relevance Determination“. In Advances in Neural Information Processing Systems, Bd. 20. Curran Associates, Inc., 2007.
 7. Tristan Fletcher: Relevance Vector Machines Explained
