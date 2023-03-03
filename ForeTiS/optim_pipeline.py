@@ -96,7 +96,7 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
             optuna_run = optuna_optim.OptunaOptim(save_dir=save_dir, data=data, config_file_section=config_file_section,
                                                   featureset_name=featureset_name, datasplit=datasplit,
                                                   n_trials=n_trials, test_set_size_percentage=test_set_size_percentage,
-                                                  models=models, val_set_size_percentage=val_set_size_percentage,
+                                                  val_set_size_percentage=val_set_size_percentage,
                                                   save_final_model=save_final_model, pca_transform=pca_transform,
                                                   periodical_refit_frequency=periodical_refit_frequency,
                                                   refit_drops=refit_drops, refit_window=refit_window, n_splits=n_splits,
