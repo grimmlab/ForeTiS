@@ -74,12 +74,11 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
     featureset_names = []
     config = configparser.ConfigParser(allow_no_value=True)
     config.read_file(open(config_file_path, 'r'))
-    datasets = base_dataset.Dataset(data_dir=data_dir, data=data, config_file_section=config_file_section,
-                                    event_lags=event_lags,
-                                    test_set_size_percentage=test_set_size_percentage,
+    datasets = base_dataset.Dataset(data_dir=data_dir, data=data, config_file_section=config_file_section, config=config,
+                                    event_lags=event_lags, test_set_size_percentage=test_set_size_percentage,
                                     windowsize_current_statistics=windowsize_current_statistics,
                                     windowsize_lagged_statistics=windowsize_lagged_statistics,
-                                    imputation_method=imputation_method, config=config, valtest_seasons=valtest_seasons,
+                                    imputation_method=imputation_method, valtest_seasons=valtest_seasons,
                                     seasonal_valtest=seasonal_valtest)
     print('### Dataset is loaded ###')
     for current_model_name in models_to_optimize:

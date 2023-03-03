@@ -118,6 +118,7 @@ class OptunaOptim:
         storage = optuna.storages.RDBStorage(
             "sqlite:///" + str(self.save_path.joinpath('Optuna_DB.db')), heartbeat_interval=60, grace_period=120,
             failed_trial_callback=optuna.storages.RetryFailedTrialCallback(max_retry=3))
+
         study = optuna.create_study(
             storage=storage, study_name=study_name, direction='minimize', sampler=optuna.samplers.TPESampler(seed=42),
             pruner=optuna.pruners.PercentilePruner(percentile=80, n_min_trials=20), load_if_exists=True)
