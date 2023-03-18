@@ -31,6 +31,7 @@ class TensorflowModel(_base_model.BaseModel, abc.ABC):
 
     def __init__(self, optuna_trial: optuna.trial.Trial, datasets: list, featureset_name: str, optimize_featureset: bool,
                  pca_transform: bool = None, target_column: str = None):
+        self.all_hyperparams = self.common_hyperparams()
         self.conf = True
         super().__init__(optuna_trial=optuna_trial, datasets=datasets, featureset_name=featureset_name,
                          target_column=target_column, pca_transform=pca_transform,
@@ -184,16 +185,12 @@ class TensorflowModel(_base_model.BaseModel, abc.ABC):
                 el[1]]
         return kernels, kernel_dict
 
-    def define_hyperparams_to_tune(self) -> dict:
+    @staticmethod
+    def common_hyperparams() -> dict:
         """
         See :obj:`~ForeTiS.model._base_model.BaseModel` for more information on the format.
         """
-        kernels, self.kernel_dict = self.extend_kernel_combinations()
         return {
-            'kernel': {
-                'datatype': 'categorical',
-                'list_of_values': kernels,
-            },
             'noise_variance': {
                 'datatype': 'float',
                 'lower_bound': 0.01,

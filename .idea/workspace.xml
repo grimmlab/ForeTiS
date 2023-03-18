@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
+      <change beforePath="$PROJECT_DIR$/.idea/ForeTiS-HortiCo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ForeTiS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/HowTo Use ForeTiS as a pip package.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/HowTo Use ForeTiS as a pip package.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/HorticulturalSalesPrediction_new_2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_tensorflow_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_tensorflow_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/evars-gpr.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/evars-gpr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,33 +52,33 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/josef/Schreibtisch/easyPheno&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/josef/Schreibtisch/03_ForeTiS/ForeTiS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Python&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ForeTiS/model" />
       <recent name="$PROJECT_DIR$/docs/source" />
       <recent name="$PROJECT_DIR$/docs/source/models" />
       <recent name="$PROJECT_DIR$/docs/source/tutorials" />
       <recent name="$PROJECT_DIR$/docs/image" />
-      <recent name="$PROJECT_DIR$/ForeTiS/model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ForeTiS" />
@@ -82,15 +90,16 @@
   </component>
   <component name="RunManager">
     <configuration name="ForeTiS.run" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="ForeTiS-HortiCo" />
+      <module name="ForeTiS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="/usr/bin/python3" />
+      <option name="SDK_NAME" value="Python 3.10" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -104,7 +113,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="ForeTiS-HortiCo" />
+      <module name="ForeTiS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -317,14 +326,25 @@
       <workItem from="1677843258079" duration="1129000" />
       <workItem from="1677844881059" duration="2225000" />
       <workItem from="1677853064066" duration="7014000" />
-      <workItem from="1677861428415" duration="4821000" />
-    </task>
-    <task id="LOCAL-00086" summary="debugging">
-      <created>1675155462798</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1675155462798</updated>
+      <workItem from="1677861428415" duration="5537000" />
+      <workItem from="1678377443122" duration="14000" />
+      <workItem from="1678699396768" duration="654000" />
+      <workItem from="1678802704050" duration="679000" />
+      <workItem from="1678804602954" duration="12000" />
+      <workItem from="1678804861694" duration="517000" />
+      <workItem from="1678805387508" duration="400000" />
+      <workItem from="1678806715316" duration="76000" />
+      <workItem from="1678807142982" duration="3000" />
+      <workItem from="1678871997544" duration="1907000" />
+      <workItem from="1678886540473" duration="139000" />
+      <workItem from="1678887210045" duration="933000" />
+      <workItem from="1678961704448" duration="1399000" />
+      <workItem from="1678970817131" duration="2004000" />
+      <workItem from="1678974563566" duration="614000" />
+      <workItem from="1678985187446" duration="598000" />
+      <workItem from="1679034992402" duration="1490000" />
+      <workItem from="1679046325848" duration="1369000" />
+      <workItem from="1679131449493" duration="304000" />
     </task>
     <task id="LOCAL-00087" summary="debugging">
       <created>1675680442265</created>
@@ -662,7 +682,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677861940245</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="updating docs">
+      <created>1677876781920</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1677876781920</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -680,9 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$" />
-    </ignored-roots>
     <MESSAGE value="debugged heusser" />
     <MESSAGE value="debugged FeatureAdder.py" />
     <MESSAGE value="debugged periodical refitting" />

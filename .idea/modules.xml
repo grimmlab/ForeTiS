@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ForeTiS-HortiCo.iml" filepath="$PROJECT_DIR$/.idea/ForeTiS-HortiCo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ForeTiS.iml" filepath="$PROJECT_DIR$/.idea/ForeTiS.iml" />
     </modules>
   </component>
 </project>

@@ -128,36 +128,31 @@ if __name__ == '__main__':
                              "it will be considered as a hyperparameter for optimization."
                              "Standard is 100000")
 
-    # Only relevant for EVARS-GPR #
+    # Only relevant for EVARS-GPR(++) #
     # Pipeline
-    parser.add_argument("-scalethr", "--scale_thr", type=float, default=0.1,
-                        help="specify output scale threshold"
-                             "Standard is 0.1")
+    parser.add_argument("-scalethr", "--scale_thr", type=float, default=None,
+                        help="Only relevant for evars-gpr(++): specify output scale threshold. If nothing is specified,"
+                             "it will be considered as a hyperparameter for optimization.")
     parser.add_argument("-scaleseas", "--scale_seasons", type=int, default=2,
-                        help="specify output scale seasons taken into account"
-                             "Standard is 2")
+                        help="Only relevant for evars-gpr(++): specify output scale seasons taken into account")
     parser.add_argument("-scalew-factor", "--scale_window_factor", type=float, default=0.1,
-                        help="specify scale window factor based on seasonal periods"
-                             "Standard is 0.1")
+                        help="Only relevant for evars-gpr(++): specify scale window factor based on seasonal periods")
     parser.add_argument("-scalew-min", "--scale_window_minimum", type=int, default=2,
-                        help="specify scale window minimum"
-                             "Standard is 2")
-    parser.add_argument("-max-samples-fact", "--max_samples_factor", type=int, default=10,
-                        help="specify max samples factor of seasons to keep for gpr pipeline"
-                             "Standard is 10")
+                        help="Only relevant for evars-gpr(++): specify scale window minimum")
+    parser.add_argument("-max-samples-fact", "--max_samples_factor", type=int, default=5,
+                        help="Only relevant for evars-gpr(++): specify max samples factor of seasons to keep for gpr "
+                             "pipeline")
     # CF
     parser.add_argument("-cfr", "--cf_r", type=float, default=0.4,
-                        help="specify changefinders r param (decay factor older values)"
-                             "Standard is 0.4")
+                        help="Only relevant for evars-gpr(++): specify changefinders r param (decay factor older "
+                             "values)")
     parser.add_argument("-cforder", "--cf_order", type=int, default=1,
-                        help="specify changefinders SDAR model order param"
-                             "Standard is 1")
+                        help="Only relevant for evars-gpr(++): specify changefinders SDAR model order param")
     parser.add_argument("-cfsmooth", "--cf_smooth", type=int, default=4,
-                        help="specify changefinders smoothing param"
-                             "Standard is 4")
+                        help="specify changefinders smoothing param")
     parser.add_argument("-cfthrperc", "--cf_thr_perc", type=int, default=70,
-                        help="specify percentile of train set anomaly factors as threshold for cpd with changefinder"
-                             "Standard is 70")
+                        help="Only relevant for evars-gpr(++): specify percentile of train set anomaly factors as "
+                             "threshold for cpd with changefinder")
 
     args = vars(parser.parse_args())
 
