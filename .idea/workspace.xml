@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
-      <change beforePath="$PROJECT_DIR$/.idea/ForeTiS-HortiCo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ForeTiS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/HorticulturalSalesPrediction_new_2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_tensorflow_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_tensorflow_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/evars-gpr.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/evars-gpr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,21 +332,7 @@
       <workItem from="1678985187446" duration="598000" />
       <workItem from="1679034992402" duration="1490000" />
       <workItem from="1679046325848" duration="1369000" />
-      <workItem from="1679131449493" duration="304000" />
-    </task>
-    <task id="LOCAL-00087" summary="debugging">
-      <created>1675680442265</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1675680442265</updated>
-    </task>
-    <task id="LOCAL-00088" summary="added string imputing">
-      <created>1675684251270</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1675684251270</updated>
+      <workItem from="1679131449493" duration="1334000" />
     </task>
     <task id="LOCAL-00089" summary="added string imputing">
       <created>1675689904040</created>
@@ -689,7 +663,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677876781920</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="updating docs">
+      <created>1679131790080</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1679131790080</updated>
+    </task>
+    <task id="LOCAL-00137" summary="updating docs">
+      <created>1679132289244</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1679132289244</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
