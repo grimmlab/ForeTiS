@@ -7,7 +7,7 @@ For our implementation, we use the machine learning framework GPflow, which also
 Gaussian Processes (GP) are a generic supervised learning method. When designed to solve regression, it is called
 Gaussian Process Regression (GPR). The prediction is probabilistic (Gaussian). Therefore, a empirical
 confidence intervals can be computed.
-EVent-triggered Augmented Refitting of Gaussian Process Regression for Seasonal Data (EVARS-GPR) andles sudden shifts
+EVent-triggered Augmented Refitting of Gaussian Process Regression for Seasonal Data (EVARS-GPR) handles sudden shifts
 in the target variable scale of seasonal data by combining online change point detection with a refitting of the GPR
 model using data augmentation for samples prior to a change point.
 
