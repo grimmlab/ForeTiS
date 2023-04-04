@@ -5,7 +5,7 @@ References for a more detailed theoretical background can be found at the end of
 For our implementation, we use the machine learning framework scikit-learn, which also provides a `user guide for these models <https://scikit-learn.org/stable/modules/linear_model.html>`_.
 
 With respect to regularized linear regressions models, the model weights can be optimized by minimizing
-the deviation between predicted and true phenotypic values, often with considering an additive penalty term for regularization:
+the deviation between predicted and true values, often with considering an additive penalty term for regularization:
 
     .. math::
        \mathrm{argmin}_{\mathbf{w}} \frac{1}{2} |\mathbf{y} - \mathbf{X^{\ast}} \mathbf{w} |_2^2 + \alpha \Omega(\mathbf{w})
