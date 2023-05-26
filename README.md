@@ -19,6 +19,9 @@ This pipeline is developed and maintained by members of the [Bioinformatics lab]
 - [Florian Haselbeck, M.Sc.](https://bit.cs.tum.de/team/florian-haselbeck/)
 
 ## Citation
-ForeTiS: A Comprehensive Time Series Forecasting Framework in Python.  
-J Eiglsperger, F Haselbeck and DG Grimm.  
-*currently under review*
+When using ForeTiS, please cite our publication:
+
+ForeTiS: A comprehensive time series forecasting framework in Python
+Josef Eiglsperger*, Florian Haselbeck* and Dominik G. Grimm
+Machine Learning with Applications, 2023. doi: 10.1016/j.mlwa.2023.100467
+*These authors have contributed equally to this work and share first authorship.
