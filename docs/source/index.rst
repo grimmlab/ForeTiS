@@ -47,10 +47,16 @@ Citation
 
 When using ForeTiS, please cite our publication:
 
-**ForeTiS: A comprehensive time series forecasting framework in Python.** <br />
-Josef Eiglsperger*, Florian Haselbeck* and Dominik G. Grimm. <br />
-*Machine Learning with Applications, 2023.* [doi: 10.1016/j.mlwa.2023.100467](https://doi.org/10.1016/j.mlwa.2023.100467) <br />
-**These authors have contributed equally to this work and share first authorship.* <br />
+**ForeTiS: A comprehensive time series forecasting framework in Python.**
+Josef Eiglsperger*, Florian Haselbeck* and Dominik G. Grimm.
+*Machine Learning with Applications, 2023.* [doi: 10.1016/j.mlwa.2023.100467](https://doi.org/10.1016/j.mlwa.2023.100467)
+**These authors have contributed equally to this work and share first authorship.*
+
+| **ForeTiS: A comprehensive time series forecasting framework in Python.**
+| Josef Eiglsperger*, Florian Haselbeck* and Dominik G. Grimm.
+| *Machine Learning with Applications, 2023.* `doi: 10.1016/j.mlwa.2023.100467 <https://doi.org/10.1016/j.mlwa.2023.100467>`_
+| **These authors have contributed equally to this work and share first authorship.*
+|
 
 .. toctree::
    :titlesonly:
