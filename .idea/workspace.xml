@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
-      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
-    </list>
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -345,14 +343,7 @@
       <workItem from="1680767780151" duration="189000" />
       <workItem from="1681372043215" duration="624000" />
       <workItem from="1682582126646" duration="19000" />
-      <workItem from="1685102520338" duration="1453000" />
-    </task>
-    <task id="LOCAL-00098" summary="updating docs">
-      <created>1676300403519</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1676300403519</updated>
+      <workItem from="1685102520338" duration="1926000" />
     </task>
     <task id="LOCAL-00099" summary="updating docs">
       <created>1676304336078</created>
@@ -690,7 +681,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685103355381</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="updating docs">
+      <created>1685104132638</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1685104132638</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
