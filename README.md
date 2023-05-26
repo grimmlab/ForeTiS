@@ -22,6 +22,6 @@ This pipeline is developed and maintained by members of the [Bioinformatics lab]
 When using ForeTiS, please cite our publication:
 
 **ForeTiS: A comprehensive time series forecasting framework in Python.** <br />
-Josef Eiglsperger*, Florian Haselbeck* and Dominik G. Grimm.
-*Machine Learning with Applications, 2023.* [doi: 10.1016/j.mlwa.2023.100467](https://doi.org/10.1016/j.mlwa.2023.100467)
-**These authors have contributed equally to this work and share first authorship.*
+Josef Eiglsperger*, Florian Haselbeck* and Dominik G. Grimm. <br />
+*Machine Learning with Applications, 2023.* [doi: 10.1016/j.mlwa.2023.100467](https://doi.org/10.1016/j.mlwa.2023.100467) <br />
+**These authors have contributed equally to this work and share first authorship.* <br />
