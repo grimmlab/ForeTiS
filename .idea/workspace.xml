@@ -5,149 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
-      <change beforePath="$PROJECT_DIR$/.idea/ForeTiS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ForeTiS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.readthedocs.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.readthedocs.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docker/docker_requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/docker_requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/evaluation/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/evaluation/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/evaluation/eval_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/evaluation/eval_metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_additionalmodels/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_additionalmodels/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_additionalmodels/gpr_sklearn.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_additionalmodels/gpr_sklearn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_additionalmodels/lstmbayes_intel.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_additionalmodels/lstmbayes_intel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_additionalmodels/mlpbayes_intel.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_additionalmodels/mlpbayes_intel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_base_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_base_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_baseline_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_baseline_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_model_classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_model_classes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_model_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_model_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_sklearn_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_sklearn_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_stat_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_stat_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_template_sklearn_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_template_sklearn_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_template_stat_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_template_stat_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_template_tensorflow_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_template_tensorflow_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_template_torch_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_template_torch_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_tensorflow_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_tensorflow_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_torch_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_torch_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/ard.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/ard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/averagehistorical.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/averagehistorical.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/averagemoving.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/averagemoving.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/averageseasonal.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/averageseasonal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/averageseasonallag.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/averageseasonallag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/bayesridge.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/bayesridge.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/elasticnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/elasticnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/es.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/es.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/evars-gpr.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/evars-gpr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/gprtf.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/gprtf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/lasso.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/lasso.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/lstm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/lstmbayes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/lstmbayes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/mlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/mlp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/mlpbayes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/mlpbayes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/ridge.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/ridge.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/sarima.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/sarima.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/sarimax.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/sarimax.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/xgboost.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/xgboost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optimization/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optimization/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/DateCalenderFeatures.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/DateCalenderFeatures.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/FeatureAdder.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/FeatureAdder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/StatisticalFeatures.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/StatisticalFeatures.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/raw_data_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/raw_data_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/utils/check_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/utils/check_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/utils/helper_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/utils/helper_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/ForeTiS_Figure1_raw.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/image/ForeTiS_Figure1_raw.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/Logo_ForeTiS_Text.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/image/Logo_ForeTiS_Text.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/classoverview.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/image/classoverview.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/image/csv_example.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/image/csv_example.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/make.bat" beforeDir="false" afterPath="$PROJECT_DIR$/docs/make.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/base/base.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/base/base.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/base_detail.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/base_detail.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/base_embed.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/base_embed.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/base_list.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/base_list.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/class.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/class.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/constructor.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/constructor.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/delegate.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/delegate.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/enum.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/enum.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/event.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/event.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/field.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/field.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/interface.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/interface.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/method.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/method.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/namespace.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/namespace.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/operator.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/operator.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/property.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/property.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/struct.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/dotnet/struct.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/base_member.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/base_member.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/const.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/const.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/func.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/func.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/method.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/method.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/package.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/package.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/type.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/type.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/var.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/go/var.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/javascript/class.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/javascript/class.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/javascript/function.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/javascript/function.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/javascript/member.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/javascript/member.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/javascript/module.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/javascript/module.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/attribute.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/attribute.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/class.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/class.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/data.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/data.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/exception.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/exception.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/function.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/function.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/method.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/method.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/module.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/module.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/package.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_autoapi_templates/python/package.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/data.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/data.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/install.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/install.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/install_docker.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/install_docker.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/install_pip.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/install_pip.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/baseline.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/baseline.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/bayesreg.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/bayesreg.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/es.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/es.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/gpr.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/gpr.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/hyperparam_optim.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/hyperparam_optim.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/linreg.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/linreg.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/lstm.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/lstm.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/mlp.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/mlp.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/sarima(x).rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/sarima(x).rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/models/xgb.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/models/xgb.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/quick_api.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/quick_api.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/quick_cli.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/quick_cli.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/quickstart.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/quickstart.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/HowTo Use ForeTiS as a pip package.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/HowTo Use ForeTiS as a pip package.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_adv.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_adv.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_add_new.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_add_new.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_adjustexisting.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_adjustexisting.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_case_studies.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_case_studies.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_codewalkthrough.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_adv_codewalkthrough.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tut_run_docker.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_run_docker.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/.ipynb_checkpoints/API_checks_boilerplate_code-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/.ipynb_checkpoints/API_checks_boilerplate_code-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/.ipynb_checkpoints/concat_datasets-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/.ipynb_checkpoints/concat_datasets-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/BikeSharing.csv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/BikeSharing.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/DailyDelhiClimate.csv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/DailyDelhiClimate.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/Metro_Interstate_Traffic_Volume.csv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/Metro_Interstate_Traffic_Volume.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/Public_EnergyData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/Public_EnergyData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/nike_sales.csv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/nike_sales.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/nike_sales_long.csv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/nike_sales_long.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytables" beforeDir="false" afterPath="$PROJECT_DIR$/pytables" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -487,21 +346,7 @@
       <workItem from="1680767780151" duration="189000" />
       <workItem from="1681372043215" duration="624000" />
       <workItem from="1682582126646" duration="19000" />
-      <workItem from="1685102520338" duration="311000" />
-    </task>
-    <task id="LOCAL-00091" summary="updating docs">
-      <created>1675701767243</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1675701767243</updated>
-    </task>
-    <task id="LOCAL-00092" summary="updating docs">
-      <created>1675704477929</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1675704477929</updated>
+      <workItem from="1685102520338" duration="619000" />
     </task>
     <task id="LOCAL-00093" summary="updating docs">
       <created>1675705212970</created>
@@ -832,7 +677,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680602887720</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="updating docs">
+      <created>1685102834242</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1685102834242</updated>
+    </task>
+    <task id="LOCAL-00141" summary="updating docs">
+      <created>1685103049906</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1685103049906</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
