@@ -1,7 +1,7 @@
-sphinx-autoapi==1.8.4
+sphinx-autoapi==3.0.0
 nbsphinx
 sphinxcontrib-youtube==1.1.0
-sphinx_rtd_theme==1.2.0
+sphinx_rtd_theme
 myst-parser==0.17.0
 torch==1.11.0
 xgboost==1.5.2
