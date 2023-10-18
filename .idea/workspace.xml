@@ -388,7 +388,7 @@
       <workItem from="1693916962622" duration="16000" />
       <workItem from="1697460769594" duration="13730000" />
       <workItem from="1697520064123" duration="19839000" />
-      <workItem from="1697607112156" duration="3353000" />
+      <workItem from="1697607112156" duration="5465000" />
     </task>
     <task id="LOCAL-00100" summary="updating docs">
       <created>1676304954666</created>
@@ -733,7 +733,7 @@
       <option name="project" value="LOCAL" />
       <updated>1685104522250</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -800,11 +800,6 @@
           <url>file://$PROJECT_DIR$/ForeTiS/model/es.py</url>
           <line>55</line>
           <option name="timeStamp" value="263" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/docs/source/conf.py</url>
-          <line>17</line>
-          <option name="timeStamp" value="264" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
