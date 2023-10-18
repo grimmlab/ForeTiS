@@ -4,26 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="added LICENSE.txt">
-      <change afterPath="$PROJECT_DIR$/ForeTiS/postprocess/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ForeTiS/postprocess/model_reuse.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ForeTiS/postprocess/results_analysis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ForeTiS/postprocess/run_interference.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_adv:reuse_optimized.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/nike_sales_new.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/nike_sales_old.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ForeTiS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ForeTiS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="added user-definable date format and model reusability">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/dataset_specific_config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/dataset_specific_config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_model_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_model_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForeTiS/utils/helper_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/utils/helper_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,7 +388,7 @@
       <workItem from="1693916962622" duration="16000" />
       <workItem from="1697460769594" duration="13730000" />
       <workItem from="1697520064123" duration="19839000" />
-      <workItem from="1697607112156" duration="2450000" />
+      <workItem from="1697607112156" duration="3353000" />
     </task>
     <task id="LOCAL-00100" summary="updating docs">
       <created>1676304954666</created>
@@ -751,7 +733,7 @@
       <option name="project" value="LOCAL" />
       <updated>1685104522250</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -769,7 +751,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="debugged FeatureAdder.py" />
     <MESSAGE value="debugged periodical refitting" />
     <MESSAGE value="adjusted hyperparams for statsmodels" />
     <MESSAGE value="updated optuna version" />
@@ -794,7 +775,8 @@
     <MESSAGE value="changed config file" />
     <MESSAGE value="updating docs" />
     <MESSAGE value="added LICENSE.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="added LICENSE.txt" />
+    <MESSAGE value="added user-definable date format and model reusability" />
+    <option name="LAST_COMMIT_MESSAGE" value="added user-definable date format and model reusability" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -28,6 +28,7 @@ extensions = [
     'sphinxcontrib.youtube',
     'sphinx.ext.autosectionlabel',
     'nbsphinx',
+    'sphinx_rtd_theme',
 ]
 
 intersphinx_mapping = {
