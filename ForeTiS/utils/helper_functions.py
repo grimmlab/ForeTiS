@@ -113,5 +113,22 @@ def get_indexes(df: pd.DataFrame, datasplit: str, folds: int, seasonal_valtest, 
 
     return train_indexes, test_indexes
 
+def get_datasplit_config_info_for_resultfolder(resultfolder: str) -> tuple:
+    """
+    Get all datasplit info for a result folder
+
+    :param resultfolder: path to retrieve info
+
+    :return: datasplit info with datasplit, n_outerfolds, n_innerfolds, val_set_size_percentage, test_set_size_percentage, maf_percentage
+    """
+    datasplit = resultfolder.split('_')[-4]
+    seasonal_valtest = resultfolder.split('_')[-3]
+    test_set_size_percentage = 20
+    val_set_size_percentage = 20
+    if seasonal_valtest == False or datasplit in ['train-val-test', 'cv']:
+        test_set_size_percentage = int(resultfolder.split('_')[-2])
+        val_set_size_percentage = int(resultfolder.split('_')[-1])
+    return datasplit, seasonal_valtest, val_set_size_percentage, test_set_size_percentage
+
 
 

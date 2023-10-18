@@ -4,8 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="updating docs">
+    <list default="true" id="0747a232-0e89-400c-8bae-4ff1dffc5aac" name="Changes" comment="added LICENSE.txt">
+      <change afterPath="$PROJECT_DIR$/ForeTiS/postprocess/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForeTiS/postprocess/model_reuse.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForeTiS/postprocess/results_analysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForeTiS/postprocess/run_interference.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/tutorials/tut_adv:reuse_optimized.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/nike_sales_new.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/tutorials/tutorial_data/nike_sales_old.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ForeTiS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ForeTiS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/dataset_specific_config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/dataset_specific_config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/model/_model_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/model/_model_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optim_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForeTiS/utils/helper_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForeTiS/utils/helper_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +51,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2F2AfqHE2snkqMJZ8TgiAUfGWnu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -46,13 +66,14 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/josef/Schreibtisch/02_ForeTiSHortiCo/ForeTiS-HortiCo-General&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ge35tuv/Desktop/ForeTiS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor.code.editing&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -77,7 +98,30 @@
       <recent name="$PROJECT_DIR$/Docker" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.ForeTiS.postprocess.run_interference">
+    <configuration name="ForeTiS.postprocess.run_interference" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="ForeTiS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.9 (ForeTiS)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="ForeTiS.postprocess.run_interference" />
+      <option name="PARAMETERS" value="-rd $PROJECT_DIR$/docs/source/tutorials/tutorial_data/results/ard/2023-10-17_12-35-47_featureset-full_timeseries-cv_True_20_20 -odd $PROJECT_DIR$/docs/source/tutorials/tutorial_data -od nike_sales_old -ndd $PROJECT_DIR$/docs/source/tutorials/tutorial_data -nd nike_sales_new -sd docs/source/tutorials/tutorial_data" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="true" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="ForeTiS.run" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ForeTiS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -86,9 +130,8 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="/usr/bin/python3" />
-      <option name="SDK_NAME" value="Python 3.10" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -123,6 +166,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.ForeTiS.run" />
+      <item itemvalue="Python.ForeTiS.postprocess.run_interference" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -350,6 +397,16 @@
       <workItem from="1690263363090" duration="1662000" />
       <workItem from="1690354118504" duration="744000" />
       <workItem from="1690626441090" duration="53000" />
+      <workItem from="1692890315455" duration="520000" />
+      <workItem from="1693203885257" duration="10000" />
+      <workItem from="1693460602252" duration="4047000" />
+      <workItem from="1693476696324" duration="1918000" />
+      <workItem from="1693484092737" duration="1034000" />
+      <workItem from="1693547602492" duration="26000" />
+      <workItem from="1693916962622" duration="16000" />
+      <workItem from="1697460769594" duration="13730000" />
+      <workItem from="1697520064123" duration="19839000" />
+      <workItem from="1697607112156" duration="2450000" />
     </task>
     <task id="LOCAL-00100" summary="updating docs">
       <created>1676304954666</created>
@@ -694,7 +751,7 @@
       <option name="project" value="LOCAL" />
       <updated>1685104522250</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -712,7 +769,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="debugged heusser" />
     <MESSAGE value="debugged FeatureAdder.py" />
     <MESSAGE value="debugged periodical refitting" />
     <MESSAGE value="adjusted hyperparams for statsmodels" />
@@ -737,7 +793,8 @@
     <MESSAGE value="&#10;debugged datasplits" />
     <MESSAGE value="changed config file" />
     <MESSAGE value="updating docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating docs" />
+    <MESSAGE value="added LICENSE.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="added LICENSE.txt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -769,13 +826,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>235</line>
+          <line>237</line>
           <option name="timeStamp" value="265" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ForeTiS/optimization/optuna_optim.py</url>
-          <line>227</line>
-          <option name="timeStamp" value="266" />
+          <url>file://$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py</url>
+          <line>286</line>
+          <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ForeTiS/preprocess/base_dataset.py</url>
+          <line>288</line>
+          <option name="timeStamp" value="274" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ForeTiS/postprocess/model_reuse.py</url>
+          <line>90</line>
+          <option name="timeStamp" value="298" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ForeTiS/postprocess/model_reuse.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="299" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -788,8 +860,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HorticulturalSalesPrediction$HorticulturalSalesPrediction_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1666270498365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ForeTiS$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1677863667593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ForeTiS_general$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1674152614768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ForeTiS$ForeTiS_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1697538918974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ForeTiS$ForeTiS_postprocess_run_interference.coverage" NAME="ForeTiS.postprocess.run_interference Coverage Results" MODIFIED="1697549242245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HorticulturalSalesPrediction$HorticulturalSalesPrediction_run.coverage" NAME="ForeTiS.run Coverage Results" MODIFIED="1666270498365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

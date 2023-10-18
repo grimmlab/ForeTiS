@@ -11,7 +11,7 @@ from ForeTiS.optimization import optuna_optim
 def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set_size_percentage: int = 20,
         val_set_size_percentage: int = 20, n_splits: int = 3, imputation_method: str = None,
         windowsize_current_statistics: int = 3, windowsize_lagged_statistics: int = 3, models: list = None,
-        n_trials: int = 200, pca_transform: bool =False, save_final_model: bool = False,
+        n_trials: int = 200, pca_transform: bool = False, save_final_model: bool = False,
         periodical_refit_frequency: list = None, refit_drops: int = 0, data: str = None, config_file_path: str = None,
         config_file_section: str = None, refit_window: int = 5, intermediate_results_interval: int = None,
         batch_size: int = 32, n_epochs: int = 100000, event_lags: int = None, optimize_featureset: bool = False,
@@ -72,10 +72,24 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
     featureset_overview = {}
     model_featureset_overview = {}
     featureset_names = []
-    config = configparser.ConfigParser(allow_no_value=True)
+    config = configparser.RawConfigParser(allow_no_value=True)
     config.read_file(open(config_file_path, 'r'))
-    datasets = base_dataset.Dataset(data_dir=data_dir, data=data, config_file_section=config_file_section, config=config,
-                                    event_lags=event_lags, test_set_size_percentage=test_set_size_percentage,
+
+    config_data = configparser.RawConfigParser(allow_no_value=True)
+    config_data[data] = {}
+    config_data[data]['config_file_section'] = config_file_section
+    config_data[data]['event_lags'] = str(event_lags)
+    config_data[data]['windowsize_current_statistics'] = str(windowsize_current_statistics)
+    config_data[data]['windowsize_lagged_statistics'] = str(windowsize_lagged_statistics)
+    config_data[data]['config_file_section'] = config_file_section
+    config_data[data]['imputation_method'] = imputation_method
+    config_data[data]['valtest_seasons'] = str(valtest_seasons)
+    with open(str(save_dir) + '/config_data.ini', 'w') as configfile:
+        config_data.write(configfile)
+
+    datasets = base_dataset.Dataset(data_dir=data_dir, data=data, config_file_section=config_file_section,
+                                    config=config, event_lags=event_lags,
+                                    test_set_size_percentage=test_set_size_percentage,
                                     windowsize_current_statistics=windowsize_current_statistics,
                                     windowsize_lagged_statistics=windowsize_lagged_statistics,
                                     imputation_method=imputation_method, valtest_seasons=valtest_seasons,
@@ -92,6 +106,7 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
             else:
                 featureset_name = featureset.name
             featureset_names.append(featureset_name)
+            config_model_featureset = config_data
             optuna_run = optuna_optim.OptunaOptim(save_dir=save_dir, data=data, config_file_section=config_file_section,
                                                   featureset_name=featureset_name, datasplit=datasplit,
                                                   n_trials=n_trials, test_set_size_percentage=test_set_size_percentage,
@@ -106,8 +121,10 @@ def run(data_dir: str, save_dir: str, datasplit: str = 'timeseries-cv', test_set
                                                   scale_seasons=scale_seasons, scale_window_factor=scale_window_factor,
                                                   cf_r=cf_r, cf_order=cf_order, cf_smooth=cf_smooth,
                                                   cf_thr_perc=cf_thr_perc, scale_window_minimum=scale_window_minimum,
-                                                  max_samples_factor=max_samples_factor, valtest_seasons=valtest_seasons,
-                                                  seasonal_valtest=seasonal_valtest)
+                                                  max_samples_factor=max_samples_factor,
+                                                  valtest_seasons=valtest_seasons,
+                                                  seasonal_valtest=seasonal_valtest,
+                                                  config_model_featureset=config_model_featureset)
             print('### Starting Optuna Optimization for model ' + current_model_name + ' and featureset ' +
                   featureset_name + ' ###')
             overall_results = optuna_run.run_optuna_optimization

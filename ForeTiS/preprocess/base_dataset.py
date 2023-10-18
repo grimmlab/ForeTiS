@@ -51,7 +51,7 @@ class Dataset:
 
     def __init__(self, data_dir: pathlib.Path, data: str, config_file_section: str, test_set_size_percentage: int,
                  windowsize_current_statistics: int, windowsize_lagged_statistics: int, imputation_method: str = 'None',
-                 config: configparser.ConfigParser = None, event_lags: int = None, valtest_seasons: int = None,
+                 config: configparser.RawConfigParser = None, event_lags: int = None, valtest_seasons: int = None,
                  seasonal_valtest: bool = None):
 
         self.user_input_params = locals()  # distribute all handed over params in whole class
@@ -85,6 +85,7 @@ class Dataset:
         self.imputation = config[config_file_section].getboolean('imputation')
         self.resample_weekly = config[config_file_section].getboolean('resample_weekly')
         self.time_format = config[config_file_section]['time_format']
+        self.date_format = config[config_file_section]['date_format']
         self.features = config[config_file_section]['features'].replace(" ", "").split(',')
         self.categorical_columns = config[config_file_section]['categorical_columns'].replace(" ", "").split(',')
         if '' in self.categorical_columns:
@@ -120,6 +121,8 @@ class Dataset:
                 dataset_raw = self.impute_dataset_train_test(df=dataset_raw,
                                                              test_set_size_percentage=test_set_size_percentage,
                                                              imputation_method=imputation_method)
+            else:
+                dataset_raw.dropna(inplace=True)
 
             # set specific columns to datatype string
             self.set_dtypes(df=dataset_raw)
@@ -142,12 +145,9 @@ class Dataset:
         # load raw dataset
         dataset_raw = pd.read_csv(os.path.join(data_dir, data + '.csv'), index_col=self.time_column)
         if self.time_format == 'D':
-            try:
-                dataset_raw.index = pd.to_datetime(dataset_raw.index, format='%Y-%m-%d')
-            except:
-                dataset_raw.index = pd.to_datetime(dataset_raw.index, format='%d.%m.%Y')
+            dataset_raw.index = pd.to_datetime(dataset_raw.index, format=self.date_format)
         if self.time_format == 'H':
-            dataset_raw.index = pd.to_datetime(dataset_raw.index, format = '%Y/%m/%d %H:%M:%S')
+            dataset_raw.index = pd.to_datetime(dataset_raw.index, format='%Y/%m/%d %H:%M:%S')
 
         return dataset_raw
 
@@ -193,7 +193,7 @@ class Dataset:
         str_cols_to_impute = cols_to_impute.select_dtypes(include=['string', 'object']).columns.tolist()
 
         if self.user_input_params['seasonal_valtest']:
-            train_val = df.iloc[:-self.user_input_params['valtest_seasons']*self.seasonal_periods]
+            train_val = df.iloc[:-self.user_input_params['valtest_seasons'] * self.seasonal_periods]
         else:
             train_val, _ = train_test_split(df, test_size=test_set_size_percentage * 0.01, random_state=42,
                                             shuffle=False)
@@ -225,26 +225,29 @@ class Dataset:
         :return: Data with added features and resampling
         """
         # check if dataset is long enough for the given number of seasonal lags
-        seasonal_lags = (len(df)//self.seasonal_periods) - 6
+        seasonal_lags = (len(df) // self.seasonal_periods) - 6
         if seasonal_lags < 0:
             seasonal_lags = 0
         elif seasonal_lags > self.max_seasonal_lags:
             seasonal_lags = self.max_seasonal_lags
 
         print('--Adding calendar dataset--')
-        FeatureAdder.add_cal_features(df=df, columns_for_counter=self.columns_for_counter, event_lags=self.user_input_params['event_lags'],
+        FeatureAdder.add_cal_features(df=df, columns_for_counter=self.columns_for_counter,
+                                      event_lags=self.user_input_params['event_lags'],
                                       resample_weekly=self.resample_weekly, values_for_counter=self.values_for_counter)
         print('--Added calendar dataset--')
 
         if not self.resample_weekly:
             print('-Adding statistical dataset-')
             FeatureAdder.add_statistical_features(seasonal_periods=self.seasonal_periods,
-                                                  windowsize_current_statistics=self.user_input_params['windowsize_current_statistics'],
-                                                  windowsize_lagged_statistics=self.user_input_params['windowsize_lagged_statistics'],
+                                                  windowsize_current_statistics=self.user_input_params[
+                                                      'windowsize_current_statistics'],
+                                                  windowsize_lagged_statistics=self.user_input_params[
+                                                      'windowsize_lagged_statistics'],
                                                   seasonal_lags=seasonal_lags, df=df,
                                                   columns_for_lags=self.columns_for_lags,
                                                   columns_for_lags_rolling_mean=self.columns_for_lags_rolling_mean,
-                                                  columns_for_rolling_mean=self.columns_for_rolling_mean,)
+                                                  columns_for_rolling_mean=self.columns_for_rolling_mean, )
 
         # one hot encode the data
         print('-one-hot-encoding the data-')
@@ -271,8 +274,10 @@ class Dataset:
                                                   columns_for_lags=self.columns_for_lags,
                                                   columns_for_lags_rolling_mean=self.columns_for_lags_rolling_mean,
                                                   columns_for_rolling_mean=self.columns_for_rolling_mean,
-                                                  windowsize_current_statistics=self.user_input_params['windowsize_current_statistics'],
-                                                  windowsize_lagged_statistics=self.user_input_params['windowsize_lagged_statistics'],
+                                                  windowsize_current_statistics=self.user_input_params[
+                                                      'windowsize_current_statistics'],
+                                                  windowsize_lagged_statistics=self.user_input_params[
+                                                      'windowsize_lagged_statistics'],
                                                   seasonal_lags=seasonal_lags, df=df)
 
         # drop columns that stay constant
@@ -282,10 +287,10 @@ class Dataset:
         df.dropna(inplace=True)
 
         featureset_full = df.copy()
-        featureset_full.name = 'dataset_full'
+        featureset_full.name = 'featureset-full'
 
         filename_h5 = os.path.join(self.user_input_params['data_dir'], self.user_input_params['data'] + '.h5')
-        featureset_full.to_hdf(filename_h5, key='dataset_full')
+        featureset_full.to_hdf(filename_h5, key='featureset-full')
 
         featuresets = []
         featuresets.append(featureset_full)
@@ -293,8 +298,8 @@ class Dataset:
         if not None in self.featuresets_regex:
             for featureset_regex in self.featuresets_regex:
                 featureset = pd.concat([df[self.target_column], df.filter(regex=featureset_regex)], axis=1)
-                featureset.name = 'featureset_' + featureset_regex
-                featureset.to_hdf(filename_h5, key='featureset_' + featureset_regex)
+                featureset.name = 'featureset-' + featureset_regex
+                featureset.to_hdf(filename_h5, key='featureset-' + featureset_regex)
                 featuresets.append(featureset)
 
         return featuresets
