@@ -28,7 +28,7 @@ extensions = [
     'sphinxcontrib.youtube',
     'sphinx.ext.autosectionlabel',
     'nbsphinx',
-    'sphinx-rtd-theme',
+    'sphinx_rtd_theme',
 ]
 
 intersphinx_mapping = {
@@ -41,7 +41,7 @@ templates_path = ['_templates']
 
 # -- Options for HTML output
 
-html_theme = 'sphinx-rtd-theme'
+html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {"logo_only": True, 'navigation_depth': 5, 'titles_only': False, 'style_nav_header_background': 'silver'}
 
