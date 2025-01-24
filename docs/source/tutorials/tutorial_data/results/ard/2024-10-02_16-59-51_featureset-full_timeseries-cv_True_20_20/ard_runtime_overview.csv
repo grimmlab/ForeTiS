@@ -1,0 +1,6 @@
+Trial,refitting_cycle,process_time_s,real_time_s,params,note
+0,,0.4257549999999988,1.64109206199646,"{'standardize_X': False, 'alpha_1': 24.658329458549105, 'alpha_2': 3.907967156822881, 'lambda_1': 10, 'lambda_2': 1e-06, 'threshold_lambda': 100.0}",successful
+1,,0.4305029999999981,1.0770177841186523,"{'standardize_X': True, 'alpha_1': 1.2173252504194043, 'alpha_2': 3.584985580340472, 'lambda_1': 0.1, 'lambda_2': 1, 'threshold_lambda': 100.0}",successful
+2,,1.0327179999999991,0.8430521488189697,"{'standardize_X': True, 'alpha_1': 433.5045392775131, 'alpha_2': 233.86439256208715, 'lambda_1': 1e-05, 'lambda_2': 10, 'threshold_lambda': 100000.0}",successful
+3,,0.5638120000000022,0.6767392158508301,"{'standardize_X': False, 'alpha_1': 0.0027814285643757543, 'alpha_2': 0.14151235919053706, 'lambda_1': 1e-05, 'lambda_2': 1e-05, 'threshold_lambda': 1000.0}",successful
+4,,1.9937520000000006,2.96266508102417,"{'standardize_X': False, 'alpha_1': 0.0769371131264886, 'alpha_2': 1.1257038385269003, 'lambda_1': 1e-06, 'lambda_2': 1e-06, 'threshold_lambda': 1000.0}",successful

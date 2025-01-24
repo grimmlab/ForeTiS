@@ -1,0 +1,66 @@
+Metadata-Version: 2.2
+Name: ForeTiS
+Version: 0.0.7
+Summary: state-of-the-art and easy-to-use time series forecasting
+Home-page: https://github.com/grimmlab/ForeTiS
+Author: Josef Eiglsperger, Florian Haselbeck; Dominik G. Grimm
+Author-email: josef.eiglsperger@tum.de
+License: MIT
+Project-URL: Documentation, https://ForeTiS.readthedocs.io/
+Project-URL: Source, https://github.com/grimmlab/ForeTiS
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=1.11.0
+Requires-Dist: xgboost>=1.5.2
+Requires-Dist: optuna>=2.10.0
+Requires-Dist: sqlalchemy==1.4.46
+Requires-Dist: joblib>=1.1.0
+Requires-Dist: numpy>=1.22.2
+Requires-Dist: pandas>=1.4.1
+Requires-Dist: scikit-learn>=1.0.2
+Requires-Dist: tensorflow>=2.8.0
+Requires-Dist: tensorflow-probability>=0.18
+Requires-Dist: statsmodels>=0.13.2
+Requires-Dist: scipy>=1.8.1
+Requires-Dist: pmdarima>=2.0.1
+Requires-Dist: gpflow>=2.5.2
+Requires-Dist: matplotlib>=3.3.0
+Requires-Dist: changefinder>=0.3
+Requires-Dist: bayesian_torch
+Requires-Dist: blitz-bayesian-pytorch
+Requires-Dist: tables>=3.7.0
+
+<div align="left"><img src="https://raw.githubusercontent.com/grimmlab/ForeTiS/master/docs/image/Logo_ForeTiS_Text.png" height="80"/></div>
+
+# ForeTiS: A Forecasting Time Series framework
+
+[![Python 3.8](https://img.shields.io/badge/Python-3.8-3776AB)](https://www.python.org/downloads/release/python-388/)
+
+ForeTiS is a Python framework that enables the rigorous training, comparison and analysis of time series forecasting for a variety of different models. 
+ForeTiS includes multiple state-of-the-art prediction models or machine learning methods, respectively. 
+These range from classical models, such as regularized linear regression over ensemble learners, e.g. XGBoost, to deep learning-based architectures, such as Multilayer Perceptron (MLP). 
+To enable automatic hyperparameter optimization, we leverage state-of-the-art and efficient Bayesian optimization techniques. 
+In addition, our framework is designed to allow an easy and straightforward integration and benchmarking of further prediction models.
+
+## Documentation
+For more information, installation guides, tutorials and much more, see our documentation: https://foretis.readthedocs.io/
+
+## Contributors
+This pipeline is developed and maintained by members of the [Bioinformatics lab](https://bit.cs.tum.de) lead by [Prof. Dr. Dominik Grimm](https://bit.cs.tum.de/team/dominik-grimm/):
+- [Josef Eiglsperger, M.Sc.](https://bit.cs.tum.de/team/josef-eiglsperger/)
+- [Florian Haselbeck, M.Sc.](https://bit.cs.tum.de/team/florian-haselbeck/)
+
+## Citation
+When using ForeTiS, please cite our publication:
+
+**ForeTiS: A comprehensive time series forecasting framework in Python.** <br />
+Josef Eiglsperger*, Florian Haselbeck* and Dominik G. Grimm. <br />
+*Machine Learning with Applications, 2023.* [doi: 10.1016/j.mlwa.2023.100467](https://doi.org/10.1016/j.mlwa.2023.100467) <br />
+**These authors have contributed equally to this work and share first authorship.* <br />

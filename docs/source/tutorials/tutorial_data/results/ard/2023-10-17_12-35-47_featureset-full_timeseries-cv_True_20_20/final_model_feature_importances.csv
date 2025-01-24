@@ -1,0 +1,15 @@
+feature_period_complete,coefficients,feature_period_0,coefficients,feature_period_1,coefficients,feature_period_2,coefficients,feature_period_3,coefficients
+value_lag1,222244.2972183791,value_lag1,222244.2972183791,value_lag1,225067.5237263125,value_lag1,225073.9166592115,value_lag1,225040.1618592096
+cal_date_month_sin,15232.4490963817,cal_date_month_sin,15232.4490963817,cal_date_month_sin,15619.5812874251,cal_date_month_sin,15754.0736718203,cal_date_month_sin,15724.7821919654
+eu_prod_index,7640.0881103877,eu_prod_index,7640.0881103877,eu_prod_index,7108.1107516731,eu_prod_index,7152.6393225618,eu_prod_index,7146.1238434883
+cal_date_day_of_month_cos,6107.7743176233,cal_date_day_of_month_cos,6107.7743176233,cal_date_day_of_month_cos,6421.2269626609,cal_date_day_of_month_cos,6560.2866060459,cal_date_day_of_month_cos,6535.5529076336
+GPD_per_capita,5584.6168018449,GPD_per_capita,5584.6168018449,GPD_per_capita,4704.1411724675,GPD_per_capita,4760.7604003694,GPD_per_capita,4751.6391614680
+cal_date_month_cos,3970.6035547560,cal_date_month_cos,3970.6035547560,cal_date_month_cos,4391.5149826007,cal_date_month_cos,4390.6777134319,cal_date_month_cos,4391.6654648856
+eu_prod_index_lag1,0.0107055167,eu_prod_index_lag1,0.0107055167,eu_prod_index_lag1,0.0112961414,eu_prod_index_lag1,0.0112298252,eu_prod_index_lag1,0.0112399622
+eu_prod_index_rolling_mean3,0.0071991277,eu_prod_index_rolling_mean3,0.0071991277,eu_prod_index_rolling_mean3,0.0072452355,eu_prod_index_rolling_mean3,0.0071836949,eu_prod_index_rolling_mean3,0.0071940326
+GPD_per_capita_lag1,-0.0045565035,GPD_per_capita_lag1,-0.0045565035,GPD_per_capita_lag1,-0.0012838984,GPD_per_capita_lag1,-0.0014640333,GPD_per_capita_lag1,-0.0014278558
+GPD_per_capita_rolling_mean3,-0.0081800004,GPD_per_capita_rolling_mean3,-0.0081800004,GPD_per_capita_rolling_mean3,-0.0033081260,GPD_per_capita_rolling_mean3,-0.0034851484,GPD_per_capita_rolling_mean3,-0.0034509555
+cal_date_day_of_month_sin,-0.0832511338,cal_date_day_of_month_sin,-0.0832511338,cal_date_day_of_month_sin,-0.0937813893,cal_date_day_of_month_sin,-0.0937375820,cal_date_day_of_month_sin,-0.0934922259
+cal_date_weekday_sin,-30546.0225812645,cal_date_weekday_sin,-30546.0225812645,cal_date_weekday_sin,-31270.3743924807,cal_date_weekday_sin,-31268.9218600958,cal_date_weekday_sin,-31288.4035499611
+cal_date_weekday_cos,-33698.1834780298,cal_date_weekday_cos,-33698.1834780298,cal_date_weekday_cos,-33144.0317084892,cal_date_weekday_cos,-33033.1112870804,cal_date_weekday_cos,-33045.4337060911
+value_rolling_mean3,-52012.0276902238,value_rolling_mean3,-52012.0276902238,value_rolling_mean3,-53018.7050616314,value_rolling_mean3,-53069.0407117414,value_rolling_mean3,-53034.4225332901
